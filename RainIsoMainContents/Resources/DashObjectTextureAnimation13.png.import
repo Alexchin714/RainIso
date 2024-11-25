@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/DashObjectTextureAnimation13.png-bb20e46cb3ad0b6577a6d60c84b6962e.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://RainIsoMainContents/Resources/DashObjectTextureAnimation13.png"
+dest_files=[ "res://.import/DashObjectTextureAnimation13.png-bb20e46cb3ad0b6577a6d60c84b6962e.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

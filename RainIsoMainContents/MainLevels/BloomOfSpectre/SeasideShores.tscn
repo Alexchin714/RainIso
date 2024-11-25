@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://RainIsoMainContents/MainLevels/LevelEnviroment.tres" type="Environment" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://RainIsoMainContents/Scenes/RoomRect.tscn" type="PackedScene" id=3]
+[ext_resource path="res://RainIsoMainContents/Scenes/UniversalWorld.gd" type="Script" id=4]
+[ext_resource path="res://RainIsoMainContents/MainLevels/UniversalTilemap.tres" type="TileSet" id=5]
+[ext_resource path="res://RainIsoMainContents/Scenes/HazardTileMap.tscn" type="PackedScene" id=6]
+
+[node name="DefaultLevel" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+format = 1
+
+[node name="HazardArea" type="Area2D" parent="."]
+
+[node name="HazardTileMap" parent="HazardArea" instance=ExtResource( 6 )]
+collision_use_parent = true
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="Rooms" parent="." instance=ExtResource( 3 )]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 1 )

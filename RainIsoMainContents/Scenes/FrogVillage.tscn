@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Shader/FrogVillageTileset.tres" type="TileSet" id=1]
+
+[node name="FrogVillage" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 3, 3 )
+z_index = -11
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -458521, 1, 0, -327489, 6, 0, -130860, 2, 0, -65513, 4, 0, 65658, 7, 0, 196663, 3, 0, 327683, 0, 0, 327743, 0, 0, 327781, 5, 0, 327839, 0, 0 )

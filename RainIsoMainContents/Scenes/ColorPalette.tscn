@@ -1,0 +1,377 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/Roboto-Black.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/ColorPalette.gd" type="Script" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/DialogueFont.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://RainIsoMainContents/Scenes/ColorsControl.gd" type="Script" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/SquareIcon.png" type="Texture" id=6]
+[ext_resource path="res://RainIsoMainContents/Resources/CircleIcon.png" type="Texture" id=7]
+[ext_resource path="res://RainIsoMainContents/Scenes/ExportPopUp.tscn" type="PackedScene" id=8]
+[ext_resource path="res://RainIsoMainContents/Resources/Fonts/RainIsoFont.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://RainIsoMainContents/Resources/BlankSpace.png" type="Texture" id=10]
+[ext_resource path="res://RainIsoMainContents/Resources/EditorIcon18.png" type="Texture" id=23]
+[ext_resource path="res://RainIsoMainContents/Scenes/EditorPanel.tres" type="StyleBox" id=24]
+[ext_resource path="res://RainIsoMainContents/Resources/EditorIcon19.png" type="Texture" id=28]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color( 0, 0, 0, 0.270588 )
+shadow_size = 25
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.211765, 0.211765, 0.211765, 1 )
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.152941, 0.152941, 0.152941, 1 )
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color( 0, 0, 0, 1 )
+shadow_color = Color( 0, 0, 0, 0.188235 )
+shadow_size = 10
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+use_filter = true
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 32
+use_filter = true
+font_data = ExtResource( 9 )
+
+[sub_resource type="Theme" id=9]
+default_font = SubResource( 8 )
+PopupMenu/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/colors/font_color_accel = Color( 0.7, 0.7, 0.7, 0.8 )
+PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )
+PopupMenu/colors/font_color_hover = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/colors/font_color_separator = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/constants/hseparation = 4
+PopupMenu/constants/vseparation = 4
+PopupMenu/fonts/font = SubResource( 8 )
+PopupMenu/icons/checked = null
+PopupMenu/icons/radio_checked = null
+PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/submenu = null
+PopupMenu/icons/unchecked = null
+PopupMenu/styles/hover = null
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = ExtResource( 24 )
+PopupMenu/styles/panel_disabled = ExtResource( 24 )
+PopupMenu/styles/separator = null
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.188235, 0.188235, 0.188235, 1 )
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color( 0, 0, 0, 1 )
+shadow_color = Color( 0, 0, 0, 0.235294 )
+shadow_size = 15
+
+[sub_resource type="DynamicFont" id=11]
+size = 32
+use_filter = true
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=12]
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=13]
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=14]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[node name="EditorSpace" type="CanvasLayer"]
+pause_mode = 2
+layer = 126
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.000732422
+rect_scale = Vector2( 1, 1e-05 )
+rect_pivot_offset = Vector2( 640, 384 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="Panel" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 128.0
+margin_top = 192.0
+margin_right = -96.0
+margin_bottom = -80.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Panel" parent="Control/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 96.0
+margin_top = -128.0
+margin_right = -128.0
+margin_bottom = -448.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/ColorRect/Header"]
+margin_right = 832.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 3 )
+text = "Settings"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save" type="Button" parent="Control"]
+margin_left = 192.0
+margin_top = 256.0
+margin_right = 480.0
+margin_bottom = 324.0
+focus_mode = 0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Load" type="Button" parent="Control"]
+margin_left = 192.0
+margin_top = 352.0
+margin_right = 480.0
+margin_bottom = 420.0
+focus_mode = 0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
+text = "Load"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Export" type="Button" parent="Control"]
+margin_left = 192.0
+margin_top = 448.0
+margin_right = 480.0
+margin_bottom = 516.0
+focus_mode = 0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
+text = "Export"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiscButton" type="OptionButton" parent="Control"]
+margin_left = 704.0
+margin_top = 256.0
+margin_right = 1121.0
+margin_bottom = 352.0
+focus_mode = 0
+theme = SubResource( 9 )
+custom_icons/arrow = ExtResource( 10 )
+custom_styles/hover = ExtResource( 24 )
+custom_styles/pressed = ExtResource( 24 )
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
+text = "Art of the Spy"
+align = 1
+expand_icon = true
+items = [ "Art of the Spy", null, false, 0, null, "Cafe", null, false, 1, null, "Crossing", null, false, 2, null, "Cultist Ascent", null, false, 3, null, "Dark Reflections", null, false, 4, null, "Eld Lullaby", null, false, 5, null, "Gloom", null, false, 6, null, "Hunt of the Swanman", null, false, 7, null, "In Trance", null, false, 8, null, "Inn", null, false, 9, null, "Jakie's Shop", null, false, 10, null, "JourneyStep", null, false, 11, null, "Lure a Fish", null, false, 12, null, "Mainshow", null, false, 13, null, "N.E.O", null, false, 14, null, "Peacock", null, false, 15, null, "Plumingas", null, false, 16, null, "Psycillow", null, false, 17, null, "Shroomsville", null, false, 18, null, "Springfall Tempaura~", null, false, 19, null, "The Happiest Days", null, false, 20, null, "Toby Mushguire", null, false, 21, null, "Uproar", null, false, 22, null, "Willows the Tarots", null, false, 23, null, "Winds of the Sky", null, false, 24, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 192.0
+margin_top = 48.0
+margin_right = 304.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 12 )
+
+[node name="LineEdit" type="LineEdit" parent="Control"]
+visible = false
+margin_left = 32.0
+margin_top = 144.0
+margin_right = 128.0
+margin_bottom = 173.0
+custom_fonts/font = SubResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Princely" type="LineEdit" parent="Control"]
+visible = false
+margin_left = 192.0
+margin_top = 144.0
+margin_right = 288.0
+margin_bottom = 173.0
+custom_fonts/font = SubResource( 13 )
+
+[node name="Character" type="LineEdit" parent="Control"]
+visible = false
+margin_left = 112.0
+margin_top = 192.0
+margin_right = 170.0
+margin_bottom = 216.0
+
+[node name="CircleButton" type="Button" parent="Control"]
+visible = false
+margin_left = 1088.0
+margin_top = 160.0
+margin_right = 1152.0
+margin_bottom = 224.0
+toggle_mode = true
+icon = ExtResource( 7 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SquareButton" type="Button" parent="Control"]
+visible = false
+margin_left = 1184.0
+margin_top = 160.0
+margin_right = 1248.0
+margin_bottom = 224.0
+toggle_mode = true
+pressed = true
+icon = ExtResource( 6 )
+expand_icon = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+anims/transition = SubResource( 14 )
+
+[node name="BackButton" type="TextureButton" parent="Control"]
+margin_left = 1120.0
+margin_top = 576.0
+margin_right = 1216.0
+margin_bottom = 672.0
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 28 )
+texture_hover = ExtResource( 23 )
+texture_disabled = ExtResource( 28 )
+expand = true
+
+[node name="ExportPopUp" parent="." instance=ExtResource( 8 )]
+visible = false
+margin_left = 32.2872
+margin_right = -31.7128
+
+[node name="PopupMenu" parent="ExportPopUp" index="0"]
+visible = false
+
+[connection signal="mouse_entered" from="Control" to="Control" method="_on_Control_mouse_entered"]
+[connection signal="mouse_entered" from="Control" to="." method="_on_Control_mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="Control" method="_on_Control_mouse_exited"]
+[connection signal="mouse_exited" from="Control" to="." method="_on_Control_mouse_exited"]
+[connection signal="pressed" from="Control/Export" to="." method="_on_Export_pressed"]
+[connection signal="item_focused" from="Control/DiscButton" to="." method="_on_DiscButton_item_focused"]
+[connection signal="pressed" from="Control/BackButton" to="." method="_on_BackButton_pressed"]
+
+[editable path="ExportPopUp"]

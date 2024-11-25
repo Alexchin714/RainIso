@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/UnfairTotem.obj-a0b0d1644e48b5d71bed7ba66c9a9ec7.mesh"
+
+[deps]
+
+files=[ "res://.import/UnfairTotem.obj-a0b0d1644e48b5d71bed7ba66c9a9ec7.mesh" ]
+
+source_file="res://RainIsoMainContents/Resources/UnfairTotem.obj"
+dest_files=[ "res://.import/UnfairTotem.obj-a0b0d1644e48b5d71bed7ba66c9a9ec7.mesh", "res://.import/UnfairTotem.obj-a0b0d1644e48b5d71bed7ba66c9a9ec7.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

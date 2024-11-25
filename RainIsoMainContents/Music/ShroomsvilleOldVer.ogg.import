@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ShroomsvilleOldVer.ogg-c5c7f5d69a21f936f427b369fe8d3ce3.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/ShroomsvilleOldVer.ogg"
+dest_files=[ "res://.import/ShroomsvilleOldVer.ogg-c5c7f5d69a21f936f427b369fe8d3ce3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,191 @@
+{
+	"events": [
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "RainIsoPortrait01",
+			"text": "Hey.\nYou Ther- oh wait, It's just you, \nI was happy for a moment.\nAnyway hey bud, how ya doin'.\nSo the town is to the right, y'know that very linear path thats to the right of me?\nYeah over there, do you know your right to left?\nJust one problem tho.\nSo y'know I said that I had a friend, who is a frog.\nyeah... she's pretty close around here."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "RainIsoPortrait04",
+			"text": "um... ok.\nshould I.. be.. worried..?"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "maybe, up to ya luck."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "what do you mean maybe?"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "well you see..\nThe chances of your inevitable demise through a spear is non-negative.\nso therefore you being at the graveyard is much more likely than you'd imagine.\nof course.. thats only if she y'know\ndecided to want to kill you.\nMax I give it a 50% chance."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "...\nmaybe I should just look for another path"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "another path? dude.\nthis is the only path.\nYou seem like the type of frog to not know your ups and downs."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "... are you calling me dumb?"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "yes.\nWhat else did you think I meant?"
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "uhh.. i don't know.. \nlets get back to what we we're talking about.\nMaybe I could go back?\nLike climb back up the path I fell..?"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "you see funny frog.\nIf you could do that.\nthen everybody who has ever fallen here WOULD take that path in a heartbeat.\nI think you see where I'm going with that."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "ok.\nthen why don't I sneak myself across to avoid her?"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "you see frog.\nthat ain't gonna work."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "why not?"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "if you did try to sneak across. She would notice you.\nShe isn't incompetent y'know *unlike some other blue bird*\nAnyway, point is sneaking is only going to get you a hole through your chest."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "ok, what if I just throw hands and fight??"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "your plan amazes me, if you want to get your brain shattered and your skull in a hardy dose of not existing anymore.\nthen be my guest!"
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "ok, then what do you suggest is the best way to get to the town?"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "talking to her."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "...\ndidn't you just say that she would completely oblitarate me, if she finds me?"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "oh no, I'm exaggerating a bit.\nShe MAY kill you but she is mostly likely not if she perceives you as a wimp. \nHowever if you two get along then.\nShe's pretty energetic most of time, also quite unhinged at times. She's always weird anyway, don't mind it tho.\nbut other than that, she's quite chill.\napart from the whole murdering thing.\nbut y'know I'm also suppose to do that but I just couldn't give less of care.\nI just collect my monthly coins, eat the free food and nothing else."
+		},
+		{
+			"event_id": "dialogic_023",
+			"wait_seconds": 1
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "isn't that just laziness.."
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey it's not if you get away with it."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "wait.. why can't you just come with me?"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It wouldn't matter if I'm with you or not."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "what if you put me into a box or something like that?"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "well, she is gonna find you eventually, besides you don't look like you could fit in one."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "oh.... well ok. I'll just see what happens ok?"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Alright cool. just don't die ok?\nIt be a real shame if I had to work to get another body down the pile [wave]again[/wave]\nif you do survive. I'll be at the town."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1690807355.json",
+		"name": "TobyStand"
+	}
+}

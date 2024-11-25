@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/JumpSFX.wav-b6ba1c3d8952e8926cb641b3016a4bc9.sample"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/JumpSFX.wav"
+dest_files=[ "res://.import/JumpSFX.wav-b6ba1c3d8952e8926cb641b3016a4bc9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=true
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

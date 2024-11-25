@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Gorgee.ogg-0fd20623bd2f823f72ebe75059a656ea.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/MainMusic/BloomOfSpectre/Gorgee.ogg"
+dest_files=[ "res://.import/Gorgee.ogg-0fd20623bd2f823f72ebe75059a656ea.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

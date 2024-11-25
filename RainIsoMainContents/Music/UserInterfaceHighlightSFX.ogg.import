@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/UserInterfaceHighlightSFX.ogg-ed48d92971bab918700722826d69b793.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/UserInterfaceHighlightSFX.ogg"
+dest_files=[ "res://.import/UserInterfaceHighlightSFX.ogg-ed48d92971bab918700722826d69b793.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

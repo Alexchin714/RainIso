@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Fishy Speciale.ogg-81d66ff972a131c003c703fbda4d5740.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/Fishy Speciale.ogg"
+dest_files=[ "res://.import/Fishy Speciale.ogg-81d66ff972a131c003c703fbda4d5740.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

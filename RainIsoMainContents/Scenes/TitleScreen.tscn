@@ -1,0 +1,1206 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/rainisoOfficialTitle.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/RainIsoStartingScreen_l02.png" type="Texture" id=2]
+[ext_resource path="res://RainIsoMainContents/Scenes/TitleScreen.gd" type="Script" id=3]
+[ext_resource path="res://RainIsoMainContents/Scenes/Settings.tscn" type="PackedScene" id=4]
+[ext_resource path="res://RainIsoMainContents/CustomNodes/CustomNodeScripts/Audio.gd" type="Script" id=5]
+[ext_resource path="res://RainIsoMainContents/Music/RainIsoSettingsSFX08.wav" type="AudioStream" id=6]
+[ext_resource path="res://RainIsoMainContents/Resources/White.png" type="Texture" id=7]
+[ext_resource path="res://RainIsoMainContents/Scenes/CreateScreen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://RainIsoMainContents/Music/frgo_titleHover.ogg" type="AudioStream" id=9]
+[ext_resource path="res://RainIsoMainContents/Resources/ActualGlow.png" type="Texture" id=10]
+[ext_resource path="res://RainIsoMainContents/Resources/RainIsoStartingScreen_l01.png" type="Texture" id=11]
+[ext_resource path="res://RainIsoMainContents/Resources/frgo_startColorSplash.png" type="Texture" id=12]
+[ext_resource path="res://Intros/Assets/intro_circle.png" type="Texture" id=13]
+[ext_resource path="res://RainIsoMainContents/Resources/Fonts/RainIsoFont.ttf" type="DynamicFontData" id=14]
+
+[sub_resource type="Animation" id=1]
+resource_name = "splash"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "pulse"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.529412, 0.141176, 1, 0 ), Color( 0.913725, 0.141176, 1, 1 ), Color( 0.529412, 0.141176, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pCircle01:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.143587, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("pCircle02:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.143587, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("pCircle03:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.143587, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "pulse"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.529412, 0.141176, 1, 0 ), Color( 0.141176, 1, 0.917647, 1 ), Color( 0.141176, 0.176471, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pCircle01:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.143587, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("pCircle02:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.143587, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("pCircle03:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.143587, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("pCircle04:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.99995 ),
+"transitions": PoolRealArray( 0.143587, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "pulse"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.529412, 0.141176, 1, 0 ), Color( 1, 0, 0, 1 ), Color( 1, 0.141176, 0.847059, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pCircle01:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.143587, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("pCircle02:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.143587, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("pCircle03:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.143587, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("pCircle04:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.99995 ),
+"transitions": PoolRealArray( 0.143587, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "pulse"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.529412, 0.141176, 1, 0 ), Color( 1, 0.945098, 0.141176, 1 ), Color( 1, 0.623529, 0.141176, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pCircle01:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.143587, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("pCircle02:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.143587, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("pCircle03:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.143587, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "pulse"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.529412, 0.141176, 1, 0 ), Color( 0.141176, 1, 0.152941, 1 ), Color( 0.141176, 1, 0.941176, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pCircle01:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.143587, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=7]
+size = 48
+font_data = ExtResource( 14 )
+
+[sub_resource type="Animation" id=8]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Highlight:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=9]
+size = 32
+font_data = ExtResource( 14 )
+
+[sub_resource type="Animation" id=10]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Highlight:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=11]
+size = 28
+font_data = ExtResource( 14 )
+
+[sub_resource type="Animation" id=12]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Highlight:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=13]
+size = 24
+font_data = ExtResource( 14 )
+
+[sub_resource type="Animation" id=14]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Highlight:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Textures" type="Node2D" parent="."]
+
+[node name="bgColor" type="ColorRect" parent="Textures"]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="Textures"]
+margin_right = 1280.0
+margin_bottom = 720.0
+rect_pivot_offset = Vector2( 640, 384 )
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bgl" type="TextureRect" parent="Textures/Background"]
+show_behind_parent = true
+margin_right = 1280.0
+margin_bottom = 720.0
+rect_pivot_offset = Vector2( 640, 384 )
+mouse_filter = 2
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="colorSplash" type="TextureRect" parent="Textures/Background"]
+self_modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+margin_top = -0.705276
+margin_right = 1280.0
+margin_bottom = 719.295
+rect_pivot_offset = Vector2( 640, 384 )
+mouse_filter = 2
+texture = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Textures/Background/colorSplash"]
+playback_speed = 1.5
+anims/splash = SubResource( 1 )
+
+[node name="pulseCircles" type="Node" parent="Textures/Background"]
+
+[node name="purple" type="Node2D" parent="Textures/Background/pulseCircles"]
+modulate = Color( 0.529412, 0.141176, 1, 0 )
+
+[node name="pCircle01" type="TextureRect" parent="Textures/Background/pulseCircles/purple"]
+margin_left = 528.0
+margin_top = 288.0
+margin_right = 768.0
+margin_bottom = 528.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 129.033, 129.033 )
+mouse_filter = 2
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pCircle02" type="TextureRect" parent="Textures/Background/pulseCircles/purple"]
+margin_left = 384.0
+margin_top = 160.0
+margin_right = 544.0
+margin_bottom = 320.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 80, 80 )
+mouse_filter = 2
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pCircle03" type="TextureRect" parent="Textures/Background/pulseCircles/purple"]
+margin_left = 928.0
+margin_top = 480.0
+margin_right = 1184.0
+margin_bottom = 736.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 128.387, 128.387 )
+mouse_filter = 2
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Textures/Background/pulseCircles/purple"]
+anims/pulse = SubResource( 2 )
+
+[node name="blue" type="Node2D" parent="Textures/Background/pulseCircles"]
+modulate = Color( 0.529412, 0.141176, 1, 0 )
+
+[node name="pCircle01" type="TextureRect" parent="Textures/Background/pulseCircles/blue"]
+margin_left = 144.0
+margin_top = 176.0
+margin_right = 384.0
+margin_bottom = 416.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 129.033, 129.033 )
+mouse_filter = 2
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pCircle02" type="TextureRect" parent="Textures/Background/pulseCircles/blue"]
+margin_left = 544.0
+margin_top = -32.0
+margin_right = 704.0
+margin_bottom = 128.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 80, 80 )
+mouse_filter = 2
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pCircle03" type="TextureRect" parent="Textures/Background/pulseCircles/blue"]
+margin_left = 720.0
+margin_top = 272.0
+margin_right = 976.0
+margin_bottom = 528.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 128.387, 128.387 )
+mouse_filter = 2
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pCircle04" type="TextureRect" parent="Textures/Background/pulseCircles/blue"]
+margin_left = 496.0
+margin_top = 112.0
+margin_right = 656.0
+margin_bottom = 272.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 80, 80 )
+mouse_filter = 2
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Textures/Background/pulseCircles/blue"]
+anims/pulse = SubResource( 3 )
+
+[node name="red" type="Node2D" parent="Textures/Background/pulseCircles"]
+modulate = Color( 1, 0.141176, 0.847059, 0 )
+
+[node name="pCircle01" type="TextureRect" parent="Textures/Background/pulseCircles/red"]
+margin_left = 112.0
+margin_top = 400.0
+margin_right = 432.0
+margin_bottom = 736.0
+rect_pivot_offset = Vector2( 160, 176 )
+mouse_filter = 2
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pCircle02" type="TextureRect" parent="Textures/Background/pulseCircles/red"]
+margin_left = 448.0
+margin_top = 144.0
+margin_right = 608.0
+margin_bottom = 304.0
+rect_pivot_offset = Vector2( 80, 80 )
+mouse_filter = 2
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pCircle03" type="TextureRect" parent="Textures/Background/pulseCircles/red"]
+margin_left = 704.0
+margin_top = -80.0
+margin_right = 960.0
+margin_bottom = 176.0
+rect_pivot_offset = Vector2( 128.387, 128.387 )
+mouse_filter = 2
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pCircle04" type="TextureRect" parent="Textures/Background/pulseCircles/red"]
+margin_left = 112.0
+margin_top = 16.0
+margin_right = 336.0
+margin_bottom = 240.0
+rect_pivot_offset = Vector2( 112, 112 )
+mouse_filter = 2
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Textures/Background/pulseCircles/red"]
+anims/pulse = SubResource( 4 )
+
+[node name="yellow" type="Node2D" parent="Textures/Background/pulseCircles"]
+modulate = Color( 0.529412, 0.141176, 1, 0 )
+
+[node name="pCircle01" type="TextureRect" parent="Textures/Background/pulseCircles/yellow"]
+margin_left = 544.0
+margin_top = 528.0
+margin_right = 800.0
+margin_bottom = 784.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 129.033, 129.033 )
+mouse_filter = 2
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pCircle02" type="TextureRect" parent="Textures/Background/pulseCircles/yellow"]
+margin_left = 544.0
+margin_top = 48.0
+margin_right = 704.0
+margin_bottom = 208.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 80, 80 )
+mouse_filter = 2
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pCircle03" type="TextureRect" parent="Textures/Background/pulseCircles/yellow"]
+margin_left = 928.0
+margin_top = 64.0
+margin_right = 1232.0
+margin_bottom = 368.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 160, 176 )
+mouse_filter = 2
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Textures/Background/pulseCircles/yellow"]
+anims/pulse = SubResource( 5 )
+
+[node name="green" type="Node2D" parent="Textures/Background/pulseCircles"]
+modulate = Color( 0.529412, 0.141176, 1, 0 )
+
+[node name="pCircle01" type="TextureRect" parent="Textures/Background/pulseCircles/green"]
+margin_left = 832.0
+margin_top = 528.0
+margin_right = 992.0
+margin_bottom = 688.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 80, 80 )
+mouse_filter = 2
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Textures/Background/pulseCircles/green"]
+anims/pulse = SubResource( 6 )
+
+[node name="button" type="Node" parent="Textures/Background/pulseCircles"]
+
+[node name="pB" type="Button" parent="Textures/Background/pulseCircles/button"]
+show_behind_parent = true
+margin_left = 577.0
+margin_top = 343.0
+margin_right = 751.0
+margin_bottom = 493.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pB2" type="Button" parent="Textures/Background/pulseCircles/button"]
+show_behind_parent = true
+margin_left = 423.207
+margin_top = 198.343
+margin_right = 484.207
+margin_bottom = 278.343
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pB3" type="Button" parent="Textures/Background/pulseCircles/button"]
+show_behind_parent = true
+margin_left = 967.0
+margin_top = 513.0
+margin_right = 1151.0
+margin_bottom = 683.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gB" type="Button" parent="Textures/Background/pulseCircles/button"]
+show_behind_parent = true
+margin_left = 840.0
+margin_top = 536.0
+margin_right = 967.0
+margin_bottom = 681.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bB" type="Button" parent="Textures/Background/pulseCircles/button"]
+show_behind_parent = true
+margin_left = 766.0
+margin_top = 334.0
+margin_right = 930.0
+margin_bottom = 493.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bB2" type="Button" parent="Textures/Background/pulseCircles/button"]
+show_behind_parent = true
+margin_left = 552.585
+margin_top = -68.7521
+margin_right = 716.585
+margin_bottom = 90.2479
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bB3" type="Button" parent="Textures/Background/pulseCircles/button"]
+show_behind_parent = true
+margin_left = 196.0
+margin_top = 204.0
+margin_right = 302.0
+margin_bottom = 392.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bB4" type="Button" parent="Textures/Background/pulseCircles/button"]
+show_behind_parent = true
+margin_left = 541.758
+margin_top = 153.78
+margin_right = 624.758
+margin_bottom = 235.78
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="yB" type="Button" parent="Textures/Background/pulseCircles/button"]
+show_behind_parent = true
+margin_left = 598.0
+margin_top = 104.0
+margin_right = 681.0
+margin_bottom = 148.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="yB2" type="Button" parent="Textures/Background/pulseCircles/button"]
+show_behind_parent = true
+margin_left = 1023.0
+margin_top = 83.0
+margin_right = 1211.0
+margin_bottom = 362.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="yB3" type="Button" parent="Textures/Background/pulseCircles/button"]
+show_behind_parent = true
+margin_left = 543.0
+margin_top = 594.0
+margin_right = 805.0
+margin_bottom = 724.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rB" type="Button" parent="Textures/Background/pulseCircles/button"]
+show_behind_parent = true
+margin_left = 96.3882
+margin_top = 31.4776
+margin_right = 354.388
+margin_bottom = 159.478
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rB2" type="Button" parent="Textures/Background/pulseCircles/button"]
+show_behind_parent = true
+margin_left = 720.755
+margin_top = -5.68703
+margin_right = 978.755
+margin_bottom = 122.313
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rB3" type="Button" parent="Textures/Background/pulseCircles/button"]
+show_behind_parent = true
+margin_left = 168.0
+margin_top = 407.0
+margin_right = 295.0
+margin_bottom = 726.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rB5" type="Button" parent="Textures/Background/pulseCircles/button"]
+show_behind_parent = true
+margin_left = 168.0
+margin_top = 555.0
+margin_right = 383.0
+margin_bottom = 726.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rB4" type="Button" parent="Textures/Background/pulseCircles/button"]
+show_behind_parent = true
+margin_left = 498.0
+margin_top = 188.0
+margin_right = 540.0
+margin_bottom = 265.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="Textures"]
+margin_left = 176.0
+margin_top = 48.0
+margin_right = 1088.0
+margin_bottom = 272.0
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="glow" type="TextureRect" parent="Textures/Icon"]
+self_modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+margin_left = -160.0
+margin_top = -32.0
+margin_right = 1088.0
+margin_bottom = 336.0
+mouse_filter = 2
+texture = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="glow2" type="TextureRect" parent="Textures/Icon"]
+self_modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+margin_left = -160.0
+margin_top = -32.0
+margin_right = 1396.0
+margin_bottom = 336.0
+mouse_filter = 2
+texture = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="Node2D" parent="."]
+position = Vector2( 96, 80 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="Start" type="TextureButton" parent="Buttons"]
+self_modulate = Color( 0.239216, 0.239216, 0.239216, 1 )
+margin_left = 260.0
+margin_top = 280.0
+margin_right = 500.0
+margin_bottom = 376.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Highlight" type="TextureRect" parent="Buttons/Start"]
+self_modulate = Color( 1, 0.858824, 0.490196, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 8.0
+margin_bottom = 4.0
+rect_scale = Vector2( 1e-05, 1 )
+rect_pivot_offset = Vector2( 120, 60 )
+mouse_filter = 2
+texture = ExtResource( 7 )
+expand = true
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Start"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_right = -406.0
+margin_bottom = -47.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.419608 )
+custom_constants/shadow_as_outline = 0
+text = "Start"
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Start"]
+anims/hl = SubResource( 8 )
+
+[node name="Create" type="TextureButton" parent="Buttons"]
+margin_left = 260.0
+margin_top = 380.0
+margin_right = 500.0
+margin_bottom = 440.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Highlight" type="TextureRect" parent="Buttons/Create"]
+self_modulate = Color( 1, 0.858824, 0.490196, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_right = 8.0
+rect_scale = Vector2( 1e-05, 1 )
+rect_pivot_offset = Vector2( 120, 40 )
+mouse_filter = 2
+texture = ExtResource( 7 )
+expand = true
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Create"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -18.0
+margin_bottom = -48.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.419608 )
+custom_constants/shadow_as_outline = 0
+text = "Create"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Create"]
+anims/hl = SubResource( 10 )
+
+[node name="Settings" type="TextureButton" parent="Buttons"]
+margin_left = 260.0
+margin_top = 460.0
+margin_right = 500.0
+margin_bottom = 520.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Highlight" type="TextureRect" parent="Buttons/Settings"]
+self_modulate = Color( 1, 0.858824, 0.490196, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_right = 8.0
+rect_scale = Vector2( 1e-05, 1 )
+rect_pivot_offset = Vector2( 120, 40 )
+mouse_filter = 2
+texture = ExtResource( 7 )
+expand = true
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Settings"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -408.0
+margin_bottom = -52.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.419608 )
+custom_constants/shadow_as_outline = 0
+text = "Settings"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Settings"]
+anims/hl = SubResource( 12 )
+
+[node name="Exit" type="TextureButton" parent="Buttons"]
+margin_left = 260.0
+margin_top = 540.0
+margin_right = 500.0
+margin_bottom = 580.0
+expand = true
+
+[node name="Highlight" type="TextureRect" parent="Buttons/Exit"]
+self_modulate = Color( 1, 0.858824, 0.490196, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_right = 8.0
+rect_scale = Vector2( 1e-05, 1 )
+rect_pivot_offset = Vector2( 120, 40 )
+mouse_filter = 2
+texture = ExtResource( 7 )
+expand = true
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Exit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -467.0
+margin_bottom = -56.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.419608 )
+custom_constants/shadow_as_outline = 0
+text = "Exit"
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Exit"]
+anims/hl = SubResource( 14 )
+
+[node name="Settings" parent="." instance=ExtResource( 4 )]
+
+[node name="CreateScreen" parent="." instance=ExtResource( 8 )]
+
+[node name="Sounds" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="Sound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 9 )
+bus = "SFX"
+
+[node name="Sound02" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 6 )
+bus = "SFX"
+
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/pB" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/pB" to="." method="_on_pB_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/pB2" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/pB2" to="." method="_on_pB_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/pB3" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/pB3" to="." method="_on_pB_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/gB" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/gB" to="." method="_on_gB_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/bB" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/bB" to="." method="_on_bB_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/bB2" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/bB2" to="." method="_on_bB_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/bB3" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/bB3" to="." method="_on_bB_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/bB4" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/bB4" to="." method="_on_bB_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/yB" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/yB" to="." method="_on_yB_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/yB2" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/yB2" to="." method="_on_yB_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/yB3" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/yB3" to="." method="_on_yB_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/rB" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/rB" to="." method="_on_rB_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/rB2" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/rB2" to="." method="_on_rB_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/rB3" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/rB3" to="." method="_on_rB_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/rB5" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/rB5" to="." method="_on_rB_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/rB4" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Textures/Background/pulseCircles/button/rB4" to="." method="_on_rB_pressed"]
+[connection signal="mouse_entered" from="Buttons/Start" to="." method="_on_Start_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Start" to="." method="_on_Start_mouse_exited"]
+[connection signal="pressed" from="Buttons/Start" to="." method="_on_Start_pressed"]
+[connection signal="mouse_entered" from="Buttons/Create" to="." method="_on_Create_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Create" to="." method="_on_Create_mouse_exited"]
+[connection signal="pressed" from="Buttons/Create" to="CreateScreen" method="_on_Create_pressed"]
+[connection signal="pressed" from="Buttons/Create" to="." method="_on_Create_pressed"]
+[connection signal="mouse_entered" from="Buttons/Settings" to="." method="_on_Settings_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Settings" to="." method="_on_Settings_mouse_exited"]
+[connection signal="pressed" from="Buttons/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="mouse_entered" from="Buttons/Exit" to="." method="_on_Exit_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Exit" to="." method="_on_Exit_mouse_exited"]
+[connection signal="pressed" from="Buttons/Exit" to="." method="_on_Exit_pressed"]

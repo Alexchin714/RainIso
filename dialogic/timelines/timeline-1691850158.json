@@ -1,0 +1,57 @@
+{
+	"events": [
+		{
+			"character": "character-1691760068.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "oh, you really came over here..\nI didn't expect that anybody would come over.\nthere isn't too much here except for some cards.\nfridge usually has some nice tasty worms\nand after some lunch, I usually just chill infront on this table and play some trance music while playing my cards."
+		},
+		{
+			"character": "character-1691760068.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "wanna join me?"
+		},
+		{
+			"choice": "yeah!!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1691760068.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "oh.. you do?\nWell ok! the rules are simple!!\nThere will be 3 horizontal bars and a square at the end!!\nHit [color=#FFF200]X[/color] on when it hits the square!!\nSimple right?!\nJust reach to 250 Points and you'll win!!\nLET US BEGIN!"
+		},
+		{
+			"emit_signal": "card",
+			"event_id": "dialogic_040"
+		},
+		{
+			"choice": "nah",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1691760068.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "oh ok... you can come back anytime you want."
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691850158.json",
+		"name": "WillowTarots"
+	}
+}

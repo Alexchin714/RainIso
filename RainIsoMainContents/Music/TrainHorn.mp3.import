@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TrainHorn.mp3-3bd7bab48226d2511ba59692665d685a.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/TrainHorn.mp3"
+dest_files=[ "res://.import/TrainHorn.mp3-3bd7bab48226d2511ba59692665d685a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

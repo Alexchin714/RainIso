@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Shroomsville.ogg-92853ccd126198bcba81773dba177d6b.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/MainMusic/Nihilogue/Shroomsville.ogg"
+dest_files=[ "res://.import/Shroomsville.ogg-92853ccd126198bcba81773dba177d6b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

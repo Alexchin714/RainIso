@@ -1,0 +1,249 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/Volter__28Goldfish_29.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/FoxheardModel.tscn" type="PackedScene" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.709804, 0, 0.235294, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.65098, 0, 0.215686, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.737255, 0, 0.243137, 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.894118, 0, 0.294118, 1 )
+
+[sub_resource type="ViewportTexture" id=6]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0, 0.658824, 0.305882, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0, 0.513726, 0.239216, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0, 0.658824, 0.305882, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0, 0.898039, 0.415686, 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0, 0.423529, 0.788235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0, 0.215686, 0.407843, 1 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0, 0.32549, 0.607843, 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0, 0.301961, 0.592157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0, 0.784314, 0.843137, 1 )
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0, 0.52549, 0.564706, 1 )
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0, 0.686275, 0.737255, 1 )
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0, 0.52549, 0.564706, 1 )
+
+[node name="Notebook" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FoxHeard" type="Button" parent="."]
+margin_left = 128.0
+margin_top = 64.0
+margin_right = 356.0
+margin_bottom = 128.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+text = "FoxHeard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="FoxHeard"]
+show_behind_parent = true
+margin_top = 64.0
+margin_right = 1024.0
+margin_bottom = 576.0
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Profile" type="TextureRect" parent="FoxHeard/Panel"]
+margin_left = -192.0
+margin_right = 416.0
+margin_bottom = 320.0
+mouse_filter = 2
+texture = SubResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="FoxHeard/Panel"]
+margin_left = 256.0
+margin_top = 32.0
+margin_right = 1007.0
+margin_bottom = 480.0
+custom_fonts/font = SubResource( 7 )
+text = "Furry #1 go's to the left hall, you can
+use the halter on the left hall to slow
+him down, if he is looking at you outside
+your hall, don't turn off the lamp yet
+until he's about to attack
+
+when he's about to attack, turn off the
+lamp. 
+
+The Lamp will last for 4 seconds before"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Happy" type="Button" parent="."]
+show_behind_parent = true
+margin_left = 352.0
+margin_top = 64.0
+margin_right = 580.0
+margin_bottom = 128.0
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 4 )
+text = "Happy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Happy"]
+visible = false
+show_behind_parent = true
+margin_left = -224.0
+margin_top = 64.0
+margin_right = 800.0
+margin_bottom = 576.0
+custom_styles/panel = SubResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Profile2" type="TextureRect" parent="Happy/Panel"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 256.0
+margin_bottom = 320.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pengoo" type="Button" parent="."]
+show_behind_parent = true
+margin_left = 576.0
+margin_top = 64.0
+margin_right = 804.0
+margin_bottom = 128.0
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
+custom_fonts/font = SubResource( 4 )
+text = "Pengoo"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Pengoo"]
+visible = false
+show_behind_parent = true
+margin_left = -448.0
+margin_top = 64.0
+margin_right = 576.0
+margin_bottom = 576.0
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Profile3" type="TextureRect" parent="Pengoo/Panel"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 256.0
+margin_bottom = 320.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Seally" type="Button" parent="."]
+show_behind_parent = true
+margin_left = 800.0
+margin_top = 64.0
+margin_right = 1028.0
+margin_bottom = 128.0
+custom_styles/hover = SubResource( 16 )
+custom_styles/pressed = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+custom_fonts/font = SubResource( 4 )
+text = "Seally"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Seally"]
+visible = false
+show_behind_parent = true
+margin_left = -672.0
+margin_top = 64.0
+margin_right = 352.0
+margin_bottom = 576.0
+custom_styles/panel = SubResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Profile4" type="TextureRect" parent="Seally/Panel"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 256.0
+margin_bottom = 320.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 640, 360 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="FoxHeard" type="Spatial" parent="Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62871, 0 )
+
+[node name="FoxHeardReModel" parent="Viewport/FoxHeard" instance=ExtResource( 2 )]
+transform = Transform( 0.887976, 0, 0.45989, 0, 1, 0, -0.45989, 0, 0.887976, -0.266714, -2.64143, -1.12763 )
+
+[node name="Camera" type="Camera" parent="Viewport"]
+transform = Transform( 0.943614, -0.0560512, 0.326269, 0.0203717, 0.993526, 0.111765, -0.330421, -0.0988161, 0.938647, 1.67636, 5.22441, 5.50886 )

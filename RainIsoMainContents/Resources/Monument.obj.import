@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Monument.obj-0345b4d1cd0ca8ae49298a280687e6e2.mesh"
+
+[deps]
+
+files=[ "res://.import/Monument.obj-0345b4d1cd0ca8ae49298a280687e6e2.mesh" ]
+
+source_file="res://RainIsoMainContents/Resources/Monument.obj"
+dest_files=[ "res://.import/Monument.obj-0345b4d1cd0ca8ae49298a280687e6e2.mesh", "res://.import/Monument.obj-0345b4d1cd0ca8ae49298a280687e6e2.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

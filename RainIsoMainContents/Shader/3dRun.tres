@@ -1,0 +1,199 @@
+[gd_resource type="Animation" format=2]
+
+[resource]
+resource_name = "Run"
+length = 0.5
+loop = true
+step = 0.07
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cube002:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 2.23223, 0 ), Vector3( 0, 2.43223, 0 ), Vector3( 0, 2.23223, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cube007:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 63.754, -179.114, -135.206 ), Vector3( -81.752, -179.114, -135.206 ), Vector3( 63.754, -179.114, -135.206 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cube007:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.73611, 2.68357, 0.0140267 ), Vector3( 0.73611, 2.68357, -0.485973 ), Vector3( 0.73611, 2.68357, 0.0140267 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cube008:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.2573, 2.27541, 0.721157 ), Vector3( 1.2573, 1.97541, -0.0788433 ), Vector3( 1.2573, 2.09207, -0.828843 ), Vector3( 1.2573, 2.48874, -1.13884 ), Vector3( 1.2573, 2.08541, -0.848843 ), Vector3( 1.2573, 1.88207, 0.00782333 ), Vector3( 1.1573, 2.27874, 0.71449 ), Vector3( 1.2573, 2.27541, 0.721157 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cube004:translation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.355224, 0.973823, 0.1 ), Vector3( -0.355224, 1.17382, -0.4 ), Vector3( -0.355224, 0.973823, 0.1 ), Vector3( -0.355224, 1.17382, 0.3 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Cube004:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.52759, -1.04459, -13.8033 ), Vector3( 46.5178, -1.51757, -14.8767 ), Vector3( 1.52759, -1.04459, -13.8033 ), Vector3( -43.4631, -1.43875, -12.7856 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Cube006:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.290465, 0.957204, 1.19209e-07 ), Vector3( 0.390465, 1.2572, 0.4 ), Vector3( 0.290465, 0.957204, 1.19209e-07 ), Vector3( 0.390465, 1.1572, -0.0999999 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Cube006:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.74639, -0.613846, -1.20158 ), Vector3( -31.7444, -0.721499, -0.840671 ), Vector3( -1.74639, -0.613846, -1.20158 ), Vector3( 43.2504, -0.842394, -1.79751 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Cube003:translation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.21, 0.42 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.750619, 2.68357, -0.28053 ), Vector3( -0.750619, 2.68357, 0.31947 ), Vector3( -0.750619, 2.68357, -0.28053 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Cube003:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.21, 0.42 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 55.1535, -24.8269, 21.8372 ), Vector3( -59.2538, -27.9873, 67.1754 ), Vector3( 55.1535, -24.8269, 21.8372 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Cube005:translation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.29582, 2.43825, -0.987901 ), Vector3( -1.09582, 2.03825, -0.487901 ), Vector3( -1.19582, 2.08825, 0.0620986 ), Vector3( -1.29582, 2.13825, 0.812099 ), Vector3( -1.19582, 1.83825, 0.212099 ), Vector3( -1.14582, 2.13825, -0.587901 ), Vector3( -1.29582, 2.43825, -0.987901 ), Vector3( -1.29582, 2.43825, -0.887901 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Cube005:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.21, 0.49 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath(".:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.14, 0.28, 0.42 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.1, -1.2, 0 ), Vector3( -0.1, -1, 0 ), Vector3( -0.1, -1.2, 0 ), Vector3( -0.1, -1, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Cube002:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -5, 0, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Cube:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 3.99632, -0.2 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Cube001:translation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.0458579, 3.7228, -0.2 ) ]
+}

@@ -1,0 +1,55 @@
+{
+	"events": [
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What?\nHaven't you ever seen a mushroom on a  [color=#FFF200]toadstool[/color]\nI'm going to vermillion's for some lunch."
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "you wanna come?"
+		},
+		{
+			"choice": "sure",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"emit_signal": "vermillion",
+			"event_id": "dialogic_040"
+		},
+		{
+			"choice": "nah",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "oh ok then."
+		},
+		{
+			"emit_signal": "end",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691140027.json",
+		"name": "TobyBare"
+	}
+}

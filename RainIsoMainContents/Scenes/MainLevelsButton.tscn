@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Scenes/MainLevelsButton.gd" type="Script" id=1]
+
+[node name="MainLevels" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+margin_left = 3.0
+margin_top = 63.0
+margin_right = 170.0
+margin_bottom = 83.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "              Start >>>"
+fit_content_height = true
+[connection signal="toggled" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_Button_toggled"]

@@ -1,0 +1,283 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/CanoliShopBackground.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/CanoliShopTable.png" type="Texture" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/CanoliShopCanoli.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/rainiso_UsedCreditCard.png" type="Texture" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/rainiso_AccessCard.png" type="Texture" id=5]
+[ext_resource path="res://RainIsoMainContents/Resources/rainiso_CenturyOfDespair.png" type="Texture" id=6]
+[ext_resource path="res://RainIsoMainContents/Resources/rainiso_SecretKey.png" type="Texture" id=7]
+[ext_resource path="res://RainIsoMainContents/Resources/Funkturm.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://RainIsoMainContents/Resources/PaneraSingleIcon.png" type="Texture" id=9]
+[ext_resource path="res://RainIsoMainContents/Scenes/CanoliShop.gd" type="Script" id=10]
+[ext_resource path="res://RainIsoMainContents/Resources/rainiso_CanoliShopButton02.png" type="Texture" id=11]
+[ext_resource path="res://RainIsoMainContents/Resources/rainiso_CanoliShopButton03.png" type="Texture" id=12]
+[ext_resource path="res://RainIsoMainContents/Resources/rainiso_CanoliShopButton01.png" type="Texture" id=13]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.92549, 0.92549, 0.92549, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 8 )
+
+[node name="CanoliShop" type="Node2D"]
+script = ExtResource( 10 )
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="Panel" type="Panel" parent="UI"]
+margin_right = 512.0
+margin_bottom = 736.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot01" type="TextureButton" parent="UI"]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 224.0
+margin_bottom = 224.0
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="UI/Slot01"]
+margin_left = -16.0
+margin_top = 24.0
+margin_right = 176.0
+margin_bottom = 136.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tag" type="ColorRect" parent="UI/Slot01"]
+margin_left = 104.0
+margin_top = 128.0
+margin_right = 216.0
+margin_bottom = 168.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="UI/Slot01/Tag"]
+margin_left = -14.4951
+margin_top = -11.8779
+margin_right = 47.5049
+margin_bottom = 48.1221
+texture = ExtResource( 9 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Slot01/Tag"]
+margin_left = 37.0
+margin_right = 112.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+text = "15"
+align = 1
+valign = 1
+
+[node name="Slot02" type="TextureButton" parent="UI"]
+margin_left = 286.989
+margin_top = 64.0
+margin_right = 446.989
+margin_bottom = 224.0
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="UI/Slot02"]
+margin_left = -14.9894
+margin_top = 24.0
+margin_right = 177.011
+margin_bottom = 144.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tag" type="ColorRect" parent="UI/Slot02"]
+margin_left = 105.0
+margin_top = 128.0
+margin_right = 217.0
+margin_bottom = 168.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="UI/Slot02/Tag"]
+margin_left = -14.4951
+margin_top = -11.8779
+margin_right = 47.5049
+margin_bottom = 48.1221
+texture = ExtResource( 9 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Slot02/Tag"]
+margin_left = 48.011
+margin_right = 112.011
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+text = "250"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot03" type="TextureButton" parent="UI"]
+margin_left = 64.0
+margin_top = 256.0
+margin_right = 224.0
+margin_bottom = 416.0
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 11 )
+expand = true
+
+[node name="Icon" type="TextureRect" parent="UI/Slot03"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 136.0
+margin_bottom = 144.0
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tag" type="ColorRect" parent="UI/Slot03"]
+margin_left = 96.0
+margin_top = 128.0
+margin_right = 208.0
+margin_bottom = 168.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="UI/Slot03/Tag"]
+margin_left = -14.4951
+margin_top = -11.8779
+margin_right = 47.5049
+margin_bottom = 48.1221
+texture = ExtResource( 9 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Slot03/Tag"]
+margin_left = 48.0
+margin_top = 1.52588e-05
+margin_right = 112.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+text = "25"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot04" type="TextureButton" parent="UI"]
+margin_left = 288.0
+margin_top = 256.0
+margin_right = 448.0
+margin_bottom = 416.0
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="UI/Slot04"]
+margin_left = -16.0
+margin_top = 24.0
+margin_right = 184.0
+margin_bottom = 136.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tag" type="ColorRect" parent="UI/Slot04"]
+margin_left = 104.0
+margin_top = 136.0
+margin_right = 216.0
+margin_bottom = 176.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="UI/Slot04/Tag"]
+margin_left = -14.4951
+margin_top = -11.8779
+margin_right = 47.5049
+margin_bottom = 48.1221
+texture = ExtResource( 9 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Slot04/Tag"]
+margin_left = 48.0
+margin_top = 1.52588e-05
+margin_right = 112.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+text = "50"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Assets" type="Node2D" parent="."]
+
+[node name="Wall" type="Sprite" parent="Assets"]
+position = Vector2( 640, 360 )
+z_index = -1
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Canoli" type="Sprite" parent="Assets"]
+position = Vector2( 944, 288 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Table" type="Sprite" parent="Assets"]
+position = Vector2( 640, 424 )
+texture = ExtResource( 2 )
+
+[connection signal="pressed" from="UI/Slot01" to="." method="_on_Slot01_pressed"]
+[connection signal="pressed" from="UI/Slot02" to="." method="_on_Slot02_pressed"]
+[connection signal="pressed" from="UI/Slot03" to="." method="_on_Slot03_pressed"]
+[connection signal="pressed" from="UI/Slot04" to="." method="_on_Slot04_pressed"]

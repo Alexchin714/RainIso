@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Sermon Tales.ogg-6a58a56bd77bf514731b468c590e7c5f.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/Sermon Tales.ogg"
+dest_files=[ "res://.import/Sermon Tales.ogg-6a58a56bd77bf514731b468c590e7c5f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

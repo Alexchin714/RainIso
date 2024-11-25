@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/RollSFX.mp3-da870c7af0d56f3dfef9fc3c528e79ab.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/RollSFX.mp3"
+dest_files=[ "res://.import/RollSFX.mp3-da870c7af0d56f3dfef9fc3c528e79ab.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,224 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/Funkturm.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/SkylightTitle.png" type="Texture" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/NihilogueTitle.png" type="Texture" id=5]
+[ext_resource path="res://RainIsoMainContents/Scenes/TheActsList.gd" type="Script" id=6]
+[ext_resource path="res://RainIsoMainContents/Resources/Titles/BloomOfSpectreTitle.png" type="Texture" id=7]
+[ext_resource path="res://RainIsoMainContents/Resources/PostRoyaleTitle.png" type="Texture" id=8]
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+uniform float lod: hint_range(0.0, 5) = 0.0;
+
+void fragment(){
+	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV, lod);
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
+shader_param/lod = 1.0
+
+[sub_resource type="DynamicFont" id=5]
+size = 64
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=6]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Container:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
+[node name="TheActsList" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Blur" type="ColorRect" parent="Container"]
+material = SubResource( 4 )
+margin_right = 1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg" type="ColorRect" parent="Container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="Act1" type="TextureButton" parent="Buttons"]
+margin_left = 1184.0
+margin_top = 32.0
+margin_right = 1280.0
+margin_bottom = 128.0
+focus_neighbour_left = NodePath("../Back")
+focus_neighbour_top = NodePath("../Back")
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Act1"]
+show_behind_parent = true
+margin_left = -816.0
+margin_top = -16.0
+margin_right = -272.0
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 5 )
+text = "Select an Act"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActSign" type="TextureRect" parent="Buttons/Act1"]
+show_behind_parent = true
+margin_left = 352.0
+margin_right = 1424.0
+margin_bottom = 256.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Act2" type="TextureButton" parent="Buttons"]
+modulate = Color( 0.564706, 0.564706, 0.564706, 1 )
+margin_left = 2432.0
+margin_top = 352.0
+margin_right = 2528.0
+margin_bottom = 448.0
+disabled = true
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Act2"]
+margin_left = -864.0
+margin_top = -32.0
+margin_right = -711.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 5 )
+text = "Act 2"
+valign = 1
+
+[node name="ActSign" type="TextureRect" parent="Buttons/Act2"]
+margin_left = -624.0
+margin_top = -16.0
+margin_right = -16.0
+margin_bottom = 128.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Act3" type="TextureButton" parent="Buttons"]
+modulate = Color( 0.564706, 0.564706, 0.564706, 1 )
+margin_left = 2432.0
+margin_top = 512.0
+margin_right = 2528.0
+margin_bottom = 608.0
+disabled = true
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Act3"]
+margin_left = -864.0
+margin_top = -32.0
+margin_right = -710.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 5 )
+text = "Act 3"
+valign = 1
+
+[node name="ActSign" type="TextureRect" parent="Buttons/Act3"]
+margin_left = -624.0
+margin_top = -16.0
+margin_right = -16.0
+margin_bottom = 128.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Act4" type="TextureButton" parent="Buttons"]
+modulate = Color( 0.564706, 0.564706, 0.564706, 1 )
+margin_left = 2432.0
+margin_top = 672.0
+margin_right = 2528.0
+margin_bottom = 768.0
+disabled = true
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Act4"]
+margin_left = -864.0
+margin_top = -32.0
+margin_right = -708.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 5 )
+text = "Act 4"
+valign = 1
+
+[node name="ActSign" type="TextureRect" parent="Buttons/Act4"]
+margin_left = -624.0
+margin_top = -16.0
+margin_right = -16.0
+margin_bottom = 128.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/open = SubResource( 6 )

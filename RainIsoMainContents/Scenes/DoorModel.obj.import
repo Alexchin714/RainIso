@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/DoorModel.obj-8bfef9afe87288766bbe96e6d6733988.mesh"
+
+[deps]
+
+files=[ "res://.import/DoorModel.obj-8bfef9afe87288766bbe96e6d6733988.mesh" ]
+
+source_file="res://RainIsoMainContents/Scenes/DoorModel.obj"
+dest_files=[ "res://.import/DoorModel.obj-8bfef9afe87288766bbe96e6d6733988.mesh", "res://.import/DoorModel.obj-8bfef9afe87288766bbe96e6d6733988.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

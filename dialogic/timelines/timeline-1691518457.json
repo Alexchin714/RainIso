@@ -1,0 +1,45 @@
+{
+	"events": [
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You know the cheddar cheese pics thats been trending recently, right?"
+		},
+		{
+			"character": "character-1690728152.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yeah I do.\nThere pretty funny. \nAnyways I have question."
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yeah? What's the question?"
+		},
+		{
+			"character": "character-1690728152.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What is this frogs deal?"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Who the new guy?"
+		},
+		{
+			"character": "character-1690728152.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yeah, what is his deal?\n It's almost like he wants "
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691518457.json",
+		"name": "TobyClaireConvo"
+	}
+}

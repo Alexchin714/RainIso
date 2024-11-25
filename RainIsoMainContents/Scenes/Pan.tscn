@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/Pan.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://RainIsoMainContents/Music/PanSFX.mp3" type="AudioStream" id=2]
+[ext_resource path="res://RainIsoMainContents/Scenes/Pan.gd" type="Script" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0, 0, 0, 1 )
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.0470588, 0.0470588, 0.0470588, 1 )
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="CylinderShape" id=3]
+radius = 1.80552
+height = 1.2422
+
+[node name="Pan" type="RigidBody"]
+script = ExtResource( 3 )
+
+[node name="Pan" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = SubResource( 4 )
+material/1 = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.126108, 0.662655, 0 )
+shape = SubResource( 3 )
+
+[node name="Area" type="Area" parent="."]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.126108, 0.662655, 0 )
+shape = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "SFX"
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

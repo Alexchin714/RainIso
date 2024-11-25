@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1691035437.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I'm just hiding here because It's fun :)"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691036654.json",
+		"name": "FurizAlexSecondary"
+	}
+}

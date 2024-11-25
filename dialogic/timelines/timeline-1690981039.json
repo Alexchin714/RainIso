@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It's locked.\nIt's very loud.\nthere seems to be some [wave]wrestling[/wave] going on from the otherside."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1690981039.json",
+		"name": "HotelWrestling"
+	}
+}

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TheMelodyForestAmbient.mp3-39c44cc1407d5d95905ec8fc01524c0a.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/TheMelodyForestAmbient.mp3"
+dest_files=[ "res://.import/TheMelodyForestAmbient.mp3-39c44cc1407d5d95905ec8fc01524c0a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ThrillerAmbient.mp3-a570a658a21f2393eae6062f2c65343a.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/ThrillerAmbient.mp3"
+dest_files=[ "res://.import/ThrillerAmbient.mp3-a570a658a21f2393eae6062f2c65343a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,155 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Scenes/TrainSceneTexture.gd" type="Script" id=1]
+[ext_resource path="res://RainIsoMainContents/3dPlatformer/Textures/BrickTextureDisplacement.jpg" type="Texture" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/TrainSceneTexture.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/TheBuckleysTrain.png" type="Texture" id=4]
+[ext_resource path="res://RainIsoMainContents/Scenes/TrainCamera.gd" type="Script" id=5]
+[ext_resource path="res://RainIsoMainContents/Scenes/InputBar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://RainIsoMainContents/Music/DingSFX.mp3" type="AudioStream" id=7]
+[ext_resource path="res://RainIsoMainContents/Music/ErrorSFX.mp3" type="AudioStream" id=8]
+[ext_resource path="res://RainIsoMainContents/Music/TrainTrackSFX.mp3" type="AudioStream" id=9]
+[ext_resource path="res://RainIsoMainContents/Music/TrainHorn.mp3" type="AudioStream" id=10]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 1.04
+glow_bloom = 0.03
+glow_blend_mode = 0
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+uniform float scrollSpeed;
+
+void fragment() {
+	vec2 shiftduv = UV;
+	shiftduv.x += TIME * scrollSpeed;
+	vec4 col = texture(TEXTURE, shiftduv);
+	COLOR = col;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/scrollSpeed = 0.4
+
+[sub_resource type="Animation" id=4]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Train:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 5 ),
+"transitions": PoolRealArray( 0.241484, 7.46426, 1 ),
+"update": 0,
+"values": [ Vector2( -50.9128, 544.2 ), Vector2( -150, 544.2 ), Vector2( 2560, 544.2 ) ]
+}
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 2 )
+shader_param/scrollSpeed = 1.0
+
+[sub_resource type="Animation" id=6]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("InputBar:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 0.225313, 0.225313 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -5 ), Vector2( 0, 0 ) ]
+}
+
+[node name="TrainScene" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="TrainSceneTexture" type="TextureRect" parent="."]
+material = SubResource( 3 )
+margin_right = 2554.0
+margin_bottom = 723.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Train" type="Sprite" parent="."]
+position = Vector2( -50.9128, 544.2 )
+scale = Vector2( 16, 16 )
+z_index = -1
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/trainend = SubResource( 4 )
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TrainSceneBackground" type="TextureRect" parent="Background"]
+self_modulate = Color( 0.109804, 0.109804, 0.109804, 1 )
+show_behind_parent = true
+material = SubResource( 5 )
+margin_left = -33.8696
+margin_right = 2526.13
+margin_bottom = 723.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scrollSpeed = 0.2
+
+[node name="InputBar" parent="." instance=ExtResource( 6 )]
+
+[node name="SkillCheck" parent="InputBar" index="3"]
+margin_right = 768.0
+margin_bottom = 480.0
+
+[node name="Yes" type="AudioStreamPlayer" parent="InputBar"]
+stream = ExtResource( 7 )
+pitch_scale = 2.96
+bus = "SFX"
+
+[node name="No" type="AudioStreamPlayer" parent="InputBar"]
+stream = ExtResource( 8 )
+volume_db = -7.313
+pitch_scale = 0.62
+bus = "SFX"
+
+[node name="TrainHorn" type="AudioStreamPlayer" parent="InputBar"]
+stream = ExtResource( 10 )
+volume_db = -3.25
+pitch_scale = 0.82
+bus = "SFX"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 647.451, 350.349 )
+current = true
+script = ExtResource( 5 )
+
+[node name="IdlePlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 6 )
+
+[node name="TrainTrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -11.375
+pitch_scale = 1.33
+autoplay = true
+bus = "Music"
+
+[editable path="InputBar"]

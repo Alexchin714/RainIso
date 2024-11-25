@@ -1,0 +1,43 @@
+{
+	"events": [
+		{
+			"character": "character-1691760068.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "wanna rematch?"
+		},
+		{
+			"choice": "yes!!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"emit_signal": "rematch",
+			"event_id": "dialogic_040"
+		},
+		{
+			"choice": "nah",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691904521.json",
+		"name": "WillowRematch"
+	}
+}

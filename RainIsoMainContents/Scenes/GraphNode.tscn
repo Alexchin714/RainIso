@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/TheFont.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="GraphNode" type="Node2D"]
+position = Vector2( 480, 160 )
+
+[node name="GraphNode" type="GraphNode" parent="."]
+margin_right = 256.0
+margin_bottom = 416.0
+rect_pivot_offset = Vector2( 96, 160 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = 32.0
+margin_top = 128.0
+margin_right = 224.0
+margin_bottom = 192.0
+custom_fonts/font = SubResource( 1 )
+text = "Col"
+align = 1
+items = [ "Col", null, false, 0, null, "Pos", null, false, 1, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 224.0
+margin_bottom = 112.0
+custom_fonts/font = SubResource( 2 )
+text = "Graph"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

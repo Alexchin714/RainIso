@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Art of the Spy.ogg-2819667572809342e86ab8fff2f0c41c.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/MainMusic/Nihilogue/Art of the Spy.ogg"
+dest_files=[ "res://.import/Art of the Spy.ogg-2819667572809342e86ab8fff2f0c41c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

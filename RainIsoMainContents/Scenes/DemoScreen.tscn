@@ -1,0 +1,256 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/Black.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/NeoNeonPFP.png" type="Texture" id=2]
+[ext_resource path="res://RainIsoMainContents/Scenes/DemoScreen.gd" type="Script" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/DemoText.png" type="Texture" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/ActualGlow.png" type="Texture" id=5]
+[ext_resource path="res://RainIsoMainContents/Resources/Moderne Sans Font.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://RainIsoMainContents/Music/FurizAlex_s Jingle (Demo RainIso ver.).ogg" type="AudioStream" id=7]
+[ext_resource path="res://RainIsoMainContents/Music/SystemSFX.mp3" type="AudioStream" id=8]
+[ext_resource path="res://RainIsoMainContents/Scenes/Settings.tscn" type="PackedScene" id=9]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="Animation" id=2]
+resource_name = "start"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7 ),
+"transitions": PoolRealArray( 0.2, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 0.337255, 0.337255, 1 ), Color( 0.964706, 0.337255, 1, 1 ), Color( 0.337255, 0.721569, 1, 1 ), Color( 0.337255, 1, 0.627451, 1 ), Color( 0.870588, 1, 0.337255, 1 ), Color( 1, 0.615686, 0.337255, 1 ), Color( 1, 0.337255, 0.337255, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("NeoNeonPFP:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("NeoNeonPFP:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Label:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 192, 128 ), Vector2( 192, 64 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("WorldEnvironment:environment:glow_bloom")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2, 7.9, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.08, 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Glow:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.909804 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath(".:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 7.5, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("-/LabelAccept:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 7.9, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+} ]
+}
+
+[sub_resource type="Environment" id=3]
+background_mode = 4
+glow_enabled = true
+glow_blend_mode = 0
+glow_bicubic_upscale = true
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+use_filter = true
+font_data = ExtResource( 6 )
+
+[node name="DemoScreen" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="BG" type="Control" parent="."]
+margin_right = 1280.0
+margin_bottom = 736.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NeoNeonPFP" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 672, 480 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 2 )
+
+[node name="Glow" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 1 )
+margin_top = 269.0
+margin_right = 1280.0
+margin_bottom = 333.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Glow2" type="TextureRect" parent="Glow"]
+material = SubResource( 1 )
+margin_top = -96.0
+margin_right = 1280.0
+margin_bottom = 160.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 192.0
+margin_top = 128.0
+margin_right = 1120.0
+margin_bottom = 448.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 448, 288 )
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+pause_mode = 2
+wait_time = 3.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "start"
+playback_speed = 2.0
+anims/start = SubResource( 2 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+bus = "SFX"
+
+[node name="System" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = 1.891
+bus = "SFX"
+
+[node name="-" type="Node" parent="."]
+
+[node name="LabelAccept" type="Label" parent="-"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 480.0
+margin_top = 352.0
+margin_right = 832.0
+margin_bottom = 416.0
+custom_fonts/font = SubResource( 4 )
+text = "Press X to Continue"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsMenu" parent="." instance=ExtResource( 9 )]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

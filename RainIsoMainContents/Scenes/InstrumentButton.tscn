@@ -1,0 +1,131 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/TheFont.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/InstrumentButton.gd" type="Script" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/Instruments/InstrumentIcon03.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/Instruments/InstrumentIcon02.png" type="Texture" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/Instruments/InstrumentIcon01.png" type="Texture" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.137255, 0.137255, 0.156863, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=4]
+PopupMenu/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/colors/font_color_accel = Color( 0.7, 0.7, 0.7, 0.8 )
+PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )
+PopupMenu/colors/font_color_hover = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/colors/font_color_separator = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/constants/hseparation = 4
+PopupMenu/constants/vseparation = 4
+PopupMenu/fonts/font = SubResource( 3 )
+PopupMenu/icons/checked = null
+PopupMenu/icons/radio_checked = null
+PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/submenu = null
+PopupMenu/icons/unchecked = null
+PopupMenu/styles/hover = null
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = null
+PopupMenu/styles/panel_disabled = null
+PopupMenu/styles/separator = null
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 216, 216 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 216, 216 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 216, 216 )
+
+[node name="InstrumentButton" type="Panel"]
+margin_left = 88.0
+margin_top = 8.0
+margin_right = 400.0
+margin_bottom = 96.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Outline" type="Panel" parent="."]
+show_behind_parent = true
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 320.0
+margin_bottom = 96.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Backdrop" type="Panel" parent="."]
+show_behind_parent = true
+margin_left = -88.0
+margin_bottom = 88.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InstrumentOptionButton" type="OptionButton" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 304.0
+margin_bottom = 80.0
+theme = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+text = "Librano"
+align = 1
+items = [ "Librano", null, false, 0, null, "AcouStrings", null, false, 1, null, "Hoola Hoops", null, false, 2, null, "Journey", null, false, 3, null, "AtmoSound", null, false, 4, null, "PhaseWind", null, false, 5, null, "Instrumental Rig", null, false, 6, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FXButton" type="Button" parent="."]
+margin_left = -88.0
+margin_top = 4.0
+margin_right = -8.0
+margin_bottom = 80.0
+focus_mode = 0
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+enabled_focus_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,1139 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Intros/Assets/NeoNeonPfpRaster.png" type="Texture" id=1]
+[ext_resource path="res://Intros/Font/intro_font.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Intros/Assets/intro_circle.png" type="Texture" id=3]
+[ext_resource path="res://Intros/Scripts/Intro.gd" type="Script" id=4]
+[ext_resource path="res://Intros/Assets/intro_furizplushy.png" type="Texture" id=5]
+[ext_resource path="res://Intros/Assets/intro_giantTitle.png" type="Texture" id=6]
+[ext_resource path="res://Intros/Assets/intro_videoScreen.png" type="Texture" id=7]
+[ext_resource path="res://Intros/Assets/sign_furizalex.png" type="Texture" id=8]
+[ext_resource path="res://Intros/Music/The Eld' Owl.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Intros/Assets/White.png" type="Texture" id=10]
+[ext_resource path="res://Intros/Assets/ps_gradient.png" type="Texture" id=11]
+[ext_resource path="res://Intros/Assets/godot_madewithGodot.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+uniform vec2 r_displacement = vec2(3.0, 0.0);
+uniform vec2 g_displacement = vec2(0.0, 0.0);
+uniform vec2 b_displacement = vec2(-3.0, 0.0);
+
+void fragment()
+{
+	float r = texture(SCREEN_TEXTURE, SCREEN_UV + vec2(SCREEN_PIXEL_SIZE*r_displacement), 0.0).r;
+	float g = texture(SCREEN_TEXTURE, SCREEN_UV + vec2(SCREEN_PIXEL_SIZE*g_displacement), 0.0).g;
+	float b = texture(SCREEN_TEXTURE, SCREEN_UV + vec2(SCREEN_PIXEL_SIZE*b_displacement), 0.0).b;
+	
+	COLOR = vec4(r, g, b, 1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/r_displacement = Vector2( 1.5, 0 )
+shader_param/g_displacement = Vector2( 0, 0 )
+shader_param/b_displacement = Vector2( -1.5, 0 )
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+
+uniform bool colored = false; //colored noise?
+uniform float color_amount :hint_range(0, 1.3) = 0.6;
+uniform float grain_amount :hint_range(0, 0.07) = 0.025; //grain amount
+uniform float grain_size :hint_range(1, 3) = 1.6; //grain particle size (1.5 - 2.5)
+uniform float lum_amount :hint_range(0, 2) = 1.3;
+
+varying float time;
+
+void vertex(){
+	time = TIME;
+}
+
+//a random texture generator, but you can also use a pre-computed perturbation texture
+vec4 rnm(vec2 tc) {
+	float noise =  sin(dot(tc + vec2(time,time),vec2(12.9898,78.233))) * 43758.5453;
+	float noiseR =  fract(noise)*2.0-1.0;
+	float noiseG =  fract(noise*1.2154)*2.0-1.0; 
+	float noiseB =  fract(noise*1.3453)*2.0-1.0;
+	float noiseA =  fract(noise*1.3647)*2.0-1.0;
+	return vec4(noiseR,noiseG,noiseB,noiseA);
+}
+
+float fade(float t) {
+	return t*t*t*(t*(t*6.0-15.0)+10.0);
+}
+
+float pnoise3D(vec3 p){
+	vec3 pi = 0.00390625*floor(p);
+	pi = vec3(pi.x+0.001953125, pi.y+0.001953125, pi.z+0.001953125);
+	vec3 pf = fract(p);     // Fractional part for interpolation
+	
+	// Noise contributions from (x=0, y=0), z=0 and z=1
+	float perm00 = rnm(pi.xy).a ;
+	vec3 grad000 = rnm(vec2(perm00, pi.z)).rgb * 4.0;
+	grad000 = vec3(grad000.x - 1.0, grad000.y - 1.0, grad000.z - 1.0);
+	float n000 = dot(grad000, pf);
+	vec3 grad001 = rnm(vec2(perm00, pi.z + 0.00390625)).rgb * 4.0;
+	grad001 = vec3(grad001.x - 1.0, grad001.y - 1.0, grad001.z - 1.0);
+	float n001 = dot(grad001, pf - vec3(0.0, 0.0, 1.0));
+	
+	// Noise contributions from (x=0, y=1), z=0 and z=1
+	float perm01 = rnm(pi.xy + vec2(0.0, 0.00390625)).a ;
+	vec3 grad010 = rnm(vec2(perm01, pi.z)).rgb * 4.0;
+	grad010 = vec3(grad010.x - 1.0, grad010.y - 1.0, grad010.z - 1.0);
+	float n010 = dot(grad010, pf - vec3(0.0, 1.0, 0.0));
+	vec3 grad011 = rnm(vec2(perm01, pi.z + 0.00390625)).rgb * 4.0;
+	grad011 = vec3(grad011.x - 1.0, grad011.y - 1.0, grad011.z - 1.0);
+	float n011 = dot(grad011, pf - vec3(0.0, 1.0, 1.0));
+	
+	// Noise contributions from (x=1, y=0), z=0 and z=1
+	float perm10 = rnm(pi.xy + vec2(0.00390625, 0.0)).a ;
+	vec3  grad100 = rnm(vec2(perm10, pi.z)).rgb * 4.0;
+	grad100 = vec3(grad100.x - 1.0, grad100.y - 1.0, grad100.z - 1.0);
+	float n100 = dot(grad100, pf - vec3(1.0, 0.0, 0.0));
+	vec3  grad101 = rnm(vec2(perm10, pi.z + 0.00390625)).rgb * 4.0;
+	grad101 = vec3(grad101.x - 1.0, grad101.y - 1.0, grad101.z - 1.0);
+	float n101 = dot(grad101, pf - vec3(1.0, 0.0, 1.0));
+	
+	// Noise contributions from (x=1, y=1), z=0 and z=1
+	float perm11 = rnm(pi.xy + vec2(0.00390625, 0.00390625)).a ;
+	vec3  grad110 = rnm(vec2(perm11, pi.z)).rgb * 4.0;
+	grad110 = vec3(grad110.x - 1.0, grad110.y - 1.0, grad110.z - 1.0);
+	float n110 = dot(grad110, pf - vec3(1.0, 1.0, 0.0));
+	vec3  grad111 = rnm(vec2(perm11, pi.z + 0.00390625)).rgb * 4.0;
+	grad111 = vec3(grad111.x - 1.0, grad111.y - 1.0, grad111.z - 1.0);
+	float n111 = dot(grad111, pf - vec3(1.0, 1.0, 1.0));
+	
+	// Blend contributions along x
+	vec4 n_x = mix(vec4(n000, n001, n010, n011), vec4(n100, n101, n110, n111), fade(pf.x));
+	
+	// Blend contributions along y
+	vec2 n_xy = mix(n_x.xy, n_x.zw, fade(pf.y));
+	
+	// Blend contributions along z
+	float n_xyz = mix(n_xy.x, n_xy.y, fade(pf.z));
+	
+	// We're done, return the final noise value.
+	return n_xyz;
+}
+
+//2d coordinate orientation thing
+vec2 coordRot(vec2 tc, float angle, vec2 screen_size){
+	float aspect = screen_size.x/screen_size.y;
+	float rotX = ((tc.x*2.0-1.0)*aspect*cos(angle)) - ((tc.y*2.0-1.0)*sin(angle));
+	float rotY = ((tc.y*2.0-1.0)*cos(angle)) + ((tc.x*2.0-1.0)*aspect*sin(angle));
+	rotX = ((rotX/aspect)*0.5+0.5);
+	rotY = rotY*0.5+0.5;
+	return vec2(rotX,rotY);
+}
+
+void fragment (){
+	vec2 screen_size = (1.0 / SCREEN_PIXEL_SIZE).xy;
+	vec3 rotOffset = vec3(1.425,3.892,5.835); //rotation offset values	
+	vec2 rotCoordsR = coordRot(UV, time + rotOffset.x, screen_size);
+	vec3 noise = vec3(pnoise3D(vec3(rotCoordsR*vec2(screen_size.x/grain_size,screen_size.y/grain_size),0.0)));
+	
+	if (colored){
+	    vec2 rotCoordsG = coordRot(UV, time + rotOffset.y, screen_size);
+	    vec2 rotCoordsB = coordRot(UV, time + rotOffset.z, screen_size);
+	    noise.g = mix(noise.r,pnoise3D(vec3(rotCoordsG*vec2(screen_size.x/grain_size,screen_size.y/grain_size),1.0)),color_amount);
+	    noise.b = mix(noise.r,pnoise3D(vec3(rotCoordsB*vec2(screen_size.x/grain_size,screen_size.y/grain_size),2.0)),color_amount);
+	}
+	
+	vec3 col = texture(TEXTURE, UV).rgb;
+	vec3 lumcoeff = vec3(0.299,0.587,0.114);
+	float luminance = mix(0.0,dot(col, lumcoeff),lum_amount);
+	float lum = smoothstep(0.2,0.0,luminance);
+	lum += luminance;
+	
+	noise = mix(noise,vec3(0.0),pow(lum,4.0));
+	col = col+noise*grain_amount;
+	
+	vec4 SRC_COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
+	
+	COLOR = vec4(col,1.0) * SRC_COLOR;
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/colored = true
+shader_param/color_amount = 1.3
+shader_param/grain_amount = 0.043
+shader_param/grain_size = 3.0
+shader_param/lum_amount = 1.173
+
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+uniform float blur_amount :hint_range(0.0, 8.0) = 3.0;
+uniform float signal_quality :hint_range(0.0, 0.5) = 0; 
+uniform float bottom_strenth :hint_range(0.0, 6.0) = 3.0;
+uniform sampler2D grain_tex; 
+
+float grain (vec2 st, float iTime) {
+    return fract(sin(dot(st.xy, vec2(17.0,180.)))* 2500. + iTime);
+}
+
+vec3 rgb2yiq(vec3 c){   
+	return vec3(
+		(0.2989 * c.x + 0.5959 * c.y + 0.2115 * c.z),
+		(0.5870 * c.x - 0.2744 * c.y - 0.5229 * c.z),
+		(0.1140 * c.x - 0.3216 * c.y + 0.3114 * c.z)
+		);
+}
+vec3 yiq2rgb(vec3 c){
+	return vec3(
+		(1.0 * c.x + 1.0 * c.y + 1.0 * c.z),
+		(0.956 * c.x - 0.2720 * c.y - 1.1060 * c.z),
+		(0.6210 * c.x - 0.6474 * c.y + 1.7046 * c.z)
+		);
+}
+        
+vec2 Circle(float Start, float Points, float Point){
+	float Rad = (3.141592 * 2.0 * (1.0 / Points)) * (Point + Start);
+	return vec2(-(.3+Rad), cos(Rad));
+}
+
+vec3 Blur(vec2 uv, float f, float d, float iTime, sampler2D iChannel0){
+	float t = (sin(iTime * 5.0 + uv.y * 5.0)) / 10.0;
+	float b = 1.0;
+	
+	t = 0.0;
+	vec2 PixelOffset = vec2(d + .0005 * t, 0);
+	
+	float Start = 2.0 / 14.0;
+	vec2 Scale = 0.66 * blur_amount * 2.0 * PixelOffset.xy;
+	
+	vec3 N0 = texture(iChannel0, uv + Circle(Start, 14.0, 0.0) * Scale).rgb;
+	vec3 N1 = texture(iChannel0, uv + Circle(Start, 14.0, 1.0) * Scale).rgb;
+	vec3 N2 = texture(iChannel0, uv + Circle(Start, 14.0, 2.0) * Scale).rgb;
+	vec3 N3 = texture(iChannel0, uv + Circle(Start, 14.0, 3.0) * Scale).rgb;
+	vec3 N4 = texture(iChannel0, uv + Circle(Start, 14.0, 4.0) * Scale).rgb;
+	vec3 N5 = texture(iChannel0, uv + Circle(Start, 14.0, 5.0) * Scale).rgb;
+	vec3 N6 = texture(iChannel0, uv + Circle(Start, 14.0, 6.0) * Scale).rgb;
+	vec3 N7 = texture(iChannel0, uv + Circle(Start, 14.0, 7.0) * Scale).rgb;
+	vec3 N8 = texture(iChannel0, uv + Circle(Start, 14.0, 8.0) * Scale).rgb;
+	vec3 N9 = texture(iChannel0, uv + Circle(Start, 14.0, 9.0) * Scale).rgb;
+	vec3 N10 = texture(iChannel0, uv + Circle(Start, 14.0, 10.0) * Scale).rgb;
+	vec3 N11 = texture(iChannel0, uv + Circle(Start, 14.0, 11.0) * Scale).rgb;
+	vec3 N12 = texture(iChannel0, uv + Circle(Start, 14.0, 12.0) * Scale).rgb;
+	vec3 N13 = texture(iChannel0, uv + Circle(Start, 14.0, 13.0) * Scale).rgb;
+	vec3 N14 = texture(iChannel0, uv).rgb;
+	
+	vec4 clr = texture(iChannel0, uv);
+	float W = 1.0 / 15.0;
+	
+	clr.rgb= 
+		(N0 * W) +
+		(N1 * W) +
+		(N2 * W) +
+		(N3 * W) +
+		(N4 * W) +
+		(N5 * W) +
+		(N6 * W) +
+		(N7 * W) +
+		(N8 * W) +
+		(N9 * W) +
+		(N10 * W) +
+		(N11 * W) +
+		(N12 * W) +
+		(N13 * W) +
+		(N14 * W);
+	
+	return  vec3(clr.xyz)*b;
+}
+        
+void fragment(){
+	float d = 0.1 * 1.0 / 50.0;
+	vec2 uv = FRAGCOORD.xy / (1.0 / SCREEN_PIXEL_SIZE).xy;
+	
+	float s = signal_quality * grain(vec2(uv.x, uv.y * 777777777777777.0), TIME); // Sorry... 
+	// Main tearing
+	float e = min(0.30, pow(max(0.0, cos(uv.y * 4.0 + 0.3) - 0.75) * (s + 0.5) * 1.0, 3.0)) * 25.0;
+	s -= pow(texture(SCREEN_TEXTURE, vec2(0.01 + (uv.y * 32.0) / 32.0, 1.0)).r, 1.0);
+	uv.x += e * abs(s * 3.0);
+	// Bootom tearing
+	float r = texture(grain_tex, vec2(mod(TIME * 10.0, mod(TIME * 10.0, 256.0) * (1.0 / 256.0)), 0.0)).r * (2.0 * s);
+	uv.x += abs(r * pow(min(0.003, (uv.y - 0.15)) * bottom_strenth, 2.0));
+	
+	// Apply blur
+	d = 0.051 + abs(sin(s / 4.0));
+	float c = max(0.0001, 0.002 * d);
+	
+	COLOR.xyz = Blur(uv, 0.0, c + c * (uv.x), TIME, SCREEN_TEXTURE);
+	float y = rgb2yiq(COLOR.xyz).r;
+	
+	uv.x += 0.01 * d;
+	c *= 6.0;
+	COLOR.xyz = Blur(uv, 0.333 ,c, TIME, SCREEN_TEXTURE);
+	float i = rgb2yiq(COLOR.xyz).g;
+	
+	uv.x += 0.005 * d;
+	
+	c *= 2.50;
+	COLOR.xyz = Blur(uv, 0.666, c, TIME, SCREEN_TEXTURE);
+	float q = rgb2yiq(COLOR.xyz).b;
+	
+	COLOR.xyz = yiq2rgb(vec3(y, i, q)) - pow(s + e * 2.0, 3.0);
+	COLOR.xyz *= smoothstep(1.0, 0.999, uv.x - .1);
+}"
+
+[sub_resource type="OpenSimplexNoise" id=7]
+
+[sub_resource type="NoiseTexture" id=8]
+noise = SubResource( 7 )
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = SubResource( 6 )
+shader_param/blur_amount = 2.345
+shader_param/signal_quality = 0.077
+shader_param/bottom_strenth = 6.0
+shader_param/grain_tex = SubResource( 8 )
+
+[sub_resource type="Shader" id=10]
+code = "shader_type canvas_item;
+uniform vec2 player_position;
+uniform vec4 color : hint_color = vec4(0.305, 0.298, 0.341,1);
+
+uniform float MULTIPLIER = 0.56;
+uniform float SCALE = 0.5;
+uniform float SOFTNESS = 0.45;
+
+void fragment(){
+	float val = distance(vec2(UV.x , UV.y * MULTIPLIER), vec2(player_position.x , player_position.y * MULTIPLIER));
+	val = val / SCALE;
+	float vignette = smoothstep(0.2, SOFTNESS, val);
+	COLOR = vec4(color.rgb , vignette );
+}"
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = SubResource( 10 )
+shader_param/player_position = Vector2( 0.5, 0.5 )
+shader_param/color = Color( 0.101961, 0.0980392, 0.113725, 1 )
+shader_param/MULTIPLIER = 1.033
+shader_param/SCALE = 0.5
+shader_param/SOFTNESS = 0.45
+
+[sub_resource type="Gradient" id=12]
+colors = PoolColorArray( 0.191406, 0.191406, 0.191406, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=13]
+gradient = SubResource( 12 )
+
+[sub_resource type="Animation" id=14]
+length = 21.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Asset/Circle:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 0.2, 0.2, 0.2, 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 544, 256 ), Vector2( 393, 462 ), Vector2( 92, 322 ), Vector2( 279, 182 ), Vector2( 544, 256 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Asset/Circle:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ), Vector2( 10, 10 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Asset/Icon:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 1.5, 3.1, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Asset/Icon:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 0.353554, 1 ),
+"update": 0,
+"values": [ Vector2( 64, 352 ), Vector2( 64, 352 ), Vector2( 80, 224 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Asset/Icon:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.5, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Asset:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 3.5, 3.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Asset/Background:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Asset/Icon:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Asset02:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 3.5, 3.8, 10, 11 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Asset02/Gradient:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 3.8, 4.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Asset/Text:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.6, 1.3, 1.5, 1.6, 1.7, 1.8, 1.9, 3.1, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Asset/Text:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.9, 1.7 ),
+"transitions": PoolRealArray( 1, 0.3, 1 ),
+"update": 0,
+"values": [ Vector2( 448, 352 ), Vector2( 448, 352 ), Vector2( 480, 320 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Asset/Text/Text01:rect_position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 1, 1.8 ),
+"transitions": PoolRealArray( 1, 0.3, 1 ),
+"update": 0,
+"values": [ Vector2( -64, -3.05176e-05 ), Vector2( -64, -3.05176e-05 ), Vector2( -32, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Asset/Text/Text02:rect_position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 1.1, 1.9 ),
+"transitions": PoolRealArray( 1, 0.3, 1 ),
+"update": 0,
+"values": [ Vector2( -16, -3.05176e-05 ), Vector2( -16, -3.05176e-05 ), Vector2( 64, -6.10351e-06 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Asset/Text/Text03:rect_position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 1.2, 2 ),
+"transitions": PoolRealArray( 1, 0.3, 1 ),
+"update": 0,
+"values": [ Vector2( 32, -3.05176e-05 ), Vector2( 32, -3.05176e-05 ), Vector2( 160, -1.01725e-05 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Asset/Text/Text04:rect_position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 1.3, 2.1 ),
+"transitions": PoolRealArray( 1, 0.3, 1 ),
+"update": 0,
+"values": [ Vector2( 80, -3.05176e-05 ), Vector2( 80, -3.05176e-05 ), Vector2( 240, -1.3079e-05 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Asset/Text/Text05:rect_position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 1.4, 2.2 ),
+"transitions": PoolRealArray( 1, 0.3, 1 ),
+"update": 0,
+"values": [ Vector2( 128, -3.05176e-05 ), Vector2( 128, -3.05176e-05 ), Vector2( 288, -1.52588e-05 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Asset/Text/Text06:rect_position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 1.5, 2.3 ),
+"transitions": PoolRealArray( 1, 0.3, 1 ),
+"update": 0,
+"values": [ Vector2( 192, -4.57764e-05 ), Vector2( 192, -4.57764e-05 ), Vector2( 368, -1.52588e-05 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Asset/Text/Text07:rect_position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 1.6, 2.4 ),
+"transitions": PoolRealArray( 1, 0.3, 1 ),
+"update": 0,
+"values": [ Vector2( 256, -3.05176e-05 ), Vector2( 256, -3.05176e-05 ), Vector2( 480, -1.52588e-05 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Asset/Text/Text08:rect_position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 1.7, 2.5 ),
+"transitions": PoolRealArray( 1, 0.3, 1 ),
+"update": 0,
+"values": [ Vector2( 320, -3.05176e-05 ), Vector2( 320, -3.05176e-05 ), Vector2( 528, -1.52588e-05 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Asset/Text/Text09:rect_position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0, 1.8, 2.6 ),
+"transitions": PoolRealArray( 1, 0.3, 1 ),
+"update": 0,
+"values": [ Vector2( 384, -3.05176e-05 ), Vector2( 384, -3.05176e-05 ), Vector2( 608, -1.52588e-05 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Asset/Text/Text01:self_modulate")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 1, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("Asset/Text/Text02:self_modulate")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0, 1.1, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("Asset/Text/Text03:self_modulate")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0, 1.2, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("Asset/Text/Text04:self_modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0, 1.3, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("Asset/Text/Text05:self_modulate")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0, 1.4, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("Asset/Text/Text06:self_modulate")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0, 1.5, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("Asset/Text/Text07:self_modulate")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0, 1.6, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("Asset/Text/Text08:self_modulate")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0, 1.7, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("Asset/Text/Text09:self_modulate")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0, 1.8, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("Asset02/Screen:modulate")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0, 3.7, 3.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath("Asset02/Icon:modulate")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray( 0, 3.9, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/32/type = "value"
+tracks/32/path = NodePath("Asset02/Icon:texture")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+tracks/33/type = "audio"
+tracks/33/path = NodePath("../Music/The Eld\' Owl")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/34/type = "value"
+tracks/34/path = NodePath("Asset03:modulate")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0, 11, 13, 15, 16 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("Asset03:visible")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0, 10.9, 11, 15.9, 16 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, true, false ]
+}
+tracks/36/type = "value"
+tracks/36/path = NodePath("Asset03/laGradiente:visible")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray( 0, 10.9, 11 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true ]
+}
+tracks/37/type = "value"
+tracks/37/path = NodePath("Asset03/laGradiente:position")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/keys = {
+"times": PoolRealArray( 0, 11, 13 ),
+"transitions": PoolRealArray( 1, 3.73213, 1 ),
+"update": 0,
+"values": [ Vector2( 480, 224 ), Vector2( 480, 224 ), Vector2( 1120, 736 ) ]
+}
+tracks/38/type = "value"
+tracks/38/path = NodePath("Asset04:modulate")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/keys = {
+"times": PoolRealArray( 0, 16, 17, 20, 21 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/39/type = "value"
+tracks/39/path = NodePath("Asset04/godot_madewithGodot:visible")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/keys = {
+"times": PoolRealArray( 0, 16, 16.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true ]
+}
+tracks/40/type = "value"
+tracks/40/path = NodePath("Asset03/sign_furizalex:scale")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/keys = {
+"times": PoolRealArray( 0, 11, 12.4, 17 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.6, 0.6 ), Vector2( 0.6, 0.6 ), Vector2( 0.6, 0.6 ), Vector2( 0.7, 0.7 ) ]
+}
+
+[node name="Intro" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="Main" type="Node2D" parent="."]
+
+[node name="Asset" type="Node2D" parent="Main"]
+
+[node name="Background" type="ColorRect" parent="Main/Asset"]
+margin_left = -1.0
+margin_top = -4.0
+margin_right = 1279.0
+margin_bottom = 732.0
+color = Color( 0.545098, 0.996078, 0.541176, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Circle" type="TextureRect" parent="Main/Asset"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 544.0
+margin_top = 256.0
+margin_right = 736.0
+margin_bottom = 448.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 96, 96 )
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="Main/Asset"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 64.0
+margin_top = 352.0
+margin_right = 390.0
+margin_bottom = 678.0
+rect_pivot_offset = Vector2( 256, 128 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Text" type="Node2D" parent="Main/Asset"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 448, 352 )
+
+[node name="Text01" type="Label" parent="Main/Asset/Text"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = -64.0
+margin_top = -3.05176e-05
+margin_right = 19.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 1 )
+text = "F"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text02" type="Label" parent="Main/Asset/Text"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = -16.0
+margin_top = -3.05176e-05
+margin_right = 67.0004
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 1 )
+text = "u"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text03" type="Label" parent="Main/Asset/Text"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 32.0
+margin_top = -3.05176e-05
+margin_right = 112.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 1 )
+text = "r"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text04" type="Label" parent="Main/Asset/Text"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 80.0
+margin_top = -3.05176e-05
+margin_right = 170.999
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 1 )
+text = "i"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text05" type="Label" parent="Main/Asset/Text"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 128.0
+margin_top = -3.05176e-05
+margin_right = 232.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 1 )
+text = "z"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text06" type="Label" parent="Main/Asset/Text"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 192.0
+margin_top = -4.57764e-05
+margin_right = 303.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 1 )
+text = "A"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text07" type="Label" parent="Main/Asset/Text"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 256.0
+margin_top = -3.05176e-05
+margin_right = 362.001
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 1 )
+text = "l"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text08" type="Label" parent="Main/Asset/Text"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 320.0
+margin_top = -3.05176e-05
+margin_right = 427.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 1 )
+text = "e"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text09" type="Label" parent="Main/Asset/Text"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 384.0
+margin_top = -3.05176e-05
+margin_right = 498.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 1 )
+text = "x"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Asset02" type="Node2D" parent="Main"]
+modulate = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Background" type="ColorRect" parent="Main/Asset02"]
+margin_right = 1280.0
+margin_bottom = 736.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="Main/Asset02"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 480.0
+margin_top = 224.0
+margin_right = 804.0
+margin_bottom = 535.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Filter01" type="ColorRect" parent="Main/Asset02"]
+material = SubResource( 3 )
+margin_right = 1280.0
+margin_bottom = 736.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Filter03" type="ColorRect" parent="Main/Asset02"]
+material = SubResource( 5 )
+margin_right = 1280.0
+margin_bottom = 736.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Filter04" type="ColorRect" parent="Main/Asset02"]
+material = SubResource( 9 )
+margin_right = 1280.0
+margin_bottom = 736.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Filter02" type="ColorRect" parent="Main/Asset02"]
+material = SubResource( 11 )
+margin_right = 1280.0
+margin_bottom = 736.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Screen" type="TextureRect" parent="Main/Asset02"]
+modulate = Color( 0, 0, 0, 0 )
+margin_right = 1280.0
+margin_bottom = 736.0
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Gradient" type="Sprite" parent="Main/Asset02"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 640, 640 )
+scale = Vector2( 0.28125, 128 )
+texture = SubResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Title" type="TextureRect" parent="Main/Asset02"]
+visible = false
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 352.0
+margin_top = 512.0
+margin_right = 928.0
+margin_bottom = 640.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Asset03" type="Node2D" parent="Main"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="sign_furizalex" type="Sprite" parent="Main/Asset03"]
+position = Vector2( 640, 384 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 8 )
+
+[node name="laGradiente" type="Node2D" parent="Main/Asset03"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 480, 224 )
+rotation = -0.469494
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ps_gradient" type="Sprite" parent="Main/Asset03/laGradiente"]
+position = Vector2( 16, -96 )
+scale = Vector2( 3.0625, 0.375 )
+texture = ExtResource( 11 )
+
+[node name="White" type="Sprite" parent="Main/Asset03/laGradiente"]
+position = Vector2( 15.9999, 384 )
+scale = Vector2( 98, 48 )
+texture = ExtResource( 10 )
+
+[node name="Asset04" type="Node2D" parent="Main"]
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="godot_madewithGodot" type="Sprite" parent="Main/Asset04"]
+visible = false
+position = Vector2( 640, 384 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main"]
+autoplay = "opening"
+anims/opening = SubResource( 14 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 13.0
+one_shot = true
+autostart = true
+
+[node name="Music" type="Node" parent="."]
+
+[node name="The Eld\' Owl" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 9 )
+bus = "Music"
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

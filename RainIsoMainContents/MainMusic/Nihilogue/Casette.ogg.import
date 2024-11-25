@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Casette.ogg-9cf8078d59f78a92ff5e30e0eb2b1c85.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/MainMusic/Nihilogue/Casette.ogg"
+dest_files=[ "res://.import/Casette.ogg-9cf8078d59f78a92ff5e30e0eb2b1c85.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

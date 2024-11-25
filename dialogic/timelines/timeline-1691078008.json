@@ -1,0 +1,28 @@
+{
+	"events": [
+		{
+			"character": "character-1690728152.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey.\nmm...\nyou know the drill, and so do I."
+		},
+		{
+			"audio_bus": "Master",
+			"background-music": "stop",
+			"event_id": "dialogic_031",
+			"event_name": "BackgroundMusic",
+			"fade_length": 1,
+			"file": "",
+			"volume": 0
+		},
+		{
+			"emit_signal": "claireboss",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691078008.json",
+		"name": "ClaireFog"
+	}
+}

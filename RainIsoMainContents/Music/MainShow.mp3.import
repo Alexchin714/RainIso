@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MainShow.mp3-e9abefd5b3f162d125ff2b2351df8625.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/MainShow.mp3"
+dest_files=[ "res://.import/MainShow.mp3-e9abefd5b3f162d125ff2b2351df8625.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

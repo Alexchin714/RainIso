@@ -1,0 +1,179 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Shader/TitleTransition.tres" type="Animation" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/StartUpScreen.gd" type="Script" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/Black.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/TheFont.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/NeoNeonPFP.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Loop"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "StartUp"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../NeoNeonPFP:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.45098 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../ThePlug:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("..:opened")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3.9, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Texture:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.8, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 64
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="StartUpScreen" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 320.0
+margin_bottom = -336.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.305882 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+text = "Press any button to continue"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Loop = SubResource( 2 )
+
+[node name="BGUI" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="BGUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 2.0
+margin_bottom = 3.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Texture" type="TextureRect" parent="BGUI"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BGUI"]
+autoplay = "StartUp"
+anims/StartUp = SubResource( 3 )
+
+[node name="ThePlug" type="Label" parent="."]
+margin_left = 640.0
+margin_top = 448.0
+margin_right = 961.0
+margin_bottom = 516.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "By FurizAlex"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NeoNeonPFP" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.45098 )
+position = Vector2( 512, 320 )
+scale = Vector2( 1.23357, 1.11111 )
+z_index = -1
+texture = ExtResource( 7 )
+
+[node name="StartUpTimer" type="Timer" parent="."]
+wait_time = 3.5
+one_shot = true
+
+[node name="TransitionalAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/transition = ExtResource( 1 )
+
+[connection signal="timeout" from="StartUpTimer" to="." method="_on_StartUpTimer_timeout"]

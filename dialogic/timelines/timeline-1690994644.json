@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1690994617.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Howdy!\nI'm a traveller\nEver heard of wavelight city?\nI came from there.\nAlthough I like it there, I prefer it here."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1690994644.json",
+		"name": "Traveller"
+	}
+}

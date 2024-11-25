@@ -1,0 +1,32 @@
+{
+	"color": "#ff8bff00",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1687748257.json",
+	"mirror_portraits": false,
+	"name": "Clement",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		},
+		{
+			"name": "RainIsoPortrait04",
+			"path": "res://RainIsoMainContents/Resources/RainIsoPortrait04.png"
+		},
+		{
+			"name": "RainIsoPortrait05",
+			"path": "res://RainIsoMainContents/Resources/RainIsoPortrait05.png"
+		},
+		{
+			"name": "RainIsoPortrait06",
+			"path": "res://RainIsoMainContents/Resources/RainIsoPortrait06.png"
+		}
+	],
+	"scale": 100
+}

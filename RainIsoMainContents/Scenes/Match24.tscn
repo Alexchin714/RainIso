@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Scenes/MatchGrid.gd" type="Script" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/PrologueBG.png" type="Texture" id=2]
+
+[node name="Match24" type="Node2D"]
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+scale = Vector2( 2, 4 )
+texture = ExtResource( 2 )
+
+[node name="Grid" type="Node2D" parent="."]
+script = ExtResource( 1 )
+width = 32
+height = 32
+xStart = 64
+yStart = 720
+offset = 32

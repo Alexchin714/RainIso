@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1691760068.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "ah well I won. But It's ok!!\nwe could always rematch!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691935477.json",
+		"name": "WillowLost"
+	}
+}

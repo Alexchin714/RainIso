@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Scenes/CheckpointTilemap.gd" type="Script" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/CheckpointTilemap.tres" type="TileSet" id=2]
+[ext_resource path="res://RainIsoMainContents/Scenes/Checkpoints.tscn" type="PackedScene" id=3]
+
+[node name="CheckpointTileMap" type="TileMap"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
+format = 1
+script = ExtResource( 1 )
+TILE_SCENES = {
+0: ExtResource( 3 )
+}

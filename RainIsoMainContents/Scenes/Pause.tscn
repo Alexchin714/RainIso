@@ -1,0 +1,1183 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Scenes/Pause.gd" type="Script" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/PauseScreenBlack.png" type="Texture" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/Black.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/rainiso_pauseTitleBackgroundTexture.png" type="Texture" id=4]
+[ext_resource path="res://RainIsoMainContents/Music/RainIsoSettingsSFX03.mp3" type="AudioStream" id=5]
+[ext_resource path="res://RainIsoMainContents/Resources/frgo_pauseTitle.png" type="Texture" id=6]
+[ext_resource path="res://RainIsoMainContents/Resources/Fonts/RainIsoFont.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://RainIsoMainContents/Music/RainIsoSettingsSFX06.ogg" type="AudioStream" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=2]
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -2.0, 0.0, 2.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("ContinueButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.25, 1.25 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ContinueButton:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 1 ),
+"update": 0,
+"values": [ 0.0, -7.2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gradient/Gradient01:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.313726 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "cbBack"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("ContinueButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 0.06 ),
+"update": 0,
+"values": [ Vector2( 1.25, 1.25 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ContinueButton:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 0.06 ),
+"update": 0,
+"values": [ -7.2, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gradient/Gradient01:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.313726 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "rb"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("RestartButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.25, 1.25 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RestartButton:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 1 ),
+"update": 0,
+"values": [ 0.0, 7.2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gradient/Gradient02:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.313726 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "rbBack"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("RestartButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 0.06 ),
+"update": 0,
+"values": [ Vector2( 1.25, 1.25 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RestartButton:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 0.06 ),
+"update": 0,
+"values": [ 7.2, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gradient/Gradient02:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.313726 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "sb"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("SaveButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.25, 1.25 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SaveButton:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 1 ),
+"update": 0,
+"values": [ 0.0, 7.2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gradient/Gradient03:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.313726 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "sbBack"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("SaveButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 0.06 ),
+"update": 0,
+"values": [ Vector2( 1.25, 1.25 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SaveButton:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 0.06 ),
+"update": 0,
+"values": [ 7.2, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gradient/Gradient03:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.313726 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "rtlb"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("ReturnToLastButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.25, 1.25 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ReturnToLastButton:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 1 ),
+"update": 0,
+"values": [ 0.0, -4.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gradient/Gradient04:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.313726 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "rtlbBack"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("ReturnToLastButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 0.06 ),
+"update": 0,
+"values": [ Vector2( 1.25, 1.25 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ReturnToLastButton:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 0.06 ),
+"update": 0,
+"values": [ -4.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gradient/Gradient04:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.313726 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "seb"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("SettingsButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.25, 1.25 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SettingsButton:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 1 ),
+"update": 0,
+"values": [ 0.0, -7.2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gradient/Gradient05:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.313726 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "sebBack"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("SettingsButton:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 0.06 ),
+"update": 0,
+"values": [ Vector2( 1.25, 1.25 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SettingsButton:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 0.06 ),
+"update": 0,
+"values": [ -7.2, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gradient/Gradient05:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.313726 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "mm"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("MainMenu:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.25, 1.25 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MainMenu:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 1 ),
+"update": 0,
+"values": [ 0.0, 7.2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gradient/Gradient06:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.313726 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "mmBack"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("MainMenu:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 0.06 ),
+"update": 0,
+"values": [ Vector2( 1.25, 1.25 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MainMenu:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.06, 0.06 ),
+"update": 0,
+"values": [ 7.2, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gradient/Gradient06:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.313726 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Gradient" id=15]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=16]
+gradient = SubResource( 15 )
+
+[sub_resource type="Animation" id=17]
+resource_name = "exit"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Gradient/Gradient01:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Gradient/Gradient02:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gradient/Gradient03:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Gradient/Gradient04:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Gradient/Gradient05:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Gradient/Gradient06:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ContinueButton:rect_rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ContinueButton:rect_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RestartButton:rect_rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("RestartButton:rect_scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("SaveButton:rect_scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("SaveButton:rect_rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("ReturnToLastButton:rect_rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("ReturnToLastButton:rect_scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("SettingsButton:rect_scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("SettingsButton:rect_rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("MainMenu:rect_rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("MainMenu:rect_scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[node name="Pause" type="CanvasLayer"]
+pause_mode = 2
+layer = 2
+script = ExtResource( 1 )
+
+[node name="Main" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -864.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="Main"]
+self_modulate = Color( 0, 0, 0, 0.184314 )
+margin_left = 304.0
+margin_top = 64.0
+margin_right = 976.0
+margin_bottom = 240.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="Main"]
+modulate = Color( 1, 1, 1, 0.572549 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 864.0
+mouse_filter = 2
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ContinueButton" type="TextureButton" parent="Main"]
+pause_mode = 2
+self_modulate = Color( 1, 1, 1, 0.0352941 )
+margin_top = 240.0
+margin_right = 1280.0
+margin_bottom = 304.0
+rect_pivot_offset = Vector2( 640, 32 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Main/ContinueButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_neighbour_bottom = NodePath("../../RestartButton")
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Continue"
+align = 1
+valign = 1
+
+[node name="Highlighter" type="TextureRect" parent="Main/ContinueButton"]
+visible = false
+modulate = Color( 1, 1, 1, 0.784314 )
+show_behind_parent = true
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_right = 416.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="TextureButton" parent="Main"]
+pause_mode = 2
+self_modulate = Color( 1, 1, 1, 0.0352941 )
+margin_top = 304.0
+margin_right = 1280.0
+margin_bottom = 368.0
+rect_pivot_offset = Vector2( 640, 32 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Main/RestartButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_neighbour_top = NodePath("../../ContinueButton")
+focus_neighbour_bottom = NodePath("../../SaveButton")
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Restart"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Highlighter" type="TextureRect" parent="Main/RestartButton"]
+visible = false
+modulate = Color( 1, 1, 1, 0.784314 )
+show_behind_parent = true
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_right = 416.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveButton" type="TextureButton" parent="Main"]
+pause_mode = 2
+self_modulate = Color( 1, 1, 1, 0.0352941 )
+margin_top = 368.0
+margin_right = 1280.0
+margin_bottom = 432.0
+rect_pivot_offset = Vector2( 640, 32 )
+focus_neighbour_top = NodePath("../RestartButton")
+focus_neighbour_bottom = NodePath("../ReturnToLastButton")
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Main/SaveButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Save"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Highlighter" type="TextureRect" parent="Main/SaveButton"]
+visible = false
+modulate = Color( 1, 1, 1, 0.784314 )
+show_behind_parent = true
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_right = 416.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReturnToLastButton" type="TextureButton" parent="Main"]
+pause_mode = 2
+self_modulate = Color( 1, 1, 1, 0.0352941 )
+margin_top = 432.0
+margin_right = 1280.0
+margin_bottom = 496.0
+rect_pivot_offset = Vector2( 640, 32 )
+focus_neighbour_top = NodePath("../SaveButton")
+focus_neighbour_bottom = NodePath("../SettingsButton")
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Main/ReturnToLastButton"]
+modulate = Color( 0.356863, 0.356863, 0.356863, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Return to Map"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Highlighter" type="TextureRect" parent="Main/ReturnToLastButton"]
+visible = false
+modulate = Color( 1, 1, 1, 0.784314 )
+show_behind_parent = true
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_right = 416.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsButton" type="TextureButton" parent="Main"]
+pause_mode = 2
+self_modulate = Color( 1, 1, 1, 0.0352941 )
+margin_top = 496.0
+margin_right = 1280.0
+margin_bottom = 560.0
+rect_pivot_offset = Vector2( 640, 32 )
+focus_neighbour_top = NodePath("../ReturnToLastButton")
+focus_neighbour_bottom = NodePath("../MainMenu")
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Main/SettingsButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Settings"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Highlighter" type="TextureRect" parent="Main/SettingsButton"]
+visible = false
+modulate = Color( 1, 1, 1, 0.784314 )
+show_behind_parent = true
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_right = 416.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="TextureButton" parent="Main"]
+pause_mode = 2
+self_modulate = Color( 1, 1, 1, 0.0352941 )
+margin_top = 560.0
+margin_right = 1280.0
+margin_bottom = 624.0
+rect_pivot_offset = Vector2( 640, 32 )
+focus_neighbour_top = NodePath("../SettingsButton")
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Main/MainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Exit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Highlighter" type="TextureRect" parent="Main/MainMenu"]
+visible = false
+modulate = Color( 1, 1, 1, 0.784314 )
+show_behind_parent = true
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_right = 416.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="TextureRect" parent="Main"]
+margin_left = 368.0
+margin_top = 80.0
+margin_right = 921.0
+margin_bottom = 224.0
+rect_pivot_offset = Vector2( 272, 80 )
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main/Text"]
+autoplay = "idle"
+playback_speed = 0.25
+anims/idle = SubResource( 2 )
+
+[node name="Text" type="TextureRect" parent="Main/Text"]
+self_modulate = Color( 0.627451, 0.0941176, 1, 0.501961 )
+margin_left = 6.34546
+margin_top = 3.17273
+margin_right = 559.345
+margin_bottom = 147.173
+rect_pivot_offset = Vector2( 272, 80 )
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer01" type="AnimationPlayer" parent="Main"]
+anims/cb = SubResource( 3 )
+anims/cbBack = SubResource( 4 )
+
+[node name="AnimationPlayer02" type="AnimationPlayer" parent="Main"]
+anims/rb = SubResource( 5 )
+anims/rbBack = SubResource( 6 )
+
+[node name="AnimationPlayer03" type="AnimationPlayer" parent="Main"]
+anims/sb = SubResource( 7 )
+anims/sbBack = SubResource( 8 )
+
+[node name="AnimationPlayer04" type="AnimationPlayer" parent="Main"]
+anims/rtlb = SubResource( 9 )
+anims/rtlbBack = SubResource( 10 )
+
+[node name="AnimationPlayer05" type="AnimationPlayer" parent="Main"]
+anims/seb = SubResource( 11 )
+anims/sebBack = SubResource( 12 )
+
+[node name="AnimationPlayer06" type="AnimationPlayer" parent="Main"]
+anims/mm = SubResource( 13 )
+anims/mmBack = SubResource( 14 )
+
+[node name="Gradient" type="Node" parent="Main"]
+
+[node name="Gradient01" type="Sprite" parent="Main/Gradient"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 235.382, 368 )
+scale = Vector2( 0.229865, 64 )
+texture = SubResource( 16 )
+
+[node name="Gradient02" type="Sprite" parent="Main/Gradient"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 232, 432 )
+scale = Vector2( 0.226562, 64 )
+texture = SubResource( 16 )
+
+[node name="Gradient03" type="Sprite" parent="Main/Gradient"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 232, 496 )
+scale = Vector2( 0.226563, 64 )
+texture = SubResource( 16 )
+
+[node name="Gradient04" type="Sprite" parent="Main/Gradient"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 232, 560 )
+scale = Vector2( 0.226562, 64 )
+texture = SubResource( 16 )
+
+[node name="Gradient05" type="Sprite" parent="Main/Gradient"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 232, 624 )
+scale = Vector2( 0.226562, 64 )
+texture = SubResource( 16 )
+
+[node name="Gradient06" type="Sprite" parent="Main/Gradient"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 232, 688 )
+scale = Vector2( 0.226562, 64 )
+texture = SubResource( 16 )
+
+[node name="ExitPlayer" type="AnimationPlayer" parent="Main"]
+anims/exit = SubResource( 17 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "SFX"
+
+[node name="AudioStreamPlayer02" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+pitch_scale = 0.75
+bus = "SFX"
+
+[connection signal="focus_entered" from="Main/ContinueButton" to="." method="_on_ContinueButton_focus_entered"]
+[connection signal="mouse_entered" from="Main/ContinueButton" to="." method="_on_ContinueButton_mouse_entered"]
+[connection signal="mouse_exited" from="Main/ContinueButton" to="." method="_on_ContinueButton_mouse_exited"]
+[connection signal="pressed" from="Main/ContinueButton" to="." method="_on_ContinueButton_pressed"]
+[connection signal="focus_entered" from="Main/RestartButton" to="." method="_on_RestartButton_focus_entered"]
+[connection signal="mouse_entered" from="Main/RestartButton" to="." method="_on_RestartButton_mouse_entered"]
+[connection signal="mouse_exited" from="Main/RestartButton" to="." method="_on_RestartButton_mouse_exited"]
+[connection signal="pressed" from="Main/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="focus_entered" from="Main/SaveButton" to="." method="_on_SaveButton_focus_entered"]
+[connection signal="mouse_entered" from="Main/SaveButton" to="." method="_on_SaveButton_mouse_entered"]
+[connection signal="mouse_exited" from="Main/SaveButton" to="." method="_on_SaveButton_mouse_exited"]
+[connection signal="pressed" from="Main/SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="focus_entered" from="Main/ReturnToLastButton" to="." method="_on_ReturnToLastButton_focus_entered"]
+[connection signal="mouse_entered" from="Main/ReturnToLastButton" to="." method="_on_ReturnToLastButton_mouse_entered"]
+[connection signal="mouse_exited" from="Main/ReturnToLastButton" to="." method="_on_ReturnToLastButton_mouse_exited"]
+[connection signal="pressed" from="Main/ReturnToLastButton" to="." method="_on_ReturnToLastButton_pressed"]
+[connection signal="focus_entered" from="Main/SettingsButton" to="." method="_on_SettingsButton_focus_entered"]
+[connection signal="mouse_entered" from="Main/SettingsButton" to="." method="_on_SettingsButton_mouse_entered"]
+[connection signal="mouse_exited" from="Main/SettingsButton" to="." method="_on_SettingsButton_mouse_exited"]
+[connection signal="pressed" from="Main/SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="focus_entered" from="Main/MainMenu" to="." method="_on_MainMenu_focus_entered"]
+[connection signal="mouse_entered" from="Main/MainMenu" to="." method="_on_MainMenu_mouse_entered"]
+[connection signal="mouse_exited" from="Main/MainMenu" to="." method="_on_MainMenu_mouse_exited"]
+[connection signal="pressed" from="Main/MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="animation_finished" from="Main/AnimationPlayer01" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Main/AnimationPlayer02" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Main/AnimationPlayer03" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Main/AnimationPlayer04" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Main/AnimationPlayer05" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Main/AnimationPlayer06" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/WalkingForestSFX.ogg-121de31334c208a5dfefe5dd6f5b0fd8.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/WalkingForestSFX.ogg"
+dest_files=[ "res://.import/WalkingForestSFX.ogg-121de31334c208a5dfefe5dd6f5b0fd8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

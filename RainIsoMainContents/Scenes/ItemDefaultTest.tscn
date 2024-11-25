@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/MelodyTownTiles01.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/DefaultTest.tscn" type="PackedScene" id=2]
+[ext_resource path="res://RainIsoMainContents/Scenes/ItemTexture.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 OLDCOLOR1 : hint_color;
+
+uniform vec4 NEWCOLOR1 : hint_color;
+
+void fragment() {
+	vec4 curr_color = texture(TEXTURE,UV);
+	
+	//LOL
+	if (curr_color == OLDCOLOR1)
+	{
+		COLOR = NEWCOLOR1;
+	}
+	else
+	{
+		//yeah
+		COLOR = curr_color;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/OLDCOLOR1 = Color( 0.129412, 0.129412, 0.129412, 1 )
+shader_param/NEWCOLOR1 = Color( 0.027451, 0.027451, 0.027451, 1 )
+
+[node name="ItemTexture" instance=ExtResource( 3 )]
+material = SubResource( 2 )
+anchor_right = 0.05
+anchor_bottom = 0.089
+margin_bottom = -0.0200005
+texture = ExtResource( 1 )
+this_scene = ExtResource( 2 )

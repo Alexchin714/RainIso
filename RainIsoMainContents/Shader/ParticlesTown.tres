@@ -1,0 +1,26 @@
+[gd_resource type="ParticlesMaterial" load_steps=5 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Shader/MelodyGradient.tres" type="Gradient" id=1]
+
+[sub_resource type="GradientTexture" id=1]
+gradient = ExtResource( 1 )
+
+[sub_resource type="Curve" id=2]
+min_value = -40.0
+max_value = 40.0
+_data = [ Vector2( 0, 0 ), 0.0, 239.273, 0, 0, Vector2( 0.0820669, -26.9091 ), -90.5356, -90.5356, 0, 0, Vector2( 0.173252, 10.1818 ), 200.989, 200.989, 0, 0, Vector2( 0.300912, -18.1818 ), -159.515, -159.515, 0, 0, Vector2( 0.398176, 25.4545 ), -920.28, -920.28, 0, 0, Vector2( 0.495441, -22.5455 ), -219.333, -219.333, 0, 0, Vector2( 0.613982, 7.27273 ), -239.273, -239.273, 0, 0, Vector2( 0.711246, 18.1818 ), 513.993, 513.993, 0, 0, Vector2( 0.829787, -24 ), 97.0024, 97.0024, 0, 0, Vector2( 0.884498, 10.9091 ), -139.576, -139.576, 0, 0, Vector2( 0.948328, -6.54545 ), 364.111, 364.111, 0, 0, Vector2( 1, 1 ), -277.727, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[resource]
+emission_shape = 1
+emission_sphere_radius = 68.58
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 20, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+tangential_accel_curve = SubResource( 3 )
+scale = 3.0
+color_ramp = SubResource( 1 )

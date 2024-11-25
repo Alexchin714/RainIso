@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Lock.obj-515f29ab10b78343caabfd1053016ab7.mesh"
+
+[deps]
+
+files=[ "res://.import/Lock.obj-515f29ab10b78343caabfd1053016ab7.mesh" ]
+
+source_file="res://RainIsoMainContents/Resources/Lock.obj"
+dest_files=[ "res://.import/Lock.obj-515f29ab10b78343caabfd1053016ab7.mesh", "res://.import/Lock.obj-515f29ab10b78343caabfd1053016ab7.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Splat.mp3-f95c2b0df656065ce96bc87049230648.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/Splat.mp3"
+dest_files=[ "res://.import/Splat.mp3-f95c2b0df656065ce96bc87049230648.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

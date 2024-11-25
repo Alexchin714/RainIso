@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/DarkStep.ogg-f795fdaf3ec132a157bf0091fd7d48e9.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/DarkStep.ogg"
+dest_files=[ "res://.import/DarkStep.ogg-f795fdaf3ec132a157bf0091fd7d48e9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

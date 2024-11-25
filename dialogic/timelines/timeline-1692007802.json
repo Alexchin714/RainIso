@@ -1,0 +1,19 @@
+{
+	"events": [
+		{
+			"character": "character-1691760068.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "o-oh am.. I interrupting something?\nI just wanted to see what the commotion was all about..\nbut seems like you guys we're b\nI'm sorry if I interrupted something..\ni-if you need me I'll be at my birdhouse."
+		},
+		{
+			"emit_signal": "willowleave",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1692007802.json",
+		"name": "WillowInterruption"
+	}
+}

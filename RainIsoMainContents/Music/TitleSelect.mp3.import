@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TitleSelect.mp3-66e6c38efd5a1646b466c9c3af5e13ea.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/TitleSelect.mp3"
+dest_files=[ "res://.import/TitleSelect.mp3-66e6c38efd5a1646b466c9c3af5e13ea.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

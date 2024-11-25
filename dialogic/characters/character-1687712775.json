@@ -1,0 +1,36 @@
+{
+	"color": "#ff7f7f7f",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1687712775.json",
+	"mirror_portraits": true,
+	"name": "Toby",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -200,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		},
+		{
+			"name": "RainIsoPortrait01",
+			"path": "res://RainIsoMainContents/Resources/RainIsoPortrait01.png"
+		},
+		{
+			"name": "RainIsoPortrait02",
+			"path": "res://RainIsoMainContents/Resources/RainIsoPortrait02.png"
+		},
+		{
+			"name": "RainIsoPortrait03",
+			"path": "res://RainIsoMainContents/Resources/RainIsoPortrait03.png"
+		},
+		{
+			"name": "RainIsoPortrait07",
+			"path": "res://RainIsoMainContents/Resources/RainIsoPortrait07.png"
+		}
+	],
+	"scale": 350
+}

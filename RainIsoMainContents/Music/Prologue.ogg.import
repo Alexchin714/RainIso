@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Prologue.ogg-b62a62b392132ce64bd11cabbd558022.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/Prologue.ogg"
+dest_files=[ "res://.import/Prologue.ogg-b62a62b392132ce64bd11cabbd558022.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

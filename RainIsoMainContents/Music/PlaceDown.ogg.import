@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/PlaceDown.ogg-a0f0f4ea96e5a31b620707ca051a05b4.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/PlaceDown.ogg"
+dest_files=[ "res://.import/PlaceDown.ogg-a0f0f4ea96e5a31b620707ca051a05b4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

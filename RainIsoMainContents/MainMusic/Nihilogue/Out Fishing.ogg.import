@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Out Fishing.ogg-84a79eeaa29fe6a09cbd067eec5d554f.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/MainMusic/Nihilogue/Out Fishing.ogg"
+dest_files=[ "res://.import/Out Fishing.ogg-84a79eeaa29fe6a09cbd067eec5d554f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

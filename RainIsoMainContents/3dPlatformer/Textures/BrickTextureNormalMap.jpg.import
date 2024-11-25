@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/BrickTextureNormalMap.jpg-4530b4959313b5f24046675a98fdaf66.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://RainIsoMainContents/3dPlatformer/Textures/BrickTextureNormalMap.jpg"
+dest_files=[ "res://.import/BrickTextureNormalMap.jpg-4530b4959313b5f24046675a98fdaf66.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=1
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=1
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

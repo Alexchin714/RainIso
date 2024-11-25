@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Lampert.obj-4bccbb6da51c2056f77b8f4479077386.mesh"
+
+[deps]
+
+files=[ "res://.import/Lampert.obj-4bccbb6da51c2056f77b8f4479077386.mesh" ]
+
+source_file="res://RainIsoMainContents/Resources/Lampert.obj"
+dest_files=[ "res://.import/Lampert.obj-4bccbb6da51c2056f77b8f4479077386.mesh", "res://.import/Lampert.obj-4bccbb6da51c2056f77b8f4479077386.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

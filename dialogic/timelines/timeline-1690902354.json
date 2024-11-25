@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1690902506.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "ye.. i goooo... tooo thiiis plaaace ofteen..\n*he was too drunk and dozed off*"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1690902354.json",
+		"name": "NobleDrinker"
+	}
+}

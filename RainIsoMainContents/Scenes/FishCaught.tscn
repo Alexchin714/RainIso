@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Scenes/FishCaught.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "showcasing"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("i/Icon:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 0.2, 2, 0.2 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 3, 3 ), Vector2( 1e-05, 1e-05 ) ]
+}
+
+[node name="FishCaught" type="Node"]
+script = ExtResource( 1 )
+
+[node name="i" type="Node2D" parent="."]
+position = Vector2( 544, 288 )
+
+[node name="Icon" type="TextureRect" parent="i"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 64, 64 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/showcasing = SubResource( 1 )

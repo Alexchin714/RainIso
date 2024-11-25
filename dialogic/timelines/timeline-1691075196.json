@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1691073481.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It's a beautiful day. At times like this, kids like you should be playing video games."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691075196.json",
+		"name": "Zachery"
+	}
+}

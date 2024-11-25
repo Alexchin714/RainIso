@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1691073314.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Cole.\nCole's the name.\nName's the Cole\nName's cole the bond\nI run a certain business around these spots.\nIt's a private business... by the way, the name is Cole, nobody knows the name because its private."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691074331.json",
+		"name": "Cole"
+	}
+}

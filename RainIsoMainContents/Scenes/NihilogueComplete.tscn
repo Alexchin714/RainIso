@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Scenes/ActFinish.gd" type="Script" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/NihilogueTitleShadowSilouhette.png" type="Texture" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/Funkturm.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 4
+glow_enabled = true
+glow_strength = 0.92
+glow_blend_mode = 0
+
+[sub_resource type="Animation" id=3]
+resource_name = "start"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("WorldEnvironment:environment:glow_hdr_threshold")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0, 1.0 ]
+}
+
+[node name="NihilogueComplete" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 96.0
+margin_top = 64.0
+margin_right = 1183.0
+margin_bottom = 192.0
+custom_fonts/font = SubResource( 1 )
+text = "Nihilogue Complete"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NihilogueTitleShadowSilouhette" type="Sprite" parent="."]
+position = Vector2( 608, 384 )
+scale = Vector2( 0.344358, 0.344358 )
+texture = ExtResource( 2 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "start"
+anims/start = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 9.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

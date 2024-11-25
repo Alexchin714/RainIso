@@ -1,0 +1,81 @@
+{
+	"events": [
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "So frog.\nAnyways terrifying or not.\nYou have to admit claire's a professional at her job.\nwell atleast she's better at her job than well most other people.\nso tell me something."
+		},
+		{
+			"emit_signal": "deadsilence",
+			"event_id": "dialogic_040"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "have you.. ever seen a sword made of leaf?"
+		},
+		{
+			"choice": "yes..?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "so you know all about it huh?\nwell that sword is.. uh.. made of grass\nIt's basically a traditions thing y'know?"
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What does that have to do with me?"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Nothing."
+		},
+		{
+			"choice": "no..?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "well It's basically a traditions thing.\ntheres nothing [wave]too[/wave] much too worry about."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I see."
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "anyways.\nlet me tell you a story.\nA story of the underworld.\nThere's this island right?\nIt's pretty close. Like by the main city, and that island has a volcano or so they say.\nBut in that volcano, there are gears and industrial looking machines.\npretty weird huh?\nTurns out it was like that for over 300 years by now.\nBut nobody knows who or even why there are gears in there to begin with.\nand over the years, there has been many rumors and conspiracies about it.\nYou are going to that volcano soon, soo.. you'll get to see it yourself.\nOf course I'm not going because I don't want to.\nAnyways, that was a nice lunch.\nI'll meet you at the train station.\nSee ya, kid."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691133275.json",
+		"name": "TobyMainConvo"
+	}
+}

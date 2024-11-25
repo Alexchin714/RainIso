@@ -1,0 +1,115 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/TheFont.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/TrainMiss.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "bruh"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TrainNode/Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 320 ), Vector2( 0, 256 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TrainNode/LabelSecond:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.3, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 416 ), Vector2( 0, 320 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TrainNode/Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TrainNode/LabelSecond:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("TrainNode:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="TrainMiss" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="TrainNode" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="Background" type="ColorRect" parent="TrainNode"]
+margin_right = 1280.0
+margin_bottom = 736.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TrainNode"]
+visible = false
+margin_top = 320.0
+margin_right = 1280.0
+margin_bottom = 448.0
+custom_fonts/font = SubResource( 1 )
+text = "You missed the train..."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelSecond" type="Label" parent="TrainNode"]
+visible = false
+margin_top = 416.0
+margin_right = 1280.0
+margin_bottom = 544.0
+custom_fonts/font = SubResource( 1 )
+text = "you had 20 mins to get on the train..."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/bruh = SubResource( 2 )

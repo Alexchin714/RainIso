@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Scenes/DestructableBlocks.gd" type="Script" id=1]
+[ext_resource path="res://RainIsoMainContents/3dPlatformer/Textures/MetallicTexture1.jpg" type="Texture" id=2]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 8, 8, 8 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.415686, 0.415686, 0.415686, 1 )
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="ConcavePolygonShape" id=4]
+data = PoolVector3Array( -4, 4, 4, 4, 4, 4, -4, -4, 4, 4, 4, 4, 4, -4, 4, -4, -4, 4, 4, 4, -4, -4, 4, -4, 4, -4, -4, -4, 4, -4, -4, -4, -4, 4, -4, -4, 4, 4, 4, 4, 4, -4, 4, -4, 4, 4, 4, -4, 4, -4, -4, 4, -4, 4, -4, 4, -4, -4, 4, 4, -4, -4, -4, -4, 4, 4, -4, -4, 4, -4, -4, -4, 4, 4, 4, -4, 4, 4, 4, 4, -4, -4, 4, 4, -4, 4, -4, 4, 4, -4, -4, -4, 4, 4, -4, 4, -4, -4, -4, 4, -4, 4, 4, -4, -4, -4, -4, -4 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "des"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 4, 4, 4 )
+
+[node name="DestructableBlocks" type="KinematicBody" groups=[
+"enemy",
+]]
+script = ExtResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/des = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 5 )

@@ -1,0 +1,221 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/RainIsoIllustrationSticker01.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/White.png" type="Texture" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/RainIsoOfficialIllustrationTitle.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/RainIsoIllustrationSticker03.png" type="Texture" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/RainIsoIllustrationSticker04.png" type="Texture" id=5]
+[ext_resource path="res://RainIsoMainContents/Resources/RainIsoIllustrationSticker05.png" type="Texture" id=6]
+[ext_resource path="res://RainIsoMainContents/Resources/RainIsoIllustrationSticker02.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "loop"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sticker05:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5.5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -21.6, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sticker01:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5.2, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 14.4, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sticker05:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 5.5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 444.228, -534.177 ), Vector2( 289.357, -357.526 ), Vector2( 444.228, -534.177 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sticker01:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 5.2, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 527.953, -73.8123 ), Vector2( 480.048, -73.581 ), Vector2( 527.953, -73.8123 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sticker03:rect_rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 7.2, -14.4, 7.2 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sticker03:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 96.2806, -26.6909 ), Vector2( 48.647, 114.819 ), Vector2( 96.2806, -26.6909 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Sticker02:rect_rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 4.8, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -7.2, 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sticker02:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 4.8, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -384, 67.8688 ), Vector2( -336.11, 20.7412 ), Vector2( -384, 67.8688 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Sticker04:rect_rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 4.5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -14.4, 0.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Sticker04:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 4.5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -144, -404.262 ), Vector2( -144.847, -333.213 ), Vector2( -144, -404.262 ) ]
+}
+
+[node name="RainIsoTitleIllustration" type="Sprite"]
+position = Vector2( 640, 370 )
+scale = Vector2( 0.666667, 0.677778 )
+
+[node name="Sticker04" type="TextureRect" parent="."]
+margin_left = -144.0
+margin_top = -404.262
+margin_right = 706.0
+margin_bottom = 345.738
+mouse_filter = 2
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sticker05" type="TextureRect" parent="."]
+margin_left = 444.228
+margin_top = -534.177
+margin_right = 1294.22
+margin_bottom = 215.823
+mouse_filter = 2
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sticker03" type="TextureRect" parent="."]
+margin_left = 96.2806
+margin_top = -26.6909
+margin_right = 846.281
+margin_bottom = 723.309
+rect_rotation = 7.2
+mouse_filter = 2
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sticker01" type="TextureRect" parent="."]
+margin_left = 527.953
+margin_top = -73.8123
+margin_right = 1277.95
+margin_bottom = 676.188
+mouse_filter = 2
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sticker02" type="TextureRect" parent="."]
+margin_left = -384.0
+margin_top = 67.8688
+margin_right = 366.0
+margin_bottom = 817.869
+mouse_filter = 2
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="."]
+margin_left = -1200.0
+margin_top = -545.901
+margin_right = 672.001
+margin_bottom = 540.099
+mouse_filter = 2
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Sprite" parent="."]
+modulate = Color( 0.423529, 0.376471, 0.286275, 1 )
+position = Vector2( 0, -2.95081 )
+scale = Vector2( 120, 67.8688 )
+z_index = -1
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "loop"
+playback_speed = 0.5
+anims/loop = SubResource( 1 )

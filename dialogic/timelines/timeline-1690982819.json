@@ -1,0 +1,57 @@
+{
+	"events": [
+		{
+			"character": "character-1690982901.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hello! Welcome to my hotel! Pleasure to meet you!"
+		},
+		{
+			"character": "character-1690982901.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Would you like to book a room?"
+		},
+		{
+			"choice": "Yes Please!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"emit_signal": "open",
+			"event_id": "dialogic_040"
+		},
+		{
+			"character": "character-1690982901.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Great!\nSince your a new face! you can stay for free!\nYour room number is room 9!"
+		},
+		{
+			"choice": "Nah.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1690982901.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "ah.. thats ok! come back again anytime if you need to rest!!"
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1690982819.json",
+		"name": "Stacy"
+	}
+}

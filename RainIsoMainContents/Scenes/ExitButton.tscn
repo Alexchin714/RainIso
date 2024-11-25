@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Scenes/Button.gd" type="Script" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/Roboto-Black.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/SkinButton.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="ExitButton" type="Node2D"]
+position = Vector2( 118.414, 49.8763 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 46
+
+[node name="ExitButton" type="Button" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0113644
+anchor_top = 0.011
+anchor_right = 0.081
+anchor_bottom = 0.133
+margin_left = 0.363392
+margin_top = 3.02
+margin_right = 6.08
+margin_bottom = 7.06
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+toggle_mode = true
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="SkinButton" type="Sprite" parent="."]
+position = Vector2( -100.097, -31.9419 )
+scale = Vector2( 0.894704, 0.829392 )
+texture = ExtResource( 3 )
+[connection signal="mouse_entered" from="CanvasLayer/ExitButton" to="CanvasLayer/ExitButton" method="_on_ExitButton_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/ExitButton" to="CanvasLayer/ExitButton" method="_on_ExitButton_mouse_exited"]
+[connection signal="toggled" from="CanvasLayer/ExitButton" to="CanvasLayer/ExitButton" method="_on_ExitButton_toggled"]

@@ -1,0 +1,1214 @@
+[gd_scene load_steps=54 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/ClaireNormal.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/Claire.gd" type="Script" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/ClaireAttack02.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/ClaireAttack01.png" type="Texture" id=4]
+[ext_resource path="res://RainIsoMainContents/Music/SpearWoosh.mp3" type="AudioStream" id=5]
+[ext_resource path="res://RainIsoMainContents/Resources/ClaireIdle01.png" type="Texture" id=6]
+[ext_resource path="res://RainIsoMainContents/Resources/SpearPixelArt.png" type="Texture" id=7]
+[ext_resource path="res://RainIsoMainContents/Resources/ItemGun.png" type="Texture" id=8]
+[ext_resource path="res://RainIsoMainContents/Scenes/ClaireAnimTree.gd" type="Script" id=9]
+[ext_resource path="res://RainIsoMainContents/Music/ShotSFX.mp3" type="AudioStream" id=10]
+[ext_resource path="res://RainIsoMainContents/Music/WooshSFX.mp3" type="AudioStream" id=11]
+[ext_resource path="res://RainIsoMainContents/Resources/BlankSpace.png" type="Texture" id=14]
+[ext_resource path="res://RainIsoMainContents/Resources/ItemKnife.png" type="Texture" id=22]
+[ext_resource path="res://RainIsoMainContents/Music/DashSFX.wav" type="AudioStream" id=24]
+[ext_resource path="res://RainIsoMainContents/Resources/ClaireIdle02.png" type="Texture" id=25]
+
+[sub_resource type="Shader" id=36]
+code = "shader_type canvas_item;
+
+const vec4 background = vec4(1., 1., 1., 0.);
+
+float dist(vec4 c1, vec4 c2) {
+	return (c1 == c2) ? 0.0 : abs(c1.r - c2.r) + abs(c1.g - c2.g) + abs(c1.b - c2.b);
+}
+
+bool similar(vec4 c1, vec4 c2, vec4 input) {
+	return (c1 == c2 || (dist(c1, c2) <= dist(input, c2) && dist(c1, c2) <= dist(input, c1)));
+}
+
+bool different(vec4 c1, vec4 c2, vec4 input) {
+	return !similar(c1, c2, input);
+}
+
+vec4 scale2x(sampler2D tex, vec2 uv, vec2 pixel_size) {
+	vec4 input = texture(tex, uv);
+
+	vec4 cD = texture(tex, uv + pixel_size * vec2(-1., .0));
+	cD.a = 1.0;
+	vec4 cF = texture(tex, uv + pixel_size * vec2(1., .0));
+	cF.a = 1.0;
+	vec4 cH = texture(tex, uv + pixel_size * vec2(.0, 1.));
+	cH.a = 1.0;
+	vec4 cB = texture(tex, uv + pixel_size * vec2(.0, -1.));
+	cB.a = 1.0;
+	vec4 cA = texture(tex, uv + pixel_size * vec2(-1., -1.));
+	cA.a = 1.0;
+	vec4 cI = texture(tex, uv + pixel_size * vec2(1., 1.));
+	cI.a = 1.0;
+	vec4 cG = texture(tex, uv + pixel_size * vec2(-1., 1.));
+	cG.a = 1.0;
+	vec4 cC = texture(tex, uv + pixel_size * vec2(1., -1.));
+	cC.a = 1.0;
+
+	if (different(cD,cF, input)
+     && different(cH,cB, input)
+     && ((similar(input, cD, input) || similar(input, cH, input) || similar(input, cF, input) || similar(input, cB, input) ||
+         ((different(cA, cI, input) || similar(input, cG, input) || similar(input, cC, input)) &&
+          (different(cG, cC, input) || similar(input, cA, input) || similar(input, cI, input))))))
+    {
+		vec2 unit = uv - (floor(uv / pixel_size) * pixel_size);
+		vec2 pixel_half_size = pixel_size / 2.0;
+		if (unit.x < pixel_half_size.x && unit.y < pixel_half_size.y) {
+			return ((similar(cB, cD, input) && ((different(input, cA, input) || different(cB, background, input)) && (different(input, cA, input) || different(input, cI, input) || different(cB, cC, input) || different(cD, cG, input)))) ? cB : input);
+		}
+
+		if (unit.x >= pixel_half_size.x && unit.y < pixel_half_size.y) {
+			return ((similar(cF, cB, input) && ((different(input, cC, input) || different(cF, background, input)) && (different(input, cC, input) || different(input, cG, input) || different(cF, cI, input) || different(cB, cA, input)))) ? cF : input);
+		}
+
+		if (unit.x < pixel_half_size.x && unit.y >= pixel_half_size.y) {
+			return ((similar(cD, cH, input) && ((different(input, cG, input) || different(cD, background, input)) && (different(input, cG, input) || different(input, cC, input) || different(cD, cA, input) || different(cH, cI, input)))) ? cD : input);
+		}
+
+        return ((similar(cH, cF, input) && ((different(input, cI, input) || different(cH, background, input)) && (different(input, cI, input) || different(input, cA, input) || different(cH, cG, input) || different(cF, cC, input)))) ? cH : input);
+    }
+
+	return input;
+}
+
+void fragment() {
+	COLOR = scale2x(TEXTURE, UV, TEXTURE_PIXEL_SIZE);
+}"
+
+[sub_resource type="ShaderMaterial" id=37]
+shader = SubResource( 36 )
+
+[sub_resource type="RectangleShape2D" id=38]
+extents = Vector2( 7.92186, 6.24662 )
+
+[sub_resource type="RectangleShape2D" id=39]
+extents = Vector2( 4.57143, 4.57143 )
+
+[sub_resource type="RectangleShape2D" id=40]
+extents = Vector2( 4.57143, 2.28572 )
+
+[sub_resource type="RectangleShape2D" id=41]
+extents = Vector2( 233.107, 69.8175 )
+
+[sub_resource type="RectangleShape2D" id=42]
+extents = Vector2( 5.36025, 8.59996 )
+
+[sub_resource type="Animation" id=43]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Sprite:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -3.5, 3.5 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=44]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/GunNode/GunPixelArt:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/GunNode/GunPixelArt:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 0.7, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 0.2, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -90.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationTree:parameters/conditions/GunShots")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("Audio/Gunshot")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+} ],
+"times": PoolRealArray( 0.5 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Body/GunNode/GunPixelArt/GunArea/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Body/Sprite/DashEcho/Sprite03:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Body/Sprite/DashEcho/Sprite02:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Body/Sprite/DashEcho/Sprite01:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Audio/Gunshot:volume_db")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -16.0, -16.0 ]
+}
+
+[sub_resource type="Animation" id=45]
+length = 0.2
+loop = true
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "increaseIdleCount"
+} ]
+}
+
+[sub_resource type="Animation" id=46]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ), ExtResource( 6 ), ExtResource( 25 ), ExtResource( 6 ), ExtResource( 1 ) ]
+}
+
+[sub_resource type="Animation" id=47]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=48]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ), ExtResource( 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Sprite/Weapons/SpearPixelArt:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -90.0002, 0.0, -90.0002 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Sprite/Weapons/SpearPixelArt:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Body/Sprite/Weapons/SpearPixelArt:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 0.2, 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( -5.18194, -5.79242 ), Vector2( 4.57144, 4.57144 ), Vector2( -5.18194, -5.79242 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Body/Sprite/DashEcho/Sprite01:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ), ExtResource( 4 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Body/Sprite/DashEcho/Sprite01:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 1, 2 ),
+"transitions": PoolRealArray( 1, 0.2, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.38419e-07, 0 ), Vector2( -9.14286, 0 ), Vector2( 1.43051e-05, 0 ), Vector2( -2.38419e-07, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Body/Sprite/DashEcho/Sprite02:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ), ExtResource( 4 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Body/Sprite/DashEcho/Sprite02:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 1, 2 ),
+"transitions": PoolRealArray( 1, 0.2, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.38419e-07, 0 ), Vector2( -18.2857, 0 ), Vector2( -2.38419e-07, 0 ), Vector2( -2.38419e-07, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Body/Sprite/DashEcho/Sprite03:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ), ExtResource( 4 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Body/Sprite/DashEcho/Sprite03:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.1, 1, 2 ),
+"transitions": PoolRealArray( 1, 0.3, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.38419e-07, 0 ), Vector2( -29.7143, 0 ), Vector2( -2.38419e-07, 0 ), Vector2( -2.38419e-07, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("CollisionShape2D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 0.2, 0.2, 0.2 ),
+"update": 0,
+"values": [ Vector2( 0, 6.85714 ), Vector2( -80, 6.85714 ), Vector2( 0, 6.85714 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Body/Sprite/DashEcho/Sprite01:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.1, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.705882 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Body/Sprite/DashEcho/Sprite02:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.1, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.705882 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Body/Sprite/DashEcho/Sprite03:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.1, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.705882 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("AnimationTree:parameters/conditions/SpearDash")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Body/Sprite/Weapons/SpearPixelArt/SpearArea/CollisionShape2D:disabled")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/16/type = "audio"
+tracks/16/path = NodePath("Audio/Dash")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 24 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 24 )
+} ],
+"times": PoolRealArray( 0, 1 )
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Audio/Dash:pitch_scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.78 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Body:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 0.2, 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 1.42109e-14, 2.28571 ), Vector2( -80, 2.286 ), Vector2( 1.42109e-14, 2.28571 ) ]
+}
+
+[sub_resource type="Animation" id=49]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite/Weapons/SpearPixelArt:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Sprite/Weapons/SpearPixelArt:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 1.4 ),
+"transitions": PoolRealArray( 0.2, 0.2, 1 ),
+"update": 0,
+"values": [ -90.0, -90.0, 45.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Sprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimationTree:parameters/conditions/SpearShot")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Body/Sprite/DashEcho/Sprite03:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Body/Sprite/DashEcho/Sprite02:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Body/Sprite/DashEcho/Sprite01:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Body/Sprite/Weapons/SpearPixelArt/SpearArea/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "ins"
+} ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "homing"
+} ]
+}
+
+[sub_resource type="Animation" id=50]
+length = 2.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite/Weapons/SpearPixelArt:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Sprite/Weapons/SpearPixelArt:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.2 ),
+"transitions": PoolRealArray( 0.2, 2, 1 ),
+"update": 0,
+"values": [ -90.0, 0.0, -180.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Sprite/Weapons/SpearPixelArt:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 1.4, 2.4 ),
+"transitions": PoolRealArray( 1, 0.2, 0.2, 0.2, 0.2 ),
+"update": 0,
+"values": [ Vector2( -5.18194, -5.79242 ), Vector2( -4.57143, 4.57143 ), Vector2( -4.57143, 4.57143 ), Vector2( 182.857, 4.57143 ), Vector2( -4.57143, 4.57143 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimationTree:parameters/conditions/SpearStraightShot")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Body/Sprite/Weapons/SpearPixelArt/SpearArea/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Body/Sprite/DashEcho/Sprite01:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Body/Sprite/DashEcho/Sprite02:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Body/Sprite/DashEcho/Sprite03:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "audio"
+tracks/8/path = NodePath("Audio/Woosh")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0.5, 1.3 )
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Audio/Woosh:pitch_scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 1.3, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 1.62, 1.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=51]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite/Weapons/SpearPixelArtMelee:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Sprite/Weapons/SpearPixelArtMelee:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ -90.0002, 270.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Sprite/Weapons/SpearPixelArtMelee/SpearArea/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, false, true ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "GunShots"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "SETUP"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "SpearDash"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "SpearShot"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "SpearStraightShot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+switch_mode = 2
+advance_condition = "SpearShot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+switch_mode = 2
+advance_condition = "SpearStraightShot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+switch_mode = 2
+advance_condition = "GunShots"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+advance_condition = "SpearDash"
+priority = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
+[sub_resource type="AnimationNodeStateMachine" id=35]
+states/GunShots/node = SubResource( 17 )
+states/GunShots/position = Vector2( 522, 179 )
+states/Idle/node = SubResource( 18 )
+states/Idle/position = Vector2( 522, 55 )
+states/SETUP/node = SubResource( 19 )
+states/SETUP/position = Vector2( 316, 55 )
+states/SpearDash/node = SubResource( 20 )
+states/SpearDash/position = Vector2( 719, -49 )
+states/SpearShot/node = SubResource( 21 )
+states/SpearShot/position = Vector2( 522, -49 )
+states/SpearStraightShot/node = SubResource( 22 )
+states/SpearStraightShot/position = Vector2( 719, 143 )
+transitions = [ "Idle", "SpearShot", SubResource( 23 ), "SpearShot", "Idle", SubResource( 24 ), "Idle", "SpearStraightShot", SubResource( 25 ), "SpearStraightShot", "Idle", SubResource( 26 ), "SETUP", "Idle", SubResource( 27 ), "Idle", "GunShots", SubResource( 28 ), "GunShots", "Idle", SubResource( 29 ), "Idle", "SpearDash", SubResource( 30 ), "SpearDash", "Idle", SubResource( 31 ), "SpearShot", "SpearDash", SubResource( 32 ), "SpearStraightShot", "SpearDash", SubResource( 33 ), "GunShots", "SpearDash", SubResource( 34 ) ]
+start_node = "SETUP"
+graph_offset = Vector2( 107.099, -64.216 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=52]
+
+[sub_resource type="Animation" id=53]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3.5, 3.5 ) ]
+}
+
+[sub_resource type="Animation" id=54]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -3.5, 3.5 ) ]
+}
+
+[node name="Claire" type="KinematicBody2D"]
+scale = Vector2( -3.5, 3.5 )
+collision_mask = 3
+script = ExtResource( 2 )
+
+[node name="Body" type="Node2D" parent="."]
+position = Vector2( 1.42109e-14, 2.28571 )
+scale = Vector2( -1, 1 )
+
+[node name="Sprite" type="Sprite" parent="Body"]
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Weapons" type="Node2D" parent="Body/Sprite"]
+rotation = 3.14159
+scale = Vector2( -1, -1 )
+
+[node name="SpearPixelArt" type="Sprite" parent="Body/Sprite/Weapons"]
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 37 )
+position = Vector2( -5.18194, -5.79242 )
+rotation = -1.5708
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="SpearArea" type="Area2D" parent="Body/Sprite/Weapons/SpearPixelArt"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Sprite/Weapons/SpearPixelArt/SpearArea"]
+shape = SubResource( 38 )
+disabled = true
+
+[node name="SpearPixelArtMelee" type="Sprite" parent="Body/Sprite/Weapons"]
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 37 )
+position = Vector2( -5.18194, -5.79242 )
+rotation = -1.5708
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="SpearArea" type="Area2D" parent="Body/Sprite/Weapons/SpearPixelArtMelee"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Sprite/Weapons/SpearPixelArtMelee/SpearArea"]
+shape = SubResource( 38 )
+disabled = true
+
+[node name="Slash" type="Sprite" parent="Body/Sprite/Weapons"]
+position = Vector2( 2.28571, -9.14286 )
+rotation = -1.5708
+scale = Vector2( 0.576392, 1 )
+texture = ExtResource( 14 )
+
+[node name="DashEcho" type="Node2D" parent="Body/Sprite"]
+position = Vector2( -0.760799, -0.000116587 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Sprite01" type="Sprite" parent="Body/Sprite/DashEcho"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -2.38419e-07, 0 )
+z_index = -1
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite02" type="Sprite" parent="Body/Sprite/DashEcho"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -2.38419e-07, 0 )
+z_index = -1
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite03" type="Sprite" parent="Body/Sprite/DashEcho"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -2.38419e-07, 0 )
+z_index = -1
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RayArea" type="Area2D" parent="Body/Sprite"]
+collision_mask = 2
+
+[node name="Ray" type="CollisionShape2D" parent="Body/Sprite/RayArea"]
+position = Vector2( 11.4286, 4.57143 )
+shape = SubResource( 39 )
+disabled = true
+
+[node name="Ray" type="RayCast2D" parent="Body/Sprite"]
+enabled = true
+cast_to = Vector2( 10, 0 )
+collision_mask = 2
+
+[node name="Head" type="Area2D" parent="Body"]
+position = Vector2( -0.142857, -8.85714 )
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Head"]
+position = Vector2( 0.142857, -0.285713 )
+shape = SubResource( 40 )
+
+[node name="GunNode" type="Node2D" parent="Body"]
+position = Vector2( 6.85713, 9.14257 )
+rotation = -1.50996e-07
+
+[node name="GunPixelArt" type="Sprite" parent="Body/GunNode"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -9.53674e-07, 4.76837e-07 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 8 )
+
+[node name="GunArea" type="Area2D" parent="Body/GunNode/GunPixelArt"]
+position = Vector2( 362.667, -3.04761 )
+scale = Vector2( 1.01878, 0.0436512 )
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/GunNode/GunPixelArt/GunArea"]
+position = Vector2( -104.701, -0.000305175 )
+shape = SubResource( 41 )
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 6.85714 )
+shape = SubResource( 42 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 0.5
+anims/RESET = SubResource( 43 )
+
+[node name="BattleAnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "SETUP"
+anims/GunShots = SubResource( 44 )
+anims/Idle = SubResource( 45 )
+anims/IdleStart = SubResource( 46 )
+anims/SETUP = SubResource( 47 )
+anims/SpearDash = SubResource( 48 )
+anims/SpearShot = SubResource( 49 )
+anims/SpearStraightShot = SubResource( 50 )
+
+[node name="AnimationPlayerMelee" type="AnimationPlayer" parent="."]
+anims/melee = SubResource( 51 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 35 )
+anim_player = NodePath("../BattleAnimationPlayer")
+active = true
+parameters/playback = SubResource( 52 )
+parameters/conditions/GunShots = false
+parameters/conditions/SpearDash = false
+parameters/conditions/SpearShot = false
+parameters/conditions/SpearStraightShot = false
+script = ExtResource( 9 )
+
+[node name="ScalePlayer" type="AnimationPlayer" parent="."]
+anims/back = SubResource( 53 )
+anims/front = SubResource( 54 )
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Gunshot" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 10 )
+volume_db = -16.0
+pitch_scale = 0.84
+bus = "SFX"
+
+[node name="Wind" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 11 )
+pitch_scale = 0.64
+bus = "SFX"
+
+[node name="Woosh" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 5 )
+bus = "SFX"
+
+[node name="Dash" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 24 )
+bus = "SFX"
+
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="Body/Sprite/Weapons/SpearPixelArt/SpearArea" to="." method="_on_SpearArea_body_entered"]
+[connection signal="body_entered" from="Body/Sprite/Weapons/SpearPixelArtMelee/SpearArea" to="." method="_on_SpearArea_body_entered"]
+[connection signal="body_entered" from="Body/Sprite/RayArea" to="." method="_on_RayArea_body_entered"]
+[connection signal="body_entered" from="Body/Head" to="." method="_on_Head_body_entered"]
+[connection signal="body_entered" from="Body/GunNode/GunPixelArt/GunArea" to="." method="_on_GunArea_body_entered"]

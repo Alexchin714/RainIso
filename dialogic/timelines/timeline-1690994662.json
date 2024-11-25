@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1690994321.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "They don't know that I teleported toilet paper everyday for 2 years.\ntwice a day.\nwhy? you may ask.\nI don't know either.\nIt's just something I did for fun and now I'm taking care of my buddy cory.\nWhile treating myself to some nice liquor."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1690994662.json",
+		"name": "Gene"
+	}
+}

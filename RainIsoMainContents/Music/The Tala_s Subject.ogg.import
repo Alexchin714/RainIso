@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/The Tala_s Subject.ogg-86cf9d5f2928ef9348bb309859a48dd1.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/The Tala_s Subject.ogg"
+dest_files=[ "res://.import/The Tala_s Subject.ogg-86cf9d5f2928ef9348bb309859a48dd1.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

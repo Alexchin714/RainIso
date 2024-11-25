@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/ShopModel.obj-12e90e90e71ab70a53c5b3b79418ea53.mesh"
+
+[deps]
+
+files=[ "res://.import/ShopModel.obj-12e90e90e71ab70a53c5b3b79418ea53.mesh" ]
+
+source_file="res://RainIsoMainContents/Resources/ShopModel.obj"
+dest_files=[ "res://.import/ShopModel.obj-12e90e90e71ab70a53c5b3b79418ea53.mesh", "res://.import/ShopModel.obj-12e90e90e71ab70a53c5b3b79418ea53.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

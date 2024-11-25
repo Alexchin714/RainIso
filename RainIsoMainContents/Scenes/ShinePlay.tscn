@@ -1,0 +1,194 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/TagNormal.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/SuperMario256.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/Black.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/TagHover.png" type="Texture" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/TagPressed.png" type="Texture" id=5]
+[ext_resource path="res://RainIsoMainContents/Scenes/ShinePlay.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 56
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "play"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.18 ),
+"transitions": PoolRealArray( 1, 0.435275 ),
+"update": 0,
+"values": [ Vector2( 0, -704 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "toobad!"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("TooBadIcon:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 352, 1664 ), Vector2( 352, 992 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 64
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="ShinePlay" type="Control"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -704.0
+margin_bottom = -704.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="."]
+margin_left = 32.0
+margin_top = 288.0
+margin_right = 1248.0
+margin_bottom = 448.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Icon"]
+margin_left = 32.0
+margin_right = 1220.0
+margin_bottom = 160.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.796078, 0.796078, 0.796078, 1 )
+bbcode_enabled = true
+bbcode_text = "                                     want to play [wave][rainbow]Chase the pancakes?"
+text = "                                     want to play Chase the pancakes?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/play = SubResource( 2 )
+anims/toobad! = SubResource( 3 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 896.0
+margin_top = 416.0
+margin_right = 1184.0
+margin_bottom = 488.0
+focus_neighbour_top = NodePath("../TextureButton2")
+focus_neighbour_bottom = NodePath("../TextureButton2")
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+text = "Yes"
+align = 1
+valign = 1
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+margin_left = 896.0
+margin_top = 512.0
+margin_right = 1184.0
+margin_bottom = 584.0
+focus_neighbour_top = NodePath("../TextureButton")
+focus_neighbour_bottom = NodePath("../TextureButton")
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureButton2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.803922, 0.368627, 0.368627, 1 )
+text = "no"
+align = 1
+valign = 1
+
+[node name="TooBadIcon" type="TextureRect" parent="."]
+margin_left = 352.0
+margin_top = 992.0
+margin_right = 1024.0
+margin_bottom = 1152.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TooBadIcon"]
+margin_left = 26.7292
+margin_top = -37.2706
+margin_right = 794.729
+margin_bottom = 241.729
+rect_rotation = -6.9
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+bbcode_text = "             [shake]                            Too Bad!"
+text = "                                         Too Bad!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_TextureButton2_pressed"]

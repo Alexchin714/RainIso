@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/GlideFloatFrame5.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/LeafGlider.gd" type="Script" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/GlideFloatFrame6.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/GlideFloatFrame2.png" type="Texture" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/GlideFloatFrame4.png" type="Texture" id=5]
+[ext_resource path="res://RainIsoMainContents/Resources/GlideFloatFrame3.png" type="Texture" id=6]
+[ext_resource path="res://RainIsoMainContents/Resources/GlideFloatFrame1.png" type="Texture" id=7]
+[ext_resource path="res://RainIsoMainContents/Resources/GlowPiece2.png" type="Texture" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 26.3073, 5.76538 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 0.897243, 0.894379 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "LeafSlowDown"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 3 ) ]
+}
+
+[node name="LeafGlider" type="KinematicBody2D" groups=[
+"moveable",
+]]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -0.0865326 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="Area2D" type="Area2D" parent="Sprite" groups=[
+"cangrab",
+]]
+position = Vector2( 0, 12.0433 )
+scale = Vector2( 1, 1.07672 )
+collision_layer = 0
+collision_mask = 8
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.01602, 34.2059 )
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/LeafSlowDown = SubResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 8 )
+color = Color( 0.811765, 1, 0.501961, 1 )
+
+[connection signal="body_entered" from="Sprite/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Sprite/Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

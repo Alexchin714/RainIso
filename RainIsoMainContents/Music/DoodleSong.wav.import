@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/DoodleSong.wav-55ff939c179a977405da2b1957dc812b.sample"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/DoodleSong.wav"
+dest_files=[ "res://.import/DoodleSong.wav-55ff939c179a977405da2b1957dc812b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

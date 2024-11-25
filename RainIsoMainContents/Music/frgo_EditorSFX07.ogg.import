@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/frgo_EditorSFX07.ogg-02d8700739458f9ecaa5fbb7b888f539.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/frgo_EditorSFX07.ogg"
+dest_files=[ "res://.import/frgo_EditorSFX07.ogg-02d8700739458f9ecaa5fbb7b888f539.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

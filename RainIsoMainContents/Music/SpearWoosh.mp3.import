@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SpearWoosh.mp3-52a959fbbd6483b746b260fc1fa3084a.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/SpearWoosh.mp3"
+dest_files=[ "res://.import/SpearWoosh.mp3-52a959fbbd6483b746b260fc1fa3084a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

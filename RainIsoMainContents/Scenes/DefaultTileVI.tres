@@ -1,0 +1,23 @@
+[gd_resource type="TileSet" load_steps=3 format=2]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( -6.14227, -2.40232, 30.349, -2.53265, 4.8051, 23.7932, 45.0758, 16.7556, 29.4367, 46.7305, -10.9643, 36.1741 )
+
+[sub_resource type="StreamTexture" id=2]
+
+[resource]
+0/name = "Sprite"
+0/texture = SubResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 0 )
+0/region = Rect2( 0, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 8, 8 )
+0/occluder = SubResource( 1 )
+0/navigation_offset = Vector2( 8, 8 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0

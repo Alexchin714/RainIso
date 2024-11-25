@@ -1,0 +1,62 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "RainIsoPortrait01",
+			"text": "Hey.\nYou There."
+		},
+		{
+			"event_id": "dialogic_023",
+			"wait_seconds": 3
+		},
+		{
+			"audio_bus": "Music",
+			"background-music": "play",
+			"event_id": "dialogic_031",
+			"event_name": "BackgroundMusic",
+			"fade_length": 1,
+			"file": "res://RainIsoMainContents/MainMusic/Toby Mushguire.ogg",
+			"volume": 8
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "RainIsoPortrait07",
+			"text": "Well you seem like a [color=#FFF200]fun-gi[/color]."
+		},
+		{
+			"action": "join",
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "RainIsoPortrait01",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "RainIsoPortrait01",
+			"text": "Anyways, what you up to frog?\nSeems like you fell a long distance.\nI'm Toby\nI've been observing this area for a while now, y'know as a \"Guard Watcher\".\nApparently I'm suppose to look out for creatures that fell here, but I don't really care all that much about it.\nBut honestly I'm just doing this for the free food.\nI have a friend who is ALSO a frog and she is more serious about this \"Guard Watcher\" thing.\nShe's acts all dangerous when you first get to meet her but when you get to know her, she's not as dangerous as she seems, but I would still be cautious if I were you.\nAnyhow there's a town nearby.\nsay,\nyou don't mind if I ask you a favor?\nOnce you get to the city, you mind getting a bag of  seeds?\nI know it's a weird request but don't dig any further to it.\nI mean you don't have to..\nand I could get it myself but.....\nI'm lazy.\nThanks a [color=#FFF200]toad[/color] dude.\nI'll be here for a bit, but sooner or later I will be up ahead."
+		},
+		{
+			"emit_signal": "cutscene",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1687713540.json",
+		"name": "TobyIntro"
+	}
+}

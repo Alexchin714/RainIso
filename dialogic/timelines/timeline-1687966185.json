@@ -1,0 +1,19 @@
+{
+	"events": [
+		{
+			"character": "character-1687965918.json",
+			"event_id": "dialogic_001",
+			"portrait": "SermonPic",
+			"text": "The \"Everlasting Tree\" will always be of up most value."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1687966185.json",
+		"name": "SermonFirst"
+	}
+}

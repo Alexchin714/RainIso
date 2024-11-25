@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TheCheerOfDays.mp3-3dcce66f99b60506fd53f2e75372cf39.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/TheCheerOfDays.mp3"
+dest_files=[ "res://.import/TheCheerOfDays.mp3-3dcce66f99b60506fd53f2e75372cf39.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

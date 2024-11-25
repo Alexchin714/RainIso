@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://RainIsoMainContents/MainLevels/MelodyTownOtherside.gd" type="Script" id=22]
+[ext_resource path="res://RainIsoMainContents/Scenes/TileDefault0.gd" type="Script" id=37]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 TILECOLOR1 : hint_color;
+
+uniform vec4 NEWTILECOLOR1 : hint_color;
+
+void fragment() {
+	vec4 curr_color = texture(TEXTURE,UV);
+	
+	if (curr_color == TILECOLOR1)
+	{
+		COLOR = NEWTILECOLOR1;
+	}
+	else
+	{
+		//yeah
+		COLOR = curr_color;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/TILECOLOR1 = Color( 0.631373, 0.631373, 0.631373, 1 )
+shader_param/NEWTILECOLOR1 = Color( 1, 1, 1, 1 )
+
+[node name="Editor" type="Node2D"]
+script = ExtResource( 22 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="Level" type="Node2D" parent="."]
+material = SubResource( 2 )
+script = ExtResource( 37 )

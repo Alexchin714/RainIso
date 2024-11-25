@@ -1,0 +1,83 @@
+{
+	"events": [
+		{
+			"character": "character-1690728131.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "HEY KID."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "uhh... yeah...?"
+		},
+		{
+			"character": "character-1690728131.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "well well well.. look who we have here.\nthey call me the huntsman. y'know why?\nIT\"S BECAUSE I HUNT.\nfor trees... for my bottle."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "wait why do you need wood for a bottle?"
+		},
+		{
+			"character": "character-1690728131.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "That's non of your business kid... and It's rather complicated"
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Then why did you bring it up?"
+		},
+		{
+			"character": "character-1690728131.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "but in a  serious note. Have you heard of \"the raven\"?"
+		},
+		{
+			"choice": "sure?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1690728131.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "oh? you do know of [shake]it[/shake]?\nwell good then.\njust be weary."
+		},
+		{
+			"choice": "I do not?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1690728131.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "oh really?\nnobody's ever told you?\nwell consider this a warning.\nIf you dwell in this underworld but especially places outside populated areas.\nyou might just find \"the raven\"\nIt is a sadistic, apathetic, ruthless \"thing\".\nif you do find the \"the raven\".\nI couldn't care less what happens to you, but you most likely will not see a tomorrow.\neither your life is going to pass or\nIt makes a deal with you.\nand let me tell you.\nRumors say. If you make that deal.\n[shake]you would rather die than take those deals, they are horrible.[/shake]\nif \"It\" finds you. you will be captured by those raven roots. withering away minute by minute. while you pass out.\nIf you wake up in time. then you have a choice.\ndeal or die.\nmake that be known kid.\njust don't ever stray to far from populated areas ok?\ndon't ever make eye contact with a bird-like creature with a raven mask.\nand don't ever be alone while you encouter it ok?\nok, don't let that stop your journey. Just be weary.\nand about me?\nI will be chopping trees for abit and then I'll head back to the city.\nso if you need me. I'll be in the city."
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691209351.json",
+		"name": "HuntsmanIntro"
+	}
+}

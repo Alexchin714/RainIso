@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Plant Tiny Tunes.ogg-918f08dd0a12e616ee1dfe9e98396763.oggstr"
+
+[deps]
+
+source_file="res://Intros/Music/Plant Tiny Tunes.ogg"
+dest_files=[ "res://.import/Plant Tiny Tunes.ogg-918f08dd0a12e616ee1dfe9e98396763.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

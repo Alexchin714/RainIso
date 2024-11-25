@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MelodyTownWalking.mp3-70a5cde0ed1485e632bdc12674e9fef9.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/MelodyTownWalking.mp3"
+dest_files=[ "res://.import/MelodyTownWalking.mp3-70a5cde0ed1485e632bdc12674e9fef9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

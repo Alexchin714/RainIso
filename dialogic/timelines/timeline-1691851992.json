@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You were about to make a bad flower pun.\nturns out it wasn't a rosy idea."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691851992.json",
+		"name": "WillowFlower"
+	}
+}

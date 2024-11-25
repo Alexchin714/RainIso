@@ -1,0 +1,37 @@
+{
+	"events": [
+		{
+			"character": "character-1689426590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "WELL Well well... look who we have here, mr. [funny bone]\nIt seems like [funny bone] here has intruded into my circus!"
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Funny bone? wait I didn't mean to-"
+		},
+		{
+			"character": "character-1689426590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Seems like [funny bone] demands a fight!"
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "uhh... ok."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1689426576.json",
+		"name": "Moxie"
+	}
+}

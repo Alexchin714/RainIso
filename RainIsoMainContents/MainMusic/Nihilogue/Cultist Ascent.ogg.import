@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cultist Ascent.ogg-ffac4c50ff4af9e814d637fa7ae204a0.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/MainMusic/Nihilogue/Cultist Ascent.ogg"
+dest_files=[ "res://.import/Cultist Ascent.ogg-ffac4c50ff4af9e814d637fa7ae204a0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

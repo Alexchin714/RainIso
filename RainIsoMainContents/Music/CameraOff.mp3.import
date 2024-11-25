@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CameraOff.mp3-85a47444a27a80b019a9057f687f46bf.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/CameraOff.mp3"
+dest_files=[ "res://.import/CameraOff.mp3-85a47444a27a80b019a9057f687f46bf.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

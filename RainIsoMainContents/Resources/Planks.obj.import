@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Planks.obj-fbba7d03e298ddd47824c7edf9038420.mesh"
+
+[deps]
+
+files=[ "res://.import/Planks.obj-fbba7d03e298ddd47824c7edf9038420.mesh" ]
+
+source_file="res://RainIsoMainContents/Resources/Planks.obj"
+dest_files=[ "res://.import/Planks.obj-fbba7d03e298ddd47824c7edf9038420.mesh", "res://.import/Planks.obj-fbba7d03e298ddd47824c7edf9038420.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

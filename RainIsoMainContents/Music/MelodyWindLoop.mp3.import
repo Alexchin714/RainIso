@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MelodyWindLoop.mp3-59fd7d3a36f5543be7c8ecf4bf60f614.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/MelodyWindLoop.mp3"
+dest_files=[ "res://.import/MelodyWindLoop.mp3-59fd7d3a36f5543be7c8ecf4bf60f614.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

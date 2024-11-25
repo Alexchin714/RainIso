@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Safe.obj-a4cc7eaf13c0ae0a90274a45a3d9164b.mesh"
+
+[deps]
+
+files=[ "res://.import/Safe.obj-a4cc7eaf13c0ae0a90274a45a3d9164b.mesh" ]
+
+source_file="res://RainIsoMainContents/Resources/Safe.obj"
+dest_files=[ "res://.import/Safe.obj-a4cc7eaf13c0ae0a90274a45a3d9164b.mesh", "res://.import/Safe.obj-a4cc7eaf13c0ae0a90274a45a3d9164b.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

@@ -1,0 +1,32 @@
+{
+	"events": [
+		{
+			"audio_bus": "Music",
+			"background-music": "play",
+			"event_id": "dialogic_031",
+			"event_name": "BackgroundMusic",
+			"fade_length": 1,
+			"file": "res://RainIsoMainContents/MainMusic/Art of the Spy.ogg",
+			"volume": 0
+		},
+		{
+			"character": "character-1690728152.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey.\nListen up frog.\nI've been observing your activities, the moment you fell.\nLook I know you've been talking to my co-worker and he maybe more non-chalant than I am\nbut don't think he's just some goofball or lazy, I mean sure he's both but he is absolutely way more than you would think.\nbut I am obligated by law to give you a warning.\nso.\nI'm going to spare you this one time.\nbut.\nIf I encounter you again.\nthen the prince has spoken."
+		},
+		{
+			"emit_signal": "claireOut",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1690816496.json",
+		"name": "ClaireIntro"
+	}
+}

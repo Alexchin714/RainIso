@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1691760068.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "oh you won! that's impressive!!\ngood job!!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691935470.json",
+		"name": "WillowWon"
+	}
+}

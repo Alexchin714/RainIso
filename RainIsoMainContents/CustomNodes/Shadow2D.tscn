@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://RainIsoMainContents/CustomNodes/CustomNodeScripts/Shadow2D.gd" type="Script" id=1]
+
+[node name="Shadow2D" type="Node2D"]
+script = ExtResource( 1 )
+stylized = 1
+dissolve = 1
+
+[node name="Sprite" type="Sprite" parent="."]

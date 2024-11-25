@@ -1,0 +1,115 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Scenes/EditSelectionScreen.gd" type="Script" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/ScrollContainerII.gd" type="Script" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/Roboto-Black.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="EditSelectionScreen" type="CanvasLayer"]
+
+[node name="TabContainer" type="TabContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 119.0
+margin_right = -63.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 149.0
+margin_right = -175.0
+margin_bottom = -3.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 116.0
+margin_bottom = 25.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_right = 116.0
+margin_bottom = 25.0
+
+[node name="LeftArrow" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+margin_right = 20.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 1 )
+toggle_mode = true
+text = "<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightArrow" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+margin_left = 24.0
+margin_right = 44.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpArrow" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+visible = false
+margin_left = 48.0
+margin_right = 67.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 2 )
+text = "^"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DownArrow" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+margin_left = 48.0
+margin_right = 68.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+text = "v"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rotateleft" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+margin_left = 72.0
+margin_right = 93.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rotateright" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+margin_left = 97.0
+margin_right = 116.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer/LeftArrow" to="ScrollContainer" method="_on_LeftArrow_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer/RightArrow" to="ScrollContainer" method="_on_RightArrow_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer/UpArrow" to="ScrollContainer" method="_on_UpArrow_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer/DownArrow" to="ScrollContainer" method="_on_DownArrow_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer/rotateleft" to="ScrollContainer" method="_on_rotateleft_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer/rotateright" to="ScrollContainer" method="_on_rotateright_pressed"]

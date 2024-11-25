@@ -1,0 +1,175 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/LilyPad.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/LilyPad.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+params_diffuse_mode = 4
+params_specular_mode = 3
+params_grow = true
+params_grow_amount = 0.0
+albedo_color = Color( 0, 1, 0.345098, 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "bounced"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("LilyPad:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.1, 1.8, 2.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -7.677 ), Vector3( 0, 0, 5.066 ), Vector3( 0, 0, -4.93199 ), Vector3( 0, 0, 2.57 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LilyPad:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 2.1, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.49508, 0.77046, 0.0166483 ), Vector3( -1.49508, 0.430127, 0.0166483 ), Vector3( -1.49508, 0.430127, 0.0166483 ), Vector3( -1.49508, 0.77046, 0.0166483 ) ]
+}
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+uniform vec4 color : hint_color = vec4(1.0);
+uniform float width : hint_range(0, 10) = 1.0;
+uniform int pattern : hint_range(0, 2) = 0; // diamond, circle, square
+uniform bool inside = false;
+uniform bool add_margins = true; // only useful when inside is false
+
+void vertex() {
+	if (add_margins) {
+		VERTEX += (UV * 2.0 - 1.0) * width;
+	}
+}
+
+bool hasContraryNeighbour(vec2 uv, vec2 texture_pixel_size, sampler2D texture) {
+	for (float i = -ceil(width); i <= ceil(width); i++) {
+		float x = abs(i) > width ? width * sign(i) : i;
+		float offset;
+		
+		if (pattern == 0) {
+			offset = width - abs(x);
+		} else if (pattern == 1) {
+			offset = floor(sqrt(pow(width + 0.5, 2) - x * x));
+		} else if (pattern == 2) {
+			offset = width;
+		}
+		
+		for (float j = -ceil(offset); j <= ceil(offset); j++) {
+			float y = abs(j) > offset ? offset * sign(j) : j;
+			vec2 xy = uv + texture_pixel_size * vec2(x, y);
+			
+			if ((xy != clamp(xy, vec2(0.0), vec2(1.0)) || texture(texture, xy).a == 0.0) == inside) {
+				return true;
+			}
+		}
+	}
+	
+	return false;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	
+	if (add_margins) {
+		vec2 texture_pixel_size = vec2(1.0) / (vec2(1.0) / TEXTURE_PIXEL_SIZE + vec2(width * 2.0));
+		
+		uv = (uv - texture_pixel_size * width) * TEXTURE_PIXEL_SIZE / texture_pixel_size;
+		
+		if (uv != clamp(uv, vec2(0.0), vec2(1.0))) {
+			COLOR.a = 0.0;
+		} else {
+			COLOR = texture(TEXTURE, uv);
+		}
+	} else {
+		COLOR = texture(TEXTURE, uv);
+	}
+	
+	if ((COLOR.a > 0.0) == inside && hasContraryNeighbour(uv, TEXTURE_PIXEL_SIZE, TEXTURE)) {
+		COLOR.rgb = inside ? mix(COLOR.rgb, color.rgb, color.a) : color.rgb;
+		COLOR.a += (1.0 - COLOR.a) * color.a;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
+shader_param/color = Color( 0.113725, 0.682353, 0.403922, 1 )
+shader_param/width = 1.0
+shader_param/pattern = 0
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ViewportTexture" id=5]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 15.8059, 5.03951 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 17.316, 6.13724 )
+
+[node name="LilyPad" type="Node2D"]
+scale = Vector2( 4, 4 )
+script = ExtResource( 2 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 32, 32 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Main" type="Spatial" parent="Viewport"]
+
+[node name="LilyPad" type="MeshInstance" parent="Viewport/Main"]
+transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, -1.49508, 0.77046, 0.0166483 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="Viewport/Main"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 18.6715, 1.09145, -0.0526624 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Viewport/Main"]
+playback_speed = 1.25
+anims/bounced = SubResource( 2 )
+
+[node name="OmniLight" type="OmniLight" parent="Viewport/Main"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26.6428, 0 )
+light_color = Color( 0.282353, 0.941176, 0.678431, 1 )
+light_energy = 4.0
+omni_range = 40.0
+
+[node name="OmniLight2" type="OmniLight" parent="Viewport/Main"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26.6534, 0 )
+light_color = Color( 0.282353, 0.941176, 0.678431, 1 )
+light_energy = 2.0
+omni_range = 40.0
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 4 )
+texture = SubResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/StaticBody2D"]
+visible = false
+shape = SubResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource( 7 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

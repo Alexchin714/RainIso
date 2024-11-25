@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Willow the Tarots.ogg-e3f7e852b2344c46c53b8158f161d4ae.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/MainMusic/Nihilogue/Willow the Tarots.ogg"
+dest_files=[ "res://.import/Willow the Tarots.ogg-e3f7e852b2344c46c53b8158f161d4ae.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

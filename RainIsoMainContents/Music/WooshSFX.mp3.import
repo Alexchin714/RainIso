@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/WooshSFX.mp3-fe0e2b92bbb9b486b0602f9918ff5167.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/WooshSFX.mp3"
+dest_files=[ "res://.import/WooshSFX.mp3-fe0e2b92bbb9b486b0602f9918ff5167.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

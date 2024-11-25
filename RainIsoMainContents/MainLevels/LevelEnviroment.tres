@@ -1,0 +1,32 @@
+[gd_resource type="Environment" load_steps=3 format=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.448454, 1 )
+colors = PoolColorArray( 0.0782623, 0.0898438, 0.0846864, 1, 0.428767, 0.457904, 0.463141, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[resource]
+background_mode = 4
+fog_height_enabled = true
+tonemap_exposure = 0.86
+tonemap_white = 1.15
+auto_exposure_scale = 0.04
+auto_exposure_min_luma = 0.0
+auto_exposure_max_luma = 0.1
+auto_exposure_speed = 0.01
+ssao_radius = 6.61
+ssao_intensity = 21.21
+ssao_intensity2 = 101.03
+dof_blur_far_amount = 1.0
+dof_blur_near_distance = 0.03
+glow_enabled = true
+glow_levels/5 = false
+glow_intensity = 0.69
+glow_strength = 0.82
+glow_bloom = 0.29
+glow_blend_mode = 1
+adjustment_enabled = true
+adjustment_brightness = 1.21
+adjustment_color_correction = SubResource( 2 )

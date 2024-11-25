@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/RainIsoSettingsSFX10.mp3-d0634c5a4de0151aca4189314f7e78cf.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/RainIsoSettingsSFX10.mp3"
+dest_files=[ "res://.import/RainIsoSettingsSFX10.mp3-d0634c5a4de0151aca4189314f7e78cf.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

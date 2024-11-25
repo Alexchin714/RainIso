@@ -1,0 +1,35 @@
+[gd_resource type="Theme" load_steps=6 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/TheFont.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/SettingsDropdown.png" type="Texture" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/BlankSpace.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 1280, 320 )
+
+[resource]
+PopupMenu/colors/font_color = Color( 0.886275, 1, 0, 1 )
+PopupMenu/colors/font_color_accel = Color( 0, 0, 0, 0.8 )
+PopupMenu/colors/font_color_disabled = Color( 0, 0, 0, 0.8 )
+PopupMenu/colors/font_color_hover = Color( 0.935918, 1, 0.4375, 1 )
+PopupMenu/colors/font_color_separator = Color( 0, 0, 0, 1 )
+PopupMenu/constants/hseparation = 2
+PopupMenu/constants/vseparation = 2
+PopupMenu/fonts/font = SubResource( 1 )
+PopupMenu/icons/checked = ExtResource( 4 )
+PopupMenu/icons/radio_checked = ExtResource( 4 )
+PopupMenu/icons/radio_unchecked = ExtResource( 4 )
+PopupMenu/icons/submenu = ExtResource( 4 )
+PopupMenu/icons/unchecked = ExtResource( 4 )
+PopupMenu/styles/hover = null
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = SubResource( 2 )
+PopupMenu/styles/panel_disabled = null
+PopupMenu/styles/separator = null

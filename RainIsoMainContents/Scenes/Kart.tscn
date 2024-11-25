@@ -1,0 +1,148 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/Kart.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/Kart.gd" type="Script" id=2]
+[ext_resource path="res://RainIsoMainContents/Scenes/3dPlayer.tscn" type="PackedScene" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.792157, 0.152941, 0.152941, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.286275, 0.623529, 0.560784, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.286275, 0.623529, 0.560784, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.101961, 0.101961, 0.101961, 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.101961, 0.101961, 0.101961, 1 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.101961, 0.101961, 0.101961, 1 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.101961, 0.101961, 0.101961, 1 )
+
+[sub_resource type="Animation" id=12]
+resource_name = "Sitter"
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 2.20893, 0.354953, 3.62089 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Kart:mesh")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Jump"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Kart:mesh")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Run"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Kart:mesh")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "PopRunDust"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:collision/safe_margin")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.001 ]
+}
+
+[node name="Kart" type="KinematicBody"]
+script = ExtResource( 2 )
+
+[node name="Kart" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.345139, -0.356819, 0.0742264 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 3 )
+material/3 = SubResource( 4 )
+material/4 = SubResource( 5 )
+material/5 = SubResource( 6 )
+material/6 = SubResource( 7 )
+
+[node name="LedgeDown" type="RayCast" parent="Kart"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7901, -3.04105 )
+enabled = true
+cast_to = Vector3( 0, -6, 0 )
+
+[node name="LedgeFoward" type="RayCast" parent="Kart"]
+enabled = true
+cast_to = Vector3( 0, 0, -4 )
+
+[node name="3dPlayer" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.256397, 0.989323, -0.00564659 )
+script = null
+
+[node name="Cube006" parent="3dPlayer/Skeleton/ClementModel" index="2"]
+transform = Transform( 0.356899, 0.0116485, -0.00339458, -0.00675452, 0.23833, -0.285266, -0.00517566, 0.492211, 0.138207, 0.24756, 1.47199, -0.184973 )
+
+[node name="Cube004" parent="3dPlayer/Skeleton/ClementModel" index="3"]
+transform = Transform( 0.347026, 0.130302, -0.00577449, -0.0285568, 0.137985, -0.305578, -0.0804087, 0.513349, 0.0836034, -0.355224, 1.38861, -0.2 )
+
+[node name="AnimationPlayer" parent="3dPlayer/Skeleton/ClementModel" index="11"]
+anims/Sitter = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.341611, -0.354845, 0.0845535 )
+shape = SubResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 9 )
+anims/Jump = SubResource( 10 )
+anims/Run = SubResource( 11 )
+
+[node name="DustAnimation" type="AnimationPlayer" parent="."]
+anims/PopRunDust = SubResource( 13 )
+
+[node name="CoyoteJump" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[editable path="3dPlayer"]
+[editable path="3dPlayer/Skeleton/ClementModel"]
+[editable path="3dPlayer/Skeleton/ClementModel/Gun"]

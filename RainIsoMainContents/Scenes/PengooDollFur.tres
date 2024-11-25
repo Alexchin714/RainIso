@@ -1,0 +1,8 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://RainIsoMainContents/3dPlatformer/Textures/StylizedFurTexture.jpg" type="Texture" id=1]
+
+[resource]
+albedo_color = Color( 0, 0.298039, 0.415686, 1 )
+albedo_texture = ExtResource( 1 )
+metallic = 0.39

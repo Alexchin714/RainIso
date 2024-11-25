@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It's not ok to break in to someone's house.\nWhat do you think this is. Some other game?"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691242206.json",
+		"name": "PSALocked"
+	}
+}

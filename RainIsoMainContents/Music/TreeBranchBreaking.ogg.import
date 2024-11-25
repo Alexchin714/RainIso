@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/TreeBranchBreaking.ogg-2421e83080c1dc41e200791afd547953.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/TreeBranchBreaking.ogg"
+dest_files=[ "res://.import/TreeBranchBreaking.ogg-2421e83080c1dc41e200791afd547953.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

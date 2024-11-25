@@ -1,0 +1,218 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/Moderne Sans Font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/BlankSpace.png" type="Texture" id=2]
+[ext_resource path="res://RainIsoMainContents/Scenes/SongSystems.gd" type="Script" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/Instruments/BackButtonRigSystem02.png" type="Texture" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/Instruments/BackButtonRigSystem03.png" type="Texture" id=5]
+[ext_resource path="res://RainIsoMainContents/Resources/Instruments/BackButtonRigSystem01.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0.745098, 0.8, 1 )
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color( 0, 0.701961, 0.74902, 1 )
+border_blend = true
+shadow_color = Color( 0, 0, 0, 0.215686 )
+shadow_size = 20
+shadow_offset = Vector2( 10, 10 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.19986, 0.821391, 0.867188, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.556863, 0.886275, 0.913725, 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 64
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0.658824, 0.705882, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0, 0.592157, 0.635294, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0.627451, 0.67451, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0, 0.592157, 0.635294, 1 )
+border_blend = true
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=8]
+default_font = SubResource( 7 )
+PopupMenu/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/colors/font_color_accel = Color( 0.7, 0.7, 0.7, 0.8 )
+PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )
+PopupMenu/colors/font_color_hover = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/colors/font_color_separator = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/constants/hseparation = 4
+PopupMenu/constants/vseparation = 4
+PopupMenu/fonts/font = null
+PopupMenu/icons/checked = null
+PopupMenu/icons/radio_checked = null
+PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/submenu = null
+PopupMenu/icons/unchecked = null
+PopupMenu/styles/hover = SubResource( 5 )
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = SubResource( 6 )
+PopupMenu/styles/panel_disabled = null
+PopupMenu/styles/separator = null
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0, 0.682353, 0.733333, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0, 0.592157, 0.635294, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0, 0.505882, 0.545098, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0, 0.419608, 0.45098, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0, 0.627451, 0.67451, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0, 0.592157, 0.635294, 1 )
+border_blend = true
+
+[sub_resource type="DynamicFont" id=12]
+size = 32
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 480, 270 )
+
+[sub_resource type="StyleBoxTexture" id=14]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 72, 72 )
+
+[sub_resource type="StyleBoxTexture" id=15]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 72, 72 )
+
+[sub_resource type="StyleBoxTexture" id=16]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 72, 72 )
+
+[node name="Librano" type="Node2D"]
+position = Vector2( 640, 360 )
+script = ExtResource( 3 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 0.25
+anchor_bottom = 0.25
+margin_left = -480.0
+margin_top = -270.0
+margin_right = 480.0
+margin_bottom = 272.0
+rect_pivot_offset = Vector2( 480, 272 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Backdrop" type="Panel" parent="."]
+anchor_right = 0.25
+anchor_bottom = 0.25
+margin_left = -480.0
+margin_top = 137.0
+margin_right = 160.0
+margin_bottom = 137.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Outline" type="Panel" parent="Backdrop"]
+anchor_right = 0.25
+anchor_bottom = 0.25
+margin_top = -2.0
+margin_right = 720.0
+margin_bottom = -33.75
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = -320.0
+margin_top = -223.0
+margin_right = 320.0
+margin_bottom = -133.0
+custom_fonts/font = SubResource( 4 )
+text = "Librano"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = -240.0
+margin_top = -133.0
+margin_right = 240.0
+margin_bottom = -43.0
+theme = SubResource( 8 )
+custom_icons/arrow = ExtResource( 2 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
+text = "Basic"
+align = 1
+items = [ "Basic", null, false, 0, null, "Sky", null, false, 1, null, "Grand", null, false, 2, null, "Soul", null, false, 3, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 0, 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource( 13 )
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = -464.0
+margin_top = -256.0
+margin_right = -432.0
+margin_bottom = -224.0
+custom_styles/hover = SubResource( 14 )
+custom_styles/pressed = SubResource( 15 )
+custom_styles/normal = SubResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

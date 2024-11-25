@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/Roboto-Black.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/Moderne Sans Font.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://RainIsoMainContents/Scenes/Create2D.gd" type="Script" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/ModIcon.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 60.553, 10 )
+
+[node name="ModList2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="ModButton" type="Label" parent="."]
+margin_left = -39.909
+margin_top = -7.53322
+margin_right = 41.091
+margin_bottom = 12.4668
+custom_fonts/font = SubResource( 1 )
+text = "Mod List"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModSelector" type="Label" parent="."]
+margin_left = -48.9859
+margin_top = -10.141
+margin_right = -9.98591
+margin_bottom = 16.859
+custom_fonts/font = SubResource( 2 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mod" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mod"]
+position = Vector2( -0.431839, 0.0215225 )
+shape = SubResource( 3 )
+
+[node name="ModIcon" type="Sprite" parent="."]
+position = Vector2( -62.6948, -2.31639 )
+scale = Vector2( 0.06, 0.06 )
+texture = ExtResource( 4 )
+
+[connection signal="input_event" from="Mod" to="." method="_on_Create_input_event"]

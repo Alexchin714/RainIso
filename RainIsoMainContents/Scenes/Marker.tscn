@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/Waypoint.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/Marker.gd" type="Script" id=2]
+
+[node name="Marker" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="Node" type="Node2D" parent="."]
+
+[node name="Waypoint" type="Sprite" parent="Node"]
+position = Vector2( 7.26471, -48.927 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 1 )

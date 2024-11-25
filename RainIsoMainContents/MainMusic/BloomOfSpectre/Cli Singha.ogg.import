@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cli Singha.ogg-6f939f4790c4575baba9a9226d949a53.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/MainMusic/BloomOfSpectre/Cli Singha.ogg"
+dest_files=[ "res://.import/Cli Singha.ogg-6f939f4790c4575baba9a9226d949a53.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

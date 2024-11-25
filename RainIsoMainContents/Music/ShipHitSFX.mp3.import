@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ShipHitSFX.mp3-fb6cece85c04d17248c1df347376cf33.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/ShipHitSFX.mp3"
+dest_files=[ "res://.import/ShipHitSFX.mp3-fb6cece85c04d17248c1df347376cf33.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

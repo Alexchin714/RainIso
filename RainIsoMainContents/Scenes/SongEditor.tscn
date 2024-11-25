@@ -1,0 +1,175 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/TheFont.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/InstrumentButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/Grid.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Scenes/DragSelect.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.113725, 0.113725, 0.121569, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[node name="SongEditor" type="CanvasLayer"]
+
+[node name="DragSelect" type="Node2D" parent="."]
+position = Vector2( 688, 352 )
+script = ExtResource( 4 )
+
+[node name="UI" type="Node" parent="."]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI"]
+show_behind_parent = true
+margin_left = 432.0
+margin_right = 1280.0
+margin_bottom = 720.0
+follow_focus = true
+scroll_vertical_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/ScrollContainer"]
+show_behind_parent = true
+margin_right = 32940.0
+rect_min_size = Vector2( 32940, 0 )
+
+[node name="Control" type="Control" parent="UI/ScrollContainer/HBoxContainer"]
+
+[node name="Panel" type="Panel" parent="UI/ScrollContainer/HBoxContainer/Control"]
+show_behind_parent = true
+margin_left = 4.0
+margin_right = 32944.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 32940, 720 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="UI/ScrollContainer/HBoxContainer/Control"]
+modulate = Color( 1, 1, 1, 0.0627451 )
+margin_right = 32940.0
+margin_bottom = 720.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InstrumentPanel" type="Panel" parent="UI"]
+margin_right = 432.0
+margin_bottom = 720.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LayerButton" type="Node" parent="UI"]
+
+[node name="LayerButton01" type="Button" parent="UI/LayerButton"]
+margin_left = 1200.0
+margin_top = 32.0
+margin_right = 1256.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 2 )
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LayerButton02" type="Button" parent="UI/LayerButton"]
+margin_left = 1200.0
+margin_top = 104.0
+margin_right = 1256.0
+margin_bottom = 152.0
+custom_fonts/font = SubResource( 2 )
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LayerButton03" type="Button" parent="UI/LayerButton"]
+margin_left = 1200.0
+margin_top = 176.0
+margin_right = 1256.0
+margin_bottom = 224.0
+custom_fonts/font = SubResource( 2 )
+text = "3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LayerButton04" type="Button" parent="UI/LayerButton"]
+margin_left = 1200.0
+margin_top = 248.0
+margin_right = 1256.0
+margin_bottom = 296.0
+custom_fonts/font = SubResource( 2 )
+text = "4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LayerButton05" type="Button" parent="UI/LayerButton"]
+margin_left = 1200.0
+margin_top = 320.0
+margin_right = 1256.0
+margin_bottom = 368.0
+custom_fonts/font = SubResource( 2 )
+text = "5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LayerButton06" type="Button" parent="UI/LayerButton"]
+margin_left = 1200.0
+margin_top = 384.0
+margin_right = 1256.0
+margin_bottom = 432.0
+custom_fonts/font = SubResource( 2 )
+text = "6"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InstrumentsLayer" type="Node" parent="UI"]
+
+[node name="InstrumentButton6" parent="UI/InstrumentsLayer" instance=ExtResource( 2 )]
+margin_left = 96.0
+margin_top = 576.0
+margin_right = 408.0
+margin_bottom = 664.0
+
+[node name="InstrumentButton5" parent="UI/InstrumentsLayer" instance=ExtResource( 2 )]
+margin_left = 96.0
+margin_top = 464.0
+margin_right = 408.0
+margin_bottom = 552.0
+
+[node name="InstrumentButton4" parent="UI/InstrumentsLayer" instance=ExtResource( 2 )]
+margin_left = 96.0
+margin_top = 352.0
+margin_right = 408.0
+margin_bottom = 440.0
+
+[node name="InstrumentButton3" parent="UI/InstrumentsLayer" instance=ExtResource( 2 )]
+margin_left = 96.0
+margin_top = 240.0
+margin_right = 408.0
+margin_bottom = 328.0
+
+[node name="InstrumentButton2" parent="UI/InstrumentsLayer" instance=ExtResource( 2 )]
+margin_left = 96.0
+margin_top = 128.0
+margin_right = 408.0
+margin_bottom = 216.0
+
+[node name="InstrumentButton" parent="UI/InstrumentsLayer" instance=ExtResource( 2 )]
+margin_left = 96.0
+margin_top = 16.0
+margin_right = 408.0
+margin_bottom = 104.0

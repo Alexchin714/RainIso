@@ -1,0 +1,325 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/frgo_createIcon.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/Fonts/RainIsoFont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/White.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Scenes/CreateScreen.gd" type="Script" id=4]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 whiteColor : hint_color = vec4(0.961, 0.980, 0.937, 1.0);
+uniform vec4 lightGreyColor : hint_color = vec4(0.549, 0.749, 0.039, 1.0);
+uniform vec4 darkGreyColor : hint_color = vec4(0.18, 0.451, 0.125, 1.0);
+uniform vec4 blackColor : hint_color = vec4(0.0, 0.247, 0.0, 1.0);
+
+float min4(float a, float b, float c, float d){
+	return min(a, min(b, min(c, d)));
+}
+
+void fragment(){
+	vec4 currentColor = texture(SCREEN_TEXTURE, SCREEN_UV);
+	
+	float blackDistance = distance(currentColor, vec4(vec3(0.0), 1.0));
+	float whiteDistance = distance(currentColor, vec4(vec3(1.0), 1.0));
+	float lightGrayDistance = distance(currentColor, vec4(vec3(0.666, 0.666, 0.666), 1.0));
+	float darkGrayDistance = distance(currentColor, vec4(vec3(0.333, 0.333, 0.333), 1.0));
+	
+	if (
+		whiteDistance == min4(whiteDistance, lightGrayDistance, darkGrayDistance, blackDistance)
+	)
+	{
+		COLOR = whiteColor;
+	}
+	else if (
+		blackDistance == min4(whiteDistance, lightGrayDistance, darkGrayDistance, blackDistance)
+	)
+	{
+		COLOR = blackColor;
+	}
+	else if (
+		darkGrayDistance == min4(whiteDistance, lightGrayDistance, darkGrayDistance, blackDistance)
+	)
+	{
+		COLOR = darkGreyColor;
+	}
+	else if (
+		lightGrayDistance == min4(whiteDistance, lightGrayDistance, darkGrayDistance, blackDistance)
+	)
+	{
+		COLOR = lightGreyColor;
+	}
+	else{
+		COLOR = whiteColor;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/whiteColor = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+shader_param/lightGreyColor = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+shader_param/darkGreyColor = Color( 0.0627451, 0.0627451, 0.0627451, 1 )
+shader_param/blackColor = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+uniform float lod: hint_range(0.0, 5) = 0.0;
+
+void fragment(){
+	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV, lod);
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
+shader_param/lod = 0.0
+
+[sub_resource type="Animation" id=5]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorOverlay:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.170755, 1 ),
+"update": 0,
+"values": [ Vector2( 416, -128 ), Vector2( 384, 288 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Icon:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Label:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Icon:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CreateButton:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("PlayButton:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("MinigameButton:rect_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ColorOverlay:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.8 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("ColorOverlay/Blur:material:shader_param/lod")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 64
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="CreateScreen" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="ColorOverlay" type="TextureRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 16.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blur" type="ColorRect" parent="ColorOverlay"]
+show_behind_parent = true
+material = SubResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( 640, 352 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/createactivation = SubResource( 5 )
+
+[node name="CreateButton" type="Button" parent="."]
+margin_left = 384.0
+margin_top = 384.0
+margin_right = 832.0
+margin_bottom = 448.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 224, 32 )
+focus_neighbour_top = NodePath("../MinigameButton")
+focus_neighbour_bottom = NodePath("../PlayButton")
+custom_fonts/font = SubResource( 6 )
+disabled = true
+text = "Create"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="."]
+margin_left = 384.0
+margin_top = 448.0
+margin_right = 832.0
+margin_bottom = 512.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 224, 32 )
+focus_neighbour_top = NodePath("../CreateButton")
+focus_neighbour_bottom = NodePath("../MinigameButton")
+focus_mode = 0
+custom_fonts/font = SubResource( 6 )
+disabled = true
+enabled_focus_mode = 0
+text = "Play"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MinigameButton" type="Button" parent="."]
+margin_left = 384.0
+margin_top = 512.0
+margin_right = 832.0
+margin_bottom = 576.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 224, 32 )
+focus_neighbour_top = NodePath("../PlayButton")
+focus_neighbour_bottom = NodePath("../Button")
+focus_mode = 0
+custom_fonts/font = SubResource( 6 )
+disabled = true
+enabled_focus_mode = 0
+text = "Minigames"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="."]
+visible = false
+margin_left = 512.0
+margin_top = 64.0
+margin_right = 736.0
+margin_bottom = 288.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 128, 128 )
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = 416.0
+margin_top = -128.0
+margin_right = 892.0
+margin_bottom = -32.0
+custom_fonts/font = SubResource( 8 )
+text = "Custom Game"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="CreateButton" to="." method="_on_CreateButton_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="MinigameButton" to="." method="_on_MinigameButton_pressed"]

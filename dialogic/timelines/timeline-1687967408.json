@@ -1,0 +1,19 @@
+{
+	"events": [
+		{
+			"character": "character-1687965918.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "If one soul ought to burn, they will forever be cursed with the gateway to the devil swallowing them whole"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1687967408.json",
+		"name": "SermonThird"
+	}
+}

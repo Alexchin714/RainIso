@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SwitchSFX.mp3-9064d330f27ceeca517be514fd5e7b96.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/SwitchSFX.mp3"
+dest_files=[ "res://.import/SwitchSFX.mp3-9064d330f27ceeca517be514fd5e7b96.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,121 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://RainIsoMainContents/3dPlatformer/Textures/TableTexture.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/White.png" type="Texture" id=2]
+[ext_resource path="res://RainIsoMainContents/TNAP/TNAPDoor.gd" type="Script" id=3]
+
+[sub_resource type="SphereMesh" id=1]
+radius = 0.5
+height = 1.0
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.392157, 0.270588, 0.184314, 1 )
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="CylinderMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 1, 0.796078, 0, 0.309804 )
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "lampjustlitup"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main:material/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.972549, 0.862745, 0.309804 ), Color( 0.345098, 0.345098, 0.345098, 0.309804 ), Color( 1, 0.972549, 0.862745, 0.309804 ), Color( 0.345098, 0.345098, 0.345098, 0.309804 ), Color( 1, 0.972549, 0.862745, 0.309804 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "lampleaked"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main:material/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.796078, 0, 0.309804 ), Color( 0.717647, 0.717647, 0.717647, 0.309804 ), Color( 1, 0.796078, 0, 0.309804 ), Color( 0.45098, 0.45098, 0.45098, 0.309804 ), Color( 1, 0.796078, 0, 0.309804 ), Color( 0, 0, 0, 0.309804 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BaseMain:material/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.796078, 0, 0.309804 ), Color( 0.717647, 0.717647, 0.717647, 0.309804 ), Color( 1, 0.796078, 0, 0.309804 ), Color( 0.45098, 0.45098, 0.45098, 0.309804 ), Color( 1, 0.796078, 0, 0.309804 ), Color( 0, 0, 0, 0.309804 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main:material/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.796078, 0, 0.309804 ), Color( 0.360784, 0.360784, 0.360784, 0.309804 ), Color( 1, 0.796078, 0, 0.309804 ), Color( 0.360784, 0.360784, 0.360784, 0.309804 ), Color( 1, 0.796078, 0, 0.309804 ), Color( 0.360784, 0.360784, 0.360784, 0.309804 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main:material/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.796078, 0, 0.309804 ), Color( 0.345098, 0.345098, 0.345098, 0.309804 ), Color( 1, 0.796078, 0, 0.309804 ), Color( 0.345098, 0.345098, 0.345098, 0.309804 ), Color( 1, 0.796078, 0, 0.309804 ) ]
+}
+
+[node name="Lamp" type="Spatial"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="Base" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Main" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="BaseMain" type="MeshInstance" parent="."]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 1.2, 0 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.3, 0 )
+light_color = Color( 1, 0.513726, 0, 1 )
+light_energy = 0.25
+omni_range = 4.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/lampjustlitup = SubResource( 9 )
+anims/lampleaked = SubResource( 6 )
+anims/lampoff = SubResource( 7 )
+anims/lampon = SubResource( 8 )

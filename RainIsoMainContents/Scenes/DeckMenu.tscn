@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Shader/GodotLabelFont.tres" type="DynamicFont" id=1]
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 1 )
+Button/colors/font_color = Color( 1, 0, 0, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+
+[node name="DeckMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+visible = true
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 306.0
+margin_bottom = 169.0
+
+[node name="QuickMatchButton" type="Button" parent="PopupMenu"]
+margin_left = 27.0
+margin_top = 69.0
+margin_right = 116.0
+margin_bottom = 89.0
+theme = SubResource( 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Quick Match"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayWithFriendsButton" type="Button" parent="PopupMenu"]
+margin_left = 156.0
+margin_top = 68.0
+margin_right = 245.0
+margin_bottom = 89.0
+custom_fonts/font = ExtResource( 1 )
+text = "Play with Friends"

@@ -1,0 +1,207 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://RainIsoMainContents/MainMusic/The Tala's Subject.ogg" type="AudioStream" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/Grid.png" type="Texture" id=2]
+[ext_resource path="res://RainIsoMainContents/Scenes/BattleGradient.tres" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/TheFont.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/GlowPiece.png" type="Texture" id=5]
+[ext_resource path="res://RainIsoMainContents/Scenes/TheSongScreen.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 4
+glow_enabled = true
+glow_bloom = 0.07
+glow_blend_mode = 0
+
+[sub_resource type="Animation" id=3]
+resource_name = "activate"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:custom_colors/default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.984314, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:bbcode_text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "[shake] The Song [/shake]", "[wave] The Song [/wave]" ]
+}
+
+[node name="TheSongScreen" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="RichTextLabel" parent="."]
+margin_left = 503.0
+margin_top = 287.0
+margin_right = 759.0
+margin_bottom = 428.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "[shake] The Song [/shake]"
+text = " The Song "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.054902 )
+margin_left = 474.0
+margin_top = 223.0
+margin_right = 792.0
+margin_bottom = 479.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GradientContainer01" type="Node2D" parent="Grid"]
+
+[node name="Gradient01" type="TextureRect" parent="Grid/GradientContainer01"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 473.963
+margin_top = 213.583
+margin_right = 516.963
+margin_bottom = 427.583
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gradient02" type="TextureRect" parent="Grid/GradientContainer01"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 791.83
+margin_top = 219.619
+margin_right = 834.83
+margin_bottom = 433.619
+rect_scale = Vector2( -1, 1 )
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gradient03" type="TextureRect" parent="Grid/GradientContainer01"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 445.228
+margin_top = 296.083
+margin_right = 831.228
+margin_bottom = 421.083
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Gradient04" type="TextureRect" parent="Grid/GradientContainer01"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 444.628
+margin_top = 347.144
+margin_right = 830.628
+margin_bottom = 472.144
+rect_scale = Vector2( 1, -1 )
+texture = ExtResource( 5 )
+expand = true
+
+[node name="GradientContainer02" type="Node2D" parent="Grid"]
+
+[node name="Gradient01" type="TextureRect" parent="Grid/GradientContainer02"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 473.963
+margin_top = 213.583
+margin_right = 516.963
+margin_bottom = 427.583
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gradient02" type="TextureRect" parent="Grid/GradientContainer02"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 791.83
+margin_top = 219.619
+margin_right = 834.83
+margin_bottom = 433.619
+rect_scale = Vector2( -1, 1 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Gradient03" type="TextureRect" parent="Grid/GradientContainer02"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 445.228
+margin_top = 296.083
+margin_right = 831.228
+margin_bottom = 421.083
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Gradient04" type="TextureRect" parent="Grid/GradientContainer02"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 444.628
+margin_top = 347.144
+margin_right = 830.628
+margin_bottom = 472.144
+rect_scale = Vector2( 1, -1 )
+texture = ExtResource( 5 )
+expand = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+bus = "Music"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/activate = SubResource( 3 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 423.51
+margin_top = 219.243
+margin_right = 849.51
+margin_bottom = 432.243
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 40.0
+one_shot = true
+
+[node name="TimerTheSecond" type="Timer" parent="."]
+wait_time = 36.27
+one_shot = true
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="TimerTheSecond" to="." method="_on_TimerTheSecond_timeout"]

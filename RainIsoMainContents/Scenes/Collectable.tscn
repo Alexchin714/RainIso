@@ -1,0 +1,64 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Scenes/CollectableCollect.tscn" type="PackedScene" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/PancakesCollected8.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/PancakesCollected3.png" type="Texture" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/PancakesCollected2.png" type="Texture" id=5]
+[ext_resource path="res://RainIsoMainContents/Resources/PancakesCollected1.png" type="Texture" id=6]
+[ext_resource path="res://RainIsoMainContents/Resources/PancakesCollected6.png" type="Texture" id=7]
+[ext_resource path="res://RainIsoMainContents/Resources/PancakesCollected5.png" type="Texture" id=8]
+[ext_resource path="res://RainIsoMainContents/Resources/PancakesCollected7.png" type="Texture" id=9]
+[ext_resource path="res://RainIsoMainContents/Scenes/Collectable.gd" type="Script" id=10]
+[ext_resource path="res://RainIsoMainContents/Resources/PancakesCollected10.png" type="Texture" id=11]
+[ext_resource path="res://RainIsoMainContents/Resources/PancakesCollected9.png" type="Texture" id=12]
+[ext_resource path="res://RainIsoMainContents/Resources/PancakesCollectedExtra.png" type="Texture" id=14]
+[ext_resource path="res://RainIsoMainContents/Resources/BlankSpace.png" type="Texture" id=15]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/CarrotPancakes.png-eca16dd6f2f54f321bf3e9c5c028a27b.stex"
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 21.3333
+
+[sub_resource type="Animation" id=4]
+resource_name = "collected"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ SubResource( 1 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 15 ) ]
+}
+
+[node name="Collectable" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 10
+script = ExtResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.0267868, -0.383274 )
+texture = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Collider" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collider"]
+shape = SubResource( 3 )
+
+[node name="CollectableCollect" parent="." instance=ExtResource( 2 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/collected = SubResource( 4 )
+
+[connection signal="body_entered" from="Collider" to="." method="_on_Collider_body_entered"]

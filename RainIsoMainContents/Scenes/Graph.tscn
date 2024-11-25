@@ -1,0 +1,399 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/TheFont.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://RainIsoMainContents/CustomNodes/CustomNodeScripts/Universal.gd" type="Script" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/Circle.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Scenes/BasicUIPressed.tres" type="StyleBox" id=4]
+[ext_resource path="res://RainIsoMainContents/Scenes/BasicUIHover.tres" type="StyleBox" id=5]
+[ext_resource path="res://RainIsoMainContents/Scenes/BasicUINormal.tres" type="StyleBox" id=6]
+[ext_resource path="res://RainIsoMainContents/CustomNodes/CustomNodeScripts/Background.gd" type="Script" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 8.0
+
+[sub_resource type="DynamicFont" id=3]
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="Graph" type="GraphNode"]
+margin_right = 448.0
+margin_bottom = 256.0
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Base" type="Area2D" parent="."]
+position = Vector2( 448, 72 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Base"]
+position = Vector2( 0.145452, 0.145452 )
+scale = Vector2( 0.290909, 0.290909 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Base"]
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Base"]
+margin_left = -72.0
+margin_top = -8.0
+margin_right = -8.0
+margin_bottom = 11.0
+custom_fonts/font = SubResource( 3 )
+text = "Base"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Base"]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 13.0
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Modular" type="Area2D" parent="."]
+position = Vector2( 448, 104 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Modular"]
+position = Vector2( 0.145452, 0.145452 )
+scale = Vector2( 0.290909, 0.290909 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Modular"]
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Modular"]
+margin_left = -72.0
+margin_top = -8.0
+margin_right = -8.0
+margin_bottom = 11.0
+custom_fonts/font = SubResource( 3 )
+text = "Modular"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Modular"]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 13.0
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Target" type="Area2D" parent="."]
+position = Vector2( 448, 136 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Target"]
+position = Vector2( 0.145452, 0.145452 )
+scale = Vector2( 0.290909, 0.290909 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Target"]
+margin_left = -72.0
+margin_top = -8.0
+margin_right = -8.0
+margin_bottom = 11.0
+custom_fonts/font = SubResource( 3 )
+text = "Target"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Target"]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 13.0
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 432.0
+margin_bottom = 43.0
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = SubResource( 2 )
+text = "Standard Background"
+align = 1
+items = [ "Color (RGB)", null, false, 0, null, "Ad Area BG", null, false, 1, null, "Start Position", null, false, 2, null, "Standard Background", null, false, 3, null ]
+selected = 3
+
+[node name="ColorRBG" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 2 )
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="ColorRBG"]
+margin_left = 168.0
+margin_top = 88.0
+margin_right = 272.0
+margin_bottom = 176.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color" type="Label" parent="ColorRBG/ColorPickerButton"]
+margin_top = -24.0
+margin_right = 104.0
+custom_fonts/font = SubResource( 3 )
+text = "Color"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Type" type="LineEdit" parent="ColorRBG"]
+margin_left = 16.0
+margin_top = 216.0
+margin_right = 74.0
+margin_bottom = 241.0
+max_length = 2
+selecting_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Type" type="Label" parent="ColorRBG/Type"]
+margin_left = 64.0
+margin_right = 136.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 3 )
+text = "Type"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="Node2D" parent="ColorRBG"]
+position = Vector2( 16, 64 )
+script = ExtResource( 2 )
+
+[node name="BG" type="Button" parent="ColorRBG/Container"]
+margin_right = 56.0
+margin_bottom = 25.0
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = SubResource( 4 )
+toggle_mode = true
+text = "BG"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tile" type="Button" parent="ColorRBG/Container"]
+margin_left = 72.0
+margin_right = 128.0
+margin_bottom = 25.0
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = SubResource( 4 )
+toggle_mode = true
+text = "Tile"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fade" type="HSlider" parent="ColorRBG"]
+margin_left = 16.0
+margin_top = 112.0
+margin_right = 144.0
+margin_bottom = 144.0
+max_value = 4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fade" type="Label" parent="ColorRBG/Fade"]
+margin_top = -16.0
+margin_right = 72.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 3 )
+text = "Fade Time:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="num" type="Label" parent="ColorRBG/Fade"]
+margin_left = 80.0
+margin_top = -16.0
+margin_right = 96.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ease" type="HSlider" parent="ColorRBG"]
+margin_left = 16.0
+margin_top = 160.0
+margin_right = 144.0
+margin_bottom = 192.0
+max_value = 2.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ease" type="Label" parent="ColorRBG/Ease"]
+margin_top = -16.0
+margin_right = 72.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 3 )
+text = "Easing:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="num" type="Label" parent="ColorRBG/Ease"]
+margin_left = 80.0
+margin_top = -16.0
+margin_right = 96.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AdAreaBG" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 2 )
+
+[node name="Target" type="LineEdit" parent="AdAreaBG"]
+margin_left = 16.0
+margin_top = 56.0
+margin_right = 74.0
+margin_bottom = 81.0
+align = 1
+max_length = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Target" type="Label" parent="AdAreaBG/Target"]
+margin_left = 56.0
+margin_right = 128.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 3 )
+text = "Target"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartPosition" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 2 )
+
+[node name="Disable" type="CheckBox" parent="StartPosition"]
+margin_left = 16.0
+margin_top = 56.0
+margin_right = 40.0
+margin_bottom = 80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Type" type="Label" parent="StartPosition/Disable"]
+margin_left = 16.0
+margin_right = 88.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 3 )
+text = "Disable"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StandardBackground" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="OptionButton" type="OptionButton" parent="StandardBackground"]
+margin_left = 16.0
+margin_top = 56.0
+margin_right = 368.0
+margin_bottom = 81.0
+custom_fonts/font = SubResource( 5 )
+text = "Default"
+align = 1
+items = [ "Default", null, false, 0, null, "Melody", null, false, 1, null, "NR. City", null, false, 2, null, "PalmBayIsland", null, false, 3, null, "Volcanic", null, false, 4, null, "Jewel Melody", null, false, 5, null, "Cave", null, false, 6, null, "Farskys", null, false, 7, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="StandardBackground"]
+margin_left = 16.0
+margin_top = 96.0
+margin_right = 272.0
+margin_bottom = 232.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="StandardBackground/TextureRect"]
+self_modulate = Color( 1, 1, 1, 0.270588 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 7 )

@@ -1,0 +1,715 @@
+[gd_scene load_steps=106 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerNormal.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/Player.gd" type="Script" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerRun01.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerFall.png" type="Texture" id=4]
+[ext_resource path="res://RainIsoMainContents/Shader/Jump.tres" type="Animation" id=5]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerRun05.png" type="Texture" id=6]
+[ext_resource path="res://RainIsoMainContents/Music/frgo_Land.ogg" type="AudioStream" id=7]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerRun07.png" type="Texture" id=8]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerRun09.png" type="Texture" id=9]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerJump03.png" type="Texture" id=10]
+[ext_resource path="res://RainIsoMainContents/Music/DashSFX.wav" type="AudioStream" id=11]
+[ext_resource path="res://RainIsoMainContents/Music/JumpSFX.wav" type="AudioStream" id=12]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerRun06.png" type="Texture" id=13]
+[ext_resource path="res://RainIsoMainContents/Scenes/TransitionalCamera2D.gd" type="Script" id=14]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerJump01.png" type="Texture" id=15]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerJump02.png" type="Texture" id=16]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerRun03.png" type="Texture" id=17]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerWallJump04.png" type="Texture" id=18]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerCrouch02.png" type="Texture" id=19]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerRun02.png" type="Texture" id=20]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerRun04.png" type="Texture" id=21]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerRun08.png" type="Texture" id=22]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerIdle01.png" type="Texture" id=23]
+[ext_resource path="res://RainIsoMainContents/Resources/ActualGlow.png" type="Texture" id=24]
+[ext_resource path="res://RainIsoMainContents/Music/Splat.mp3" type="AudioStream" id=25]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerIdle02.png" type="Texture" id=26]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerCrouch01.png" type="Texture" id=27]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerDive03.png" type="Texture" id=28]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerDive04.png" type="Texture" id=29]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerDive02.png" type="Texture" id=30]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerDive07.png" type="Texture" id=31]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerDive01.png" type="Texture" id=32]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerDive06.png" type="Texture" id=33]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerWallJump03.png" type="Texture" id=34]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerWallJump02.png" type="Texture" id=35]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerDive05.png" type="Texture" id=36]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerWallJump01.png" type="Texture" id=37]
+[ext_resource path="res://RainIsoMainContents/Scenes/PlayerUI.tscn" type="PackedScene" id=39]
+[ext_resource path="res://RainIsoMainContents/Scenes/BackdropShadow.gd" type="Script" id=41]
+[ext_resource path="res://RainIsoMainContents/Scenes/OldGrainFilter.gd" type="Script" id=44]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerClimb.png" type="Texture" id=46]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerRoll06.png" type="Texture" id=51]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerRoll07.png" type="Texture" id=52]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerRoll03.png" type="Texture" id=53]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerRoll01.png" type="Texture" id=54]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerRoll02.png" type="Texture" id=55]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerRoll05.png" type="Texture" id=56]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerRoll04.png" type="Texture" id=57]
+[ext_resource path="res://RainIsoMainContents/Music/ShipHitSFX.mp3" type="AudioStream" id=58]
+[ext_resource path="res://RainIsoMainContents/Scenes/Checkpoints.tscn" type="PackedScene" id=59]
+[ext_resource path="res://RainIsoMainContents/Resources/Player/PlayerCrouch03.png" type="Texture" id=60]
+[ext_resource path="res://RainIsoMainContents/Scenes/Vignette.gd" type="Script" id=61]
+[ext_resource path="res://RainIsoMainContents/Scenes/PlayerUI.gd" type="Script" id=67]
+[ext_resource path="res://RainIsoMainContents/Resources/White.png" type="Texture" id=78]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4.26667, 8.53333 )
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+uniform sampler2D screen_texture : hint_screen_texture;
+uniform float grain_amount : hint_range(0.0, 1.0) = 0.05;
+uniform float grain_size : hint_range(0.1, 10.0) = 1.0;
+
+void fragment() {
+    vec4 original_color = texture(screen_texture, SCREEN_UV);
+
+    // Generate random noise
+    float noise = (fract(sin(dot(UV, vec2(12.9898, 78.233))) * 43758.5453) - 0.5) * 2.0;
+
+    original_color.rgb += noise * grain_amount * grain_size;
+
+    COLOR = clamp(original_color, 0.0, 1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/grain_amount = 0.05
+shader_param/grain_size = 6.034
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+uniform vec2 player_position;
+uniform vec4 color : hint_color = vec4(0.305, 0.298, 0.341,1);
+
+uniform float MULTIPLIER = 0.56;
+uniform float SCALE = 0.5;
+uniform float SOFTNESS = 0.45;
+
+void fragment(){
+	float val = distance(vec2(UV.x , UV.y * MULTIPLIER), vec2(player_position.x , player_position.y * MULTIPLIER));
+	val = val / SCALE;
+	float vignette = smoothstep(0.2, SOFTNESS, val);
+	COLOR = vec4(color.rgb , vignette );
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/player_position = Vector2( 0.5, 0.5 )
+shader_param/color = Color( 0, 0, 0, 1 )
+shader_param/MULTIPLIER = 1.333
+shader_param/SCALE = 1.894
+shader_param/SOFTNESS = 0.45
+
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+uniform vec4 whiteColor : hint_color = vec4(0.961, 0.980, 0.937, 1.0);
+uniform vec4 lightGreyColor : hint_color = vec4(0.549, 0.749, 0.039, 1.0);
+uniform vec4 darkGreyColor : hint_color = vec4(0.18, 0.451, 0.125, 1.0);
+uniform vec4 blackColor : hint_color = vec4(0.0, 0.247, 0.0, 1.0);
+
+float min4(float a, float b, float c, float d){
+	return min(a, min(b, min(c, d)));
+}
+
+void fragment(){
+	vec4 currentColor = texture(SCREEN_TEXTURE, SCREEN_UV);
+	
+	float blackDistance = distance(currentColor, vec4(vec3(0.0), 1.0));
+	float whiteDistance = distance(currentColor, vec4(vec3(1.0), 1.0));
+	float lightGrayDistance = distance(currentColor, vec4(vec3(0.666, 0.666, 0.666), 1.0));
+	float darkGrayDistance = distance(currentColor, vec4(vec3(0.333, 0.333, 0.333), 1.0));
+	
+	if (
+		whiteDistance == min4(whiteDistance, lightGrayDistance, darkGrayDistance, blackDistance)
+	)
+	{
+		COLOR = whiteColor;
+	}
+	else if (
+		blackDistance == min4(whiteDistance, lightGrayDistance, darkGrayDistance, blackDistance)
+	)
+	{
+		COLOR = blackColor;
+	}
+	else if (
+		darkGrayDistance == min4(whiteDistance, lightGrayDistance, darkGrayDistance, blackDistance)
+	)
+	{
+		COLOR = darkGreyColor;
+	}
+	else if (
+		lightGrayDistance == min4(whiteDistance, lightGrayDistance, darkGrayDistance, blackDistance)
+	)
+	{
+		COLOR = lightGreyColor;
+	}
+	else{
+		COLOR = whiteColor;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+shader_param/whiteColor = Color( 0.961, 0.98, 0.937, 1 )
+shader_param/lightGreyColor = Color( 1, 1, 1, 1 )
+shader_param/darkGreyColor = Color( 0.203922, 0, 0, 1 )
+shader_param/blackColor = Color( 0.145098, 0, 0, 1 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "Crouch"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 23 ), ExtResource( 27 ), ExtResource( 19 ), ExtResource( 60 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "CrouchLeft"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 23 ), ExtResource( 27 ), ExtResource( 19 ), ExtResource( 60 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.5
+
+[sub_resource type="Animation" id=11]
+resource_name = "DeadLeft"
+length = 0.5
+
+[sub_resource type="Animation" id=12]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 32 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 36 ), ExtResource( 33 ), ExtResource( 31 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "DiveLeft"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 32 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 36 ), ExtResource( 33 ), ExtResource( 31 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "FallLeft"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ), ExtResource( 23 ), ExtResource( 26 ), ExtResource( 23 ), ExtResource( 1 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "IdleLeft"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ), ExtResource( 23 ), ExtResource( 26 ), ExtResource( 23 ), ExtResource( 1 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "JumpLeft"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 10 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 53 ), ExtResource( 57 ), ExtResource( 56 ), ExtResource( 51 ), ExtResource( 52 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "RollLeft"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 53 ), ExtResource( 57 ), ExtResource( 56 ), ExtResource( 51 ), ExtResource( 52 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 20 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 6 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 22 ), ExtResource( 9 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "RunLeft"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 20 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 6 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 22 ), ExtResource( 9 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 46 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "WallClimbLeft"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 46 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 37 ), ExtResource( 35 ), ExtResource( 34 ), ExtResource( 18 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "WallJumpLeft"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 37 ), ExtResource( 35 ), ExtResource( 34 ), ExtResource( 18 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "Dead"
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "Fall"
+
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "Jump"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "Run"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "WallClimb"
+
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "WallJump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=42]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=43]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=44]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=45]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=46]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=47]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=48]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=49]
+
+[sub_resource type="AnimationNodeStateMachine" id=50]
+states/Dead/node = SubResource( 27 )
+states/Dead/position = Vector2( 245, 192 )
+states/Fall/node = SubResource( 28 )
+states/Fall/position = Vector2( 437, 192 )
+states/Idle/node = SubResource( 29 )
+states/Idle/position = Vector2( 245, 86 )
+states/Jump/node = SubResource( 30 )
+states/Jump/position = Vector2( 437, -32.768 )
+states/Run/node = SubResource( 31 )
+states/Run/position = Vector2( 437, 86 )
+states/WallClimb/node = SubResource( 32 )
+states/WallClimb/position = Vector2( 862, 86 )
+states/WallJump/node = SubResource( 33 )
+states/WallJump/position = Vector2( 643, 86 )
+transitions = [ "Idle", "Dead", SubResource( 34 ), "Dead", "Idle", SubResource( 35 ), "Idle", "Run", SubResource( 36 ), "Run", "Idle", SubResource( 37 ), "Run", "Jump", SubResource( 38 ), "Jump", "Run", SubResource( 39 ), "Run", "Fall", SubResource( 40 ), "Fall", "Run", SubResource( 41 ), "Run", "WallJump", SubResource( 42 ), "WallJump", "Run", SubResource( 43 ), "Jump", "WallJump", SubResource( 44 ), "WallJump", "Jump", SubResource( 45 ), "Fall", "WallJump", SubResource( 46 ), "WallJump", "Fall", SubResource( 47 ), "WallJump", "WallClimb", SubResource( 48 ), "WallClimb", "WallJump", SubResource( 49 ) ]
+start_node = "Idle"
+graph_offset = Vector2( -86, -64.768 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=51]
+
+[node name="Player" type="KinematicBody2D" groups=[
+"climbable",
+"player",
+]]
+scale = Vector2( 3.75, 3.75 )
+collision_layer = 130
+script = ExtResource( 2 )
+
+[node name="Main" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Main"]
+position = Vector2( 0.281982, 0.281974 )
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 14, 20 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="Shadow" type="Sprite" parent="Main/Sprite"]
+modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+position = Vector2( -0.281981, 1.85136 )
+scale = Vector2( 0.474074, 0.77037 )
+texture = ExtResource( 24 )
+region_rect = Rect2( 0, 0, 14, 20 )
+script = ExtResource( 41 )
+
+[node name="layerShadow" type="Sprite" parent="Main/Sprite/Shadow"]
+modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+position = Vector2( -2.14577e-06, 9.53674e-07 )
+scale = Vector2( 0.875, 0.846154 )
+texture = ExtResource( 24 )
+region_rect = Rect2( 0, 0, 14, 20 )
+
+[node name="WallChecker" type="RayCast2D" parent="Main"]
+position = Vector2( 1.90735e-06, 4.26667 )
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 0, -10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -3.72529e-09, 2.13333 )
+z_index = 1
+shape = SubResource( 1 )
+
+[node name="CameraAnchor" type="Position2D" parent="." groups=[
+"mirror_y_axis",
+]]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Camera2D" type="Camera2D" parent="CameraAnchor"]
+current = true
+smoothing_enabled = true
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+script = ExtResource( 14 )
+target = NodePath("../..")
+
+[node name="PositionTween" type="Tween" parent="CameraAnchor/Camera2D"]
+
+[node name="DustPosition" type="Position2D" parent="."]
+position = Vector2( 4.26667, 10.6667 )
+
+[node name="Checkpoints" parent="." instance=ExtResource( 59 )]
+visible = false
+
+[node name="Sprite" parent="Checkpoints" index="0"]
+self_modulate = Color( 1, 1, 1, 0 )
+
+[node name="CollisionShape2D" parent="Checkpoints" index="1"]
+visible = false
+disabled = true
+
+[node name="PlayerUI" parent="." instance=ExtResource( 39 )]
+script = ExtResource( 67 )
+
+[node name="OldGrainFilter" type="ColorRect" parent="PlayerUI"]
+modulate = Color( 1, 1, 1, 0.529412 )
+self_modulate = Color( 1, 1, 1, 0.141176 )
+material = SubResource( 3 )
+margin_right = 1280.0
+margin_bottom = 736.0
+mouse_filter = 2
+script = ExtResource( 44 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Vignette" type="Sprite" parent="PlayerUI"]
+modulate = Color( 1, 1, 1, 0.682353 )
+material = SubResource( 5 )
+position = Vector2( 640, 368 )
+scale = Vector2( 80, 46 )
+texture = ExtResource( 78 )
+script = ExtResource( 61 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FilterColor" type="ColorRect" parent="PlayerUI"]
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 7 )
+margin_right = 1280.0
+margin_bottom = 736.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="DashAudio" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 11 )
+volume_db = 16.0
+pitch_scale = 1.98
+bus = "SFX"
+
+[node name="JumpAudio" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 12 )
+volume_db = 8.0
+pitch_scale = 0.86
+mix_target = 1
+bus = "SFX"
+
+[node name="SplatAudio" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 25 )
+volume_db = -16.0
+pitch_scale = 1.32
+bus = "SFX"
+
+[node name="HitAudio" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 58 )
+bus = "Music"
+
+[node name="RollAudio" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 12 )
+pitch_scale = 1.47
+bus = "SFX"
+
+[node name="LandAudio" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 7 )
+volume_db = -3.88
+pitch_scale = 0.87
+bus = "SFX"
+
+[node name="TrailTimer" type="Timer" parent="."]
+wait_time = 0.08
+
+[node name="DiveTimer" type="Timer" parent="."]
+wait_time = 0.23
+one_shot = true
+
+[node name="DealtTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="StaminaTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Crouch = SubResource( 8 )
+anims/CrouchLeft = SubResource( 9 )
+anims/Dead = SubResource( 10 )
+anims/DeadLeft = SubResource( 11 )
+anims/Dive = SubResource( 12 )
+anims/DiveLeft = SubResource( 13 )
+anims/Fall = SubResource( 14 )
+anims/FallLeft = SubResource( 15 )
+anims/Idle = SubResource( 16 )
+anims/IdleLeft = SubResource( 17 )
+anims/Jump = ExtResource( 5 )
+anims/JumpLeft = SubResource( 18 )
+anims/Roll = SubResource( 19 )
+anims/RollLeft = SubResource( 20 )
+anims/Run = SubResource( 21 )
+anims/RunLeft = SubResource( 22 )
+anims/WallClimb = SubResource( 23 )
+anims/WallClimbLeft = SubResource( 24 )
+anims/WallJump = SubResource( 25 )
+anims/WallJumpLeft = SubResource( 26 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 50 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 51 )
+
+[node name="CheckpointTween" type="Tween" parent="."]
+
+[connection signal="timeout" from="TrailTimer" to="." method="_on_TrailTimer_timeout"]
+[connection signal="timeout" from="DiveTimer" to="." method="_on_DiveTimer_timeout"]
+[connection signal="timeout" from="DealtTimer" to="." method="_on_DealtTimer_timeout"]
+[connection signal="timeout" from="StaminaTimer" to="." method="_on_StaminaTimer_timeout"]
+
+[editable path="Checkpoints"]

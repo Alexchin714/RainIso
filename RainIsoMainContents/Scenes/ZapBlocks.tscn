@@ -1,0 +1,179 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/NeoRushZapBlocks.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/Portal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/ZapArrows.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Scenes/ZapBlocks.gd" type="Script" id=4]
+[ext_resource path="res://RainIsoMainContents/Scenes/PortalII.tscn" type="PackedScene" id=5]
+[ext_resource path="res://RainIsoMainContents/Resources/ArrowsModulate.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 32 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "ArrowsDown"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Arrows/ArrowsModulate:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.733333, 1, 0, 0 ), Color( 0.733333, 1, 0, 1 ), Color( 0.733333, 1, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "ArrowsLeft"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ArrowsFlip/ArrowsModulate:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.733333, 1, 0, 0 ), Color( 0.733333, 1, 0, 1 ), Color( 0.733333, 1, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Arrows/ArrowsModulate:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0.733333, 1, 0, 1 ), Color( 0.733333, 1, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "ArrowsUp"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ArrowsRotate/ArrowsModulate:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.733333, 1, 0, 0 ), Color( 0.733333, 1, 0, 1 ), Color( 0.733333, 1, 0, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 32, 32 )
+
+[node name="ZapBlocks" type="StaticBody2D"]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Portal" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -64, 0 )
+scale = Vector2( 1, 2.708 )
+
+[node name="Portal2" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 64, 0 )
+scale = Vector2( 1, 2.708 )
+
+[node name="Portal3" parent="." instance=ExtResource( 5 )]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, 32 )
+rotation = -3.14159
+scale = Vector2( 8.668, 1 )
+collision_layer = 0
+collision_mask = 10
+
+[node name="Portal4" parent="." instance=ExtResource( 5 )]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, -32 )
+scale = Vector2( 8.668, 1 )
+collision_layer = 0
+collision_mask = 10
+
+[node name="Arrows" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="ArrowsModulate" type="Sprite" parent="Arrows"]
+modulate = Color( 0.733333, 1, 0, 0 )
+position = Vector2( 2.38419e-07, -2.38419e-07 )
+texture = ExtResource( 6 )
+
+[node name="ArrowsFlip" type="Sprite" parent="."]
+visible = false
+scale = Vector2( -3, 3 )
+texture = ExtResource( 3 )
+
+[node name="ArrowsModulate" type="Sprite" parent="ArrowsFlip"]
+modulate = Color( 0.733333, 1, 0, 1 )
+position = Vector2( 2.38419e-07, 0 )
+texture = ExtResource( 6 )
+
+[node name="ArrowsRotate" type="Sprite" parent="."]
+visible = false
+rotation = -1.5708
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+
+[node name="ArrowsModulate" type="Sprite" parent="ArrowsRotate"]
+modulate = Color( 0.733333, 1, 0, 0 )
+position = Vector2( 0, -4.76837e-07 )
+texture = ExtResource( 6 )
+
+[node name="ArrowsRotateFlip" type="Sprite" parent="."]
+visible = false
+rotation = -4.71239
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+
+[node name="ArrowsModulate" type="Sprite" parent="ArrowsRotateFlip"]
+modulate = Color( 0.733333, 1, 0, 1 )
+position = Vector2( 0, -2.38419e-07 )
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ArrowsDown = SubResource( 2 )
+anims/ArrowsLeft = SubResource( 3 )
+anims/ArrowsRight = SubResource( 4 )
+anims/ArrowsUp = SubResource( 5 )
+
+[node name="Jump1" type="Area2D" parent="."]
+position = Vector2( 32, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jump1"]
+shape = SubResource( 6 )
+
+[node name="Jump2" type="Area2D" parent="."]
+position = Vector2( -32, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jump2"]
+shape = SubResource( 6 )
+
+[connection signal="body_entered" from="Portal" to="." method="_on_Portal_body_entered"]
+[connection signal="body_entered" from="Portal2" to="." method="_on_Portal2_body_entered"]
+[connection signal="body_entered" from="Portal3" to="." method="_on_Portal3_body_entered"]
+[connection signal="body_entered" from="Portal4" to="." method="_on_Portal4_body_entered"]
+[connection signal="body_entered" from="Jump1" to="." method="_on_Jump1_body_entered"]
+[connection signal="body_entered" from="Jump2" to="." method="_on_Jump2_body_entered"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/GlowPiece2.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/Lamps.png" type="Texture" id=2]
+
+[node name="MusicalLamp" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -11.8394, -77.768 )
+scale = Vector2( 0.505512, 0.513876 )
+texture = ExtResource( 1 )
+texture_scale = 3.0
+color = Color( 1, 0.996078, 0.835294, 1 )
+energy = 0.5

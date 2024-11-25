@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Bloomshadow.ogg-4176ea6a24506f6fa1fb4afb3acfb59b.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/MainMusic/BloomOfSpectre/Bloomshadow.ogg"
+dest_files=[ "res://.import/Bloomshadow.ogg-4176ea6a24506f6fa1fb4afb3acfb59b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

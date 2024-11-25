@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/RainIsoSettingsSFX09.ogg-4e5d8e6cedb8c3b0b547b4159f77622b.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/RainIsoSettingsSFX09.ogg"
+dest_files=[ "res://.import/RainIsoSettingsSFX09.ogg-4e5d8e6cedb8c3b0b547b4159f77622b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

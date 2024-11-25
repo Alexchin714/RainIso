@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SpringSFX.wav-34ec5bfcb0d7e7e6a10db2ce959e8c53.sample"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/SpringSFX.wav"
+dest_files=[ "res://.import/SpringSFX.wav-34ec5bfcb0d7e7e6a10db2ce959e8c53.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=true
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

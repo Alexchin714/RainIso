@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Truck.obj-0860d3ac3b452807de4ec4588bf22240.mesh"
+
+[deps]
+
+files=[ "res://.import/Truck.obj-0860d3ac3b452807de4ec4588bf22240.mesh" ]
+
+source_file="res://RainIsoMainContents/Resources/Truck.obj"
+dest_files=[ "res://.import/Truck.obj-0860d3ac3b452807de4ec4588bf22240.mesh", "res://.import/Truck.obj-0860d3ac3b452807de4ec4588bf22240.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

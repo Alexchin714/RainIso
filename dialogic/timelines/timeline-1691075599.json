@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1691073495.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "heeeelllllllloooooo..............\nya got games on phone?\noh you don't have phone..\nthat real shame."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691075599.json",
+		"name": "Raseh"
+	}
+}

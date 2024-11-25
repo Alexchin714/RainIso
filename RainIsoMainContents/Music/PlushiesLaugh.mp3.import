@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PlushiesLaugh.mp3-ddf48bbb616e7a29922cc6e32590d93a.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/PlushiesLaugh.mp3"
+dest_files=[ "res://.import/PlushiesLaugh.mp3-ddf48bbb616e7a29922cc6e32590d93a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,320 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/LoadingScreen.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/RainIsoSunBase.png" type="Texture" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/RainIsoSunRays.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Scenes/Settings.tscn" type="PackedScene" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/MonochromaticLoadingScreen.png" type="Texture" id=5]
+[ext_resource path="res://RainIsoMainContents/Scenes/LoadingScreen.gd" type="Script" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "load"
+length = 3.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sun/Ray01:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.4375, 0.4375 ), Vector2( 0.2, 0.52 ), Vector2( 0.4375, 0.4375 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sun/Ray02:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.4375, 0.4375 ), Vector2( 0.4375, 0.4375 ), Vector2( 0.2, 0.52 ), Vector2( 0.4375, 0.4375 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sun/Ray03:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.4375, 0.4375 ), Vector2( 0.4375, 0.4375 ), Vector2( 0.2, 0.52 ), Vector2( 0.4375, 0.4375 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sun/Ray04:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.2, 1.4, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.4375, 0.4375 ), Vector2( 0.4375, 0.4375 ), Vector2( 0.2, 0.52 ), Vector2( 0.4375, 0.4375 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sun/Ray05:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.6, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.4375, 0.4375 ), Vector2( 0.4375, 0.4375 ), Vector2( 0.2, 0.52 ), Vector2( 0.4375, 0.4375 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sun/Ray06:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2, 2.2, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.4375, 0.4375 ), Vector2( 0.4375, 0.4375 ), Vector2( 0.2, 0.52 ), Vector2( 0.4375, 0.4375 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Sun/Ray07:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 2.4, 2.6, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.4375, 0.4375 ), Vector2( 0.4375, 0.4375 ), Vector2( 0.2, 0.52 ), Vector2( 0.4375, 0.4375 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sun/Ray08:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2.8, 3, 3.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.4375, 0.4375 ), Vector2( 0.4375, 0.4375 ), Vector2( 0.2, 0.52 ), Vector2( 0.4375, 0.4375 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Sun/Ray01:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.470588 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.470588 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Sun/Ray02:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.470588 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.470588 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Sun/Ray03:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.8, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.470588 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.470588 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Sun/Ray04:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 1.2, 1.4, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.470588 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.470588 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Sun/Ray05:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 1.6, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.470588 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.470588 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Sun/Ray06:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 2, 2.2, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.470588 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.470588 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Sun/Ray07:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 2.4, 2.6, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.470588 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.470588 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Sun/Ray08:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 2.8, 3, 3.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.470588 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.470588 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Sun/SunContainer:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 1.6, 3.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[node name="LoadingScreen" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundLayer" type="TextureRect" parent="."]
+visible = false
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sun" type="Node2D" parent="."]
+position = Vector2( 1200, 624 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="SunContainer" type="Node2D" parent="Sun"]
+position = Vector2( -6.66675, 6.6665 )
+scale = Vector2( 0.940368, 0.940368 )
+
+[node name="Sun" type="Sprite" parent="Sun/SunContainer"]
+position = Vector2( -3.33334, 3.33358 )
+scale = Vector2( 0.976563, 0.975406 )
+texture = ExtResource( 2 )
+
+[node name="Ray01" type="Sprite" parent="Sun"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( -8.00003, -200 )
+scale = Vector2( 0.4375, 0.4375 )
+texture = ExtResource( 3 )
+
+[node name="Ray02" type="Sprite" parent="Sun"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 136, -136 )
+rotation = 0.785398
+scale = Vector2( 0.4375, 0.4375 )
+texture = ExtResource( 3 )
+
+[node name="Ray03" type="Sprite" parent="Sun"]
+modulate = Color( 1, 1, 1, 0.878523 )
+position = Vector2( 200, 8.00002 )
+rotation = 1.5708
+scale = Vector2( 0.254496, 0.50107 )
+texture = ExtResource( 3 )
+
+[node name="Ray04" type="Sprite" parent="Sun"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 136, 152 )
+rotation = 2.35619
+scale = Vector2( 0.4375, 0.4375 )
+texture = ExtResource( 3 )
+
+[node name="Ray05" type="Sprite" parent="Sun"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( -8.00003, 216 )
+rotation = 3.14159
+scale = Vector2( 0.4375, 0.4375 )
+texture = ExtResource( 3 )
+
+[node name="Ray06" type="Sprite" parent="Sun"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( -152, 152 )
+rotation = 3.92699
+scale = Vector2( 0.4375, 0.4375 )
+texture = ExtResource( 3 )
+
+[node name="Ray07" type="Sprite" parent="Sun"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( -216, 8.00002 )
+rotation = 4.71239
+scale = Vector2( 0.4375, 0.4375 )
+texture = ExtResource( 3 )
+
+[node name="Ray08" type="Sprite" parent="Sun"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( -152, -136 )
+rotation = 5.49779
+scale = Vector2( 0.4375, 0.4375 )
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "load"
+anims/load = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+autostart = true
+
+[node name="Settings" parent="." instance=ExtResource( 4 )]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

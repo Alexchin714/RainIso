@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/LampLeakSFX.mp3-35873d6cf05fd348ce492cdbc702bdf2.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/LampLeakSFX.mp3"
+dest_files=[ "res://.import/LampLeakSFX.mp3-35873d6cf05fd348ce492cdbc702bdf2.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

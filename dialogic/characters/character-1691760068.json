@@ -1,0 +1,20 @@
+{
+	"color": "#ff3363e3",
+	"description": "He's gay",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1691760068.json",
+	"mirror_portraits": false,
+	"name": "Willow",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}

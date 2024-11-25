@@ -1,0 +1,130 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Shader/Pancakes.tres" type="Material" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/Pancakes.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://RainIsoMainContents/Scenes/TriplePancakes.gd" type="Script" id=3]
+[ext_resource path="res://RainIsoMainContents/Shader/Collected.tres" type="Animation" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/SuperMario256.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.619608, 0.498039, 0.729412, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 1, 0.882353, 0.611765, 1 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.2, 0.2, 0.2 )
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+
+const float PI = 3.1415926535;
+
+uniform float strength: hint_range(0., 1.) = 0.5;
+uniform float speed: hint_range(0., 10.) = 0.5;
+uniform float angle: hint_range(0., 360.) = 0.;
+
+void fragment() {
+	float hue = UV.x * cos(radians(angle)) - UV.y * sin(radians(angle));
+	hue = fract(hue + fract(TIME  * speed));
+	float x = 1. - abs(mod(hue / (1./ 6.), 2.) - 1.);
+	vec3 rainbow;
+	if(hue < 1./6.){
+		rainbow = vec3(1., x, 0.);
+	} else if (hue < 1./3.) {
+		rainbow = vec3(x, 1., 0);
+	} else if (hue < 0.5) {
+		rainbow = vec3(0, 1., x);
+	} else if (hue < 2./3.) {
+		rainbow = vec3(0., x, 1.);
+	} else if (hue < 5./6.) {
+		rainbow = vec3(x, 0., 1.);
+	} else {
+		rainbow = vec3(1., 0., x);
+	}
+	vec4 color = texture(TEXTURE, UV);
+	COLOR = mix(color, vec4(rainbow, color.a), strength);
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/strength = 0.5
+shader_param/speed = 0.5
+shader_param/angle = 0.0
+
+[sub_resource type="DynamicFont" id=6]
+size = 64
+use_filter = true
+font_data = ExtResource( 5 )
+
+[node name="Pancakes" type="Spatial"]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 6.5, 0 )
+script = ExtResource( 3 )
+
+[node name="Pancakes" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, -1.06666, 0.4 )
+mesh = ExtResource( 2 )
+material/0 = SubResource( 1 )
+material/1 = ExtResource( 1 )
+material/2 = ExtResource( 1 )
+material/3 = ExtResource( 1 )
+material/4 = SubResource( 2 )
+
+[node name="Pancakes2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.899997, 0.4 )
+mesh = ExtResource( 2 )
+material/0 = SubResource( 1 )
+material/1 = ExtResource( 1 )
+material/2 = ExtResource( 1 )
+material/3 = ExtResource( 1 )
+material/4 = SubResource( 2 )
+
+[node name="Pancakes3" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.633333, -1.26666, -0.933334 )
+mesh = ExtResource( 2 )
+material/0 = SubResource( 1 )
+material/1 = ExtResource( 1 )
+material/2 = ExtResource( 1 )
+material/3 = ExtResource( 1 )
+material/4 = SubResource( 2 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 0.333333, 0, 0, 0, 0.333333, 0, 0, 0, 0.333333, -0.9, 0.633333, -3.17891e-07 )
+shadow_enabled = true
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -1.6, -1.1, 0.5 )
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Collected = ExtResource( 4 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Control"]
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 5 )
+margin_top = 768.0
+margin_right = 1280.0
+margin_bottom = 896.001
+custom_fonts/font = SubResource( 6 )
+text = "Pancake Collected"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Vintaje.ogg-0dd62d57d3aa8aca1652c0a247a33c60.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/Vintaje.ogg"
+dest_files=[ "res://.import/Vintaje.ogg-0dd62d57d3aa8aca1652c0a247a33c60.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

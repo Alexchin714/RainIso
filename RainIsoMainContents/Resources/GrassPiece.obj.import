@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/GrassPiece.obj-895dac45c3374f0436e8a43e373ac121.mesh"
+
+[deps]
+
+files=[ "res://.import/GrassPiece.obj-895dac45c3374f0436e8a43e373ac121.mesh" ]
+
+source_file="res://RainIsoMainContents/Resources/GrassPiece.obj"
+dest_files=[ "res://.import/GrassPiece.obj-895dac45c3374f0436e8a43e373ac121.mesh", "res://.import/GrassPiece.obj-895dac45c3374f0436e8a43e373ac121.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

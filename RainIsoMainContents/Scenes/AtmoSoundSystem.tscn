@@ -1,0 +1,248 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/Instruments/AtmoSoundBackground.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/Moderne Sans Font.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/BlankSpace.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/Instruments/BackButtonRigSystem02.png" type="Texture" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/Instruments/BackButtonRigSystem03.png" type="Texture" id=5]
+[ext_resource path="res://RainIsoMainContents/Scenes/SongSystems.gd" type="Script" id=6]
+[ext_resource path="res://RainIsoMainContents/Resources/Instruments/BackButtonRigSystem01.png" type="Texture" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.992157, 1, 1, 1 )
+shadow_color = Color( 0, 0, 0, 0.215686 )
+shadow_size = 20
+shadow_offset = Vector2( 10, 10 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.956863, 0.984314, 0.984314, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
+PopupMenu/colors/font_color = Color( 0.2, 0.219608, 0.227451, 1 )
+PopupMenu/colors/font_color_accel = Color( 0.2, 0.219608, 0.227451, 1 )
+PopupMenu/colors/font_color_disabled = Color( 0.2, 0.219608, 0.227451, 1 )
+PopupMenu/colors/font_color_hover = Color( 0.2, 0.219608, 0.227451, 1 )
+PopupMenu/colors/font_color_separator = Color( 0.878431, 0.878431, 0.878431, 1 )
+PopupMenu/constants/hseparation = 4
+PopupMenu/constants/vseparation = 4
+PopupMenu/fonts/font = null
+PopupMenu/icons/checked = ExtResource( 3 )
+PopupMenu/icons/radio_checked = ExtResource( 3 )
+PopupMenu/icons/radio_unchecked = ExtResource( 3 )
+PopupMenu/icons/submenu = ExtResource( 3 )
+PopupMenu/icons/unchecked = ExtResource( 3 )
+PopupMenu/styles/hover = SubResource( 3 )
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = SubResource( 4 )
+PopupMenu/styles/panel_disabled = null
+PopupMenu/styles/separator = null
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.94902, 0.972549, 0.984314, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.929412, 0.956863, 0.976471, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 32
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 32
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.933333, 0.968627, 0.968627, 1 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.964706, 0.984314, 0.988235, 1 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 32
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=16]
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel/Background:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -11.7, 347.8 ]
+}
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 480, 270 )
+
+[sub_resource type="StyleBoxTexture" id=18]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 72, 72 )
+
+[sub_resource type="StyleBoxTexture" id=19]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 72, 72 )
+
+[sub_resource type="StyleBoxTexture" id=20]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 72, 72 )
+
+[node name="AtmoSound" type="Node2D"]
+position = Vector2( 640, 360 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = -480.0
+margin_top = -270.0
+margin_right = 480.0
+margin_bottom = 270.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="Panel"]
+margin_left = 80.0
+margin_top = 45.0
+margin_right = 880.0
+margin_bottom = 495.0
+rect_rotation = -11.7
+rect_pivot_offset = Vector2( 400, 225 )
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = -240.0
+margin_top = -225.0
+margin_right = 240.0
+margin_bottom = -135.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.2, 0.219608, 0.227451, 1 )
+text = "AtmoSound"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AtmoOptions" type="OptionButton" parent="."]
+margin_left = -400.0
+margin_top = -90.0
+margin_right = -222.0
+margin_bottom = -45.0
+focus_mode = 0
+theme = SubResource( 6 )
+custom_icons/arrow = ExtResource( 3 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.2, 0.219608, 0.227451, 1 )
+custom_colors/font_color_hover = Color( 0.2, 0.219608, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.2, 0.219608, 0.227451, 1 )
+enabled_focus_mode = 0
+text = "Ambient I"
+align = 1
+items = [ "Ambient I", null, false, 0, null, "Ambient II", null, false, 1, null, "Ambient III", null, false, 2, null, "Calm", null, false, 3, null, "Chill", null, false, 4, null, "Ocean", null, false, 5, null, "Dark", null, false, 6, null, "Crystalized", null, false, 7, null, "Phase", null, false, 8, null, "Connect", null, false, 9, null, "Long A", null, false, 10, null, "Long B", null, false, 11, null, "Rain", null, false, 12, null, "Sine", null, false, 13, null, "Dream", null, false, 14, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="AtmoOptions"]
+margin_top = -45.0
+margin_right = 160.0
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 0.2, 0.219608, 0.227451, 1 )
+custom_colors/font_outline_modulate = Color( 0.2, 0.219608, 0.227451, 1 )
+custom_colors/font_color_shadow = Color( 0.2, 0.219608, 0.227451, 1 )
+text = "Pads"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TestButton" type="Button" parent="."]
+margin_left = 240.0
+margin_top = -90.0
+margin_right = 400.0
+margin_bottom = -45.0
+focus_mode = 0
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
+custom_fonts/font = SubResource( 15 )
+custom_colors/font_color_disabled = Color( 0.2, 0.219608, 0.227451, 1 )
+custom_colors/font_color = Color( 0.2, 0.219608, 0.227451, 1 )
+custom_colors/font_color_hover = Color( 0.2, 0.219608, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.2, 0.219608, 0.227451, 1 )
+enabled_focus_mode = 0
+text = "Test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "loop"
+playback_speed = 0.1
+anims/loop = SubResource( 16 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 17 )
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = -464.0
+margin_top = -256.0
+margin_right = -432.0
+margin_bottom = -224.0
+focus_mode = 0
+custom_styles/hover = SubResource( 18 )
+custom_styles/pressed = SubResource( 19 )
+custom_styles/normal = SubResource( 20 )
+enabled_focus_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

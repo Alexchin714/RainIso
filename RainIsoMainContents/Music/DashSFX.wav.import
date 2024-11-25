@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/DashSFX.wav-05ff7d7abd1168c790bbb118b9184e78.sample"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/DashSFX.wav"
+dest_files=[ "res://.import/DashSFX.wav-05ff7d7abd1168c790bbb118b9184e78.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

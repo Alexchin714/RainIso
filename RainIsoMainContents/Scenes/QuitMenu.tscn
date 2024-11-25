@@ -1,0 +1,236 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/Fonts/RainIsoFont.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/QuitMenu.gd" type="Script" id=2]
+[ext_resource path="res://RainIsoMainContents/Music/SettingsChosenSFX.mp3" type="AudioStream" id=4]
+[ext_resource path="res://RainIsoMainContents/Scenes/MenuTemplate.tres" type="StyleBox" id=6]
+[ext_resource path="res://RainIsoMainContents/Resources/QuitMenuDesign.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=4]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("PanelControl/Panel:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 5.0
+
+[sub_resource type="Animation" id=6]
+tracks/0/type = "value"
+tracks/0/path = NodePath("PanelControl/Panel/Control/No/Label:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.170755, 1 ),
+"update": 0,
+"values": [ Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+tracks/0/type = "value"
+tracks/0/path = NodePath("PanelControl/Panel/Control/Yes/Label:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.170755, 1 ),
+"update": 0,
+"values": [ Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+tracks/0/type = "value"
+tracks/0/path = NodePath("PanelControl/Panel/Control/No/Label:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.170755, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+tracks/0/type = "value"
+tracks/0/path = NodePath("PanelControl/Panel/Control/Yes/Label:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.170755, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ) ]
+}
+
+[node name="QuitMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 392.0
+margin_top = 208.0
+margin_right = -392.0
+margin_bottom = -216.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelControl" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.973
+margin_bottom = -0.00802612
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="PanelControl"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 248, 144 )
+custom_styles/panel = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Texture" type="TextureRect" parent="PanelControl/Panel"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 488.0
+margin_bottom = 280.0
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PanelControl/Panel"]
+margin_right = 224.0
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.113725, 0.2, 0.168627, 1 )
+text = "Quit?"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="PanelControl/Panel"]
+anchor_left = 0.15
+anchor_top = 0.133
+anchor_right = 0.85
+anchor_bottom = 0.844
+margin_left = -74.4
+margin_top = -38.304
+margin_right = 74.4
+margin_bottom = 44.928
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="No" type="TextureButton" parent="PanelControl/Panel/Control"]
+margin_left = 16.0
+margin_top = 168.0
+margin_right = 72.0
+margin_bottom = 224.0
+focus_neighbour_left = NodePath("../Yes")
+focus_neighbour_top = NodePath("../Yes")
+focus_neighbour_right = NodePath("../Yes")
+focus_neighbour_bottom = NodePath("../Yes")
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PanelControl/Panel/Control/No"]
+margin_left = 72.0
+margin_top = 16.0
+margin_right = 176.0
+margin_bottom = 64.0
+rect_scale = Vector2( 1.2, 1.2 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.113725, 0.2, 0.168627, 1 )
+text = "No"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yes" type="TextureButton" parent="PanelControl/Panel/Control"]
+margin_left = 24.0
+margin_top = 104.0
+margin_right = 80.0
+margin_bottom = 160.0
+focus_neighbour_left = NodePath("../No")
+focus_neighbour_top = NodePath("../No")
+focus_neighbour_right = NodePath("../No")
+focus_neighbour_bottom = NodePath("../No")
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PanelControl/Panel/Control/Yes"]
+margin_left = 64.0
+margin_right = 157.0
+margin_bottom = 48.0
+rect_scale = Vector2( 1.2, 1.2 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.113725, 0.2, 0.168627, 1 )
+text = "Yes"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/quit = SubResource( 4 )
+anims/quitting = SubResource( 5 )
+
+[node name="Focuser" type="AnimationPlayer" parent="."]
+anims/no1 = SubResource( 6 )
+anims/no2 = SubResource( 7 )
+anims/yes1 = SubResource( 8 )
+anims/yes2 = SubResource( 9 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[connection signal="focus_entered" from="PanelControl/Panel/Control/No" to="." method="_on_No_focus_entered"]
+[connection signal="focus_exited" from="PanelControl/Panel/Control/No" to="." method="_on_No_focus_exited"]
+[connection signal="pressed" from="PanelControl/Panel/Control/No" to="." method="_on_No_pressed"]
+[connection signal="focus_entered" from="PanelControl/Panel/Control/Yes" to="." method="_on_Yes_focus_entered"]
+[connection signal="focus_exited" from="PanelControl/Panel/Control/Yes" to="." method="_on_Yes_focus_exited"]
+[connection signal="pressed" from="PanelControl/Panel/Control/Yes" to="." method="_on_Yes_pressed"]

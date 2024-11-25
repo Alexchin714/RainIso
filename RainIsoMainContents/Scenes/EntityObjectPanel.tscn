@@ -1,0 +1,157 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/Roboto-Black.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/ItemDefaults.tscn" type="PackedScene" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/DashObjectTexture.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/JumpPad01.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 0.0627451, 0.831373, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.423529, 0.541176, 0.941176, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.372549, 0.631373, 0.839216, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.372549, 0.478431, 0.839216, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+uniform vec4 in_color:hint_color;
+uniform vec4 out_color:hint_color;
+
+uniform float in_out:hint_range(0.,1.)=0.;
+
+uniform float position:hint_range(-1.5,1.) = 0.856;
+uniform vec2 size = vec2(16., 16.);
+
+void fragment(){
+    vec2 a = (1./SCREEN_PIXEL_SIZE) / size;
+    
+    vec2 uv=UV;
+    uv *= a;
+    
+    vec2 i_uv = floor(uv);
+    vec2 f_uv = fract(uv);
+    
+    float wave = max(0.,i_uv.x/(a.x) - position);
+    
+    vec2 center = f_uv*2.-1.;
+    float circle = length(center);
+    circle = 1. - step(wave,circle);
+    
+    vec4 color = mix(in_color, out_color, step(0.5, in_out));
+    
+    COLOR=vec4(circle) * color;
+}"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+shader_param/in_color = Color( 0.380392, 1, 0.823529, 1 )
+shader_param/out_color = null
+shader_param/in_out = 0.0
+shader_param/position = -0.144
+shader_param/size = Vector2( 32, 32 )
+
+[node name="EntityObjectPanel" type="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -576.0
+margin_top = 65.0
+margin_right = 576.0
+margin_bottom = -80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = -0.181
+anchor_right = 1.0
+anchor_bottom = 0.878
+margin_left = 336.512
+margin_top = 127.0
+margin_right = -120.0
+margin_bottom = -25.85
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="XButton" type="Button" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -32.0
+margin_top = 320.0
+margin_right = -872.0
+margin_bottom = 32.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+material = SubResource( 7 )
+margin_left = 328.0
+margin_top = 8.0
+margin_right = 896.0
+margin_bottom = 344.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemTexture" parent="Panel" instance=ExtResource( 2 )]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -856.0
+margin_bottom = -304.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="ItemTexture2" parent="Panel" instance=ExtResource( 2 )]
+margin_left = 64.0
+margin_top = 16.0
+margin_right = -808.0
+margin_bottom = -304.0
+texture = ExtResource( 4 )
+expand = true

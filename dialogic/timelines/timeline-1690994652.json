@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1690994305.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What's up dude.\nThe name's Cory T.\nI come to this bar with my buddy gene, just to vibe.\nand to distract myself from the fact that I'm missing a leg.\nbut honestly I just come here to drink away my sorrows.\nIt's pretty much my second home."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1690994652.json",
+		"name": "Cory T."
+	}
+}

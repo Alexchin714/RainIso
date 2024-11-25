@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BreathingSFX.mp3-d656825f3736cc91dd687646ebf5e7f5.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/BreathingSFX.mp3"
+dest_files=[ "res://.import/BreathingSFX.mp3-d656825f3736cc91dd687646ebf5e7f5.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

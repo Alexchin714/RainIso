@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/DrippingWater.mp3-7d64ec20e080a7aa57113e412798c3fc.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/DrippingWater.mp3"
+dest_files=[ "res://.import/DrippingWater.mp3-7d64ec20e080a7aa57113e412798c3fc.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

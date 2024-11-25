@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SteamSFX.mp3-3145796f94956c1ae42a7c2e66e56c31.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/SteamSFX.mp3"
+dest_files=[ "res://.import/SteamSFX.mp3-3145796f94956c1ae42a7c2e66e56c31.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

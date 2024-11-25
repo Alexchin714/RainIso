@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/FlickerLights.mp3-b90e0b53adf40fa18551b9d8bba8f8c0.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/FlickerLights.mp3"
+dest_files=[ "res://.import/FlickerLights.mp3-b90e0b53adf40fa18551b9d8bba8f8c0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

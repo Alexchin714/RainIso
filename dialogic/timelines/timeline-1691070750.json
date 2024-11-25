@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1691070654.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "um.. hello!\nI'm Stella and I prefer it if people called me Stella.\nI always walk around here, It's basically my hobby!\nAnyways, you can meet my twin sister..\nStacy!\nShe runs the hotel over there. Right over there."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691070750.json",
+		"name": "Stella"
+	}
+}

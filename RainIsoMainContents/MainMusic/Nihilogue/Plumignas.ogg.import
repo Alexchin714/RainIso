@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Plumignas.ogg-4ec91bfda849acc5026e6ab07d33434e.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/MainMusic/Nihilogue/Plumignas.ogg"
+dest_files=[ "res://.import/Plumignas.ogg-4ec91bfda849acc5026e6ab07d33434e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

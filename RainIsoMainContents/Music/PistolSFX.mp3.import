@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PistolSFX.mp3-1310415ae71cfb61c2cf06570a4a2041.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/PistolSFX.mp3"
+dest_files=[ "res://.import/PistolSFX.mp3-1310415ae71cfb61c2cf06570a4a2041.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

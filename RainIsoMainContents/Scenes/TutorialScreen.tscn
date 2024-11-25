@@ -1,0 +1,174 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/TutorialScreen.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/TutorialScreen.gd" type="Script" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/Funkturm.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/ControllerSprintIcon.png" type="Texture" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/ControllerJumpIcon.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 56
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=2]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TutorialScreen:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -0.75, 0.75 ), Vector2( -1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TutorialScreen:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="TutorialScreen" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Container" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 640, 360 )
+
+[node name="TutorialScreen" type="TextureRect" parent="Container"]
+visible = false
+modulate = Color( 1, 1, 1, 0.901961 )
+margin_left = -640.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = 360.0
+rect_scale = Vector2( -0.75, 0.75 )
+rect_pivot_offset = Vector2( 640, 360 )
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label01" type="Label" parent="Container"]
+margin_left = -575.0
+margin_top = -296.0
+margin_right = 319.0
+margin_bottom = -200.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Move - Arrow Keys / Left Stick"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label02" type="Label" parent="Container"]
+margin_left = -575.0
+margin_top = -200.0
+margin_right = -294.0
+margin_bottom = -104.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Jump - Z / "
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label03" type="Label" parent="Container"]
+margin_left = -575.0
+margin_top = -104.0
+margin_right = -148.0
+margin_bottom = -8.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "WallJump - Z / "
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label04" type="Label" parent="Container"]
+margin_left = -576.0
+margin_top = -8.0
+margin_right = -246.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Dive - Down"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label05" type="Label" parent="Container"]
+margin_left = -575.0
+margin_top = 88.0
+margin_right = -242.0
+margin_bottom = 184.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Sprint - C / "
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon01" type="TextureRect" parent="Container"]
+margin_left = -143.0
+margin_top = -80.0
+margin_right = -95.0
+margin_bottom = -32.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon02" type="TextureRect" parent="Container"]
+margin_left = -295.0
+margin_top = -176.0
+margin_right = -247.0
+margin_bottom = -128.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon03" type="TextureRect" parent="Container"]
+margin_left = -239.0
+margin_top = 104.0
+margin_right = -175.0
+margin_bottom = 168.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container"]
+anims/tutorial = SubResource( 2 )

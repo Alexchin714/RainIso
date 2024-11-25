@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ShotSFX.mp3-47c8e0529f98853f6d9f06d33acd8b3d.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/ShotSFX.mp3"
+dest_files=[ "res://.import/ShotSFX.mp3-47c8e0529f98853f6d9f06d33acd8b3d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

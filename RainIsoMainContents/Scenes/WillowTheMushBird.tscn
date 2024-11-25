@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/WillowTheMushBird.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item; 
+render_mode blend_mix, unshaded;
+
+uniform vec4 color0: hint_color;
+uniform vec4 color1: hint_color;
+uniform vec4 color2: hint_color;
+uniform vec4 color3: hint_color;
+uniform vec4 color4: hint_color;
+uniform vec4 color5: hint_color;
+uniform vec4 color6: hint_color;
+uniform vec4 color7: hint_color;
+uniform vec4 color8: hint_color;
+uniform vec4 color9: hint_color;
+uniform vec4 color10: hint_color;
+uniform vec4 color11: hint_color;
+uniform vec4 color12: hint_color;
+
+void fragment() {
+	
+	
+// 1: Define the color list
+
+	vec4 colors[] = {color0,color1,color2,color3,color4,color5,color6,color7,color8,color9,color10,color11,color12};
+
+	
+
+// 2: Grab the junk off of the screen
+
+	vec3 scrn_uv = vec3(UV, 0.0);
+	vec3 color_input;
+	float alpa_input;
+	{
+		vec4 _tex_read = textureLod(TEXTURE, scrn_uv.xy, 0.0);
+		color_input = _tex_read.rgb;
+		alpa_input = _tex_read.a;
+	}
+
+// 3: Turn that junk into the superior \"Grey\"
+
+	float grey_value;
+	{
+		vec3 c = color_input;
+		float max1 = max(c.r, c.g);
+		float max2 = max(max1, c.b);
+		grey_value = max2;
+	}
+
+// 4: Multiply the superior \"Grey\" into the ultimate \"Multiplied Grey\"
+
+	float multiplier = float(colors.length()-1);
+	float multiplied_grey = grey_value * multiplier;
+
+// 5: Round the ultimate \"Multiplied Grey\" to integer-like values; Achieve god-like \"Rounded Multiplied Grey\"
+
+	float round_mult_grey = round(multiplied_grey);
+
+// 6: Use the power of your new god to pick your output colors based on their color index.
+
+	vec4 out_color = colors[int(round(multiplied_grey))];
+	
+
+// 7: Meet your new friends: the output colors.
+
+	COLOR = out_color;
+	COLOR.a = alpa_input;
+
+// 8: Profit.
+
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/color0 = Color( 0, 0, 0, 1 )
+shader_param/color1 = Color( 0.109804, 0, 0.176471, 1 )
+shader_param/color2 = Color( 1, 0.827451, 0.533333, 1 )
+shader_param/color3 = Color( 0.905882, 0.894118, 0.847059, 1 )
+shader_param/color4 = Color( 0.623529, 0.909804, 0.760784, 1 )
+shader_param/color5 = Color( 0.133333, 0.227451, 0.298039, 1 )
+shader_param/color6 = Color( 0.219608, 0.65098, 0.74902, 1 )
+shader_param/color7 = Color( 0.0901961, 0.431373, 0.635294, 1 )
+shader_param/color8 = Color( 1, 1, 1, 1 )
+shader_param/color9 = Color( 0.745098, 0.901961, 0.8, 1 )
+shader_param/color10 = Color( 1, 0.662745, 0.266667, 1 )
+shader_param/color11 = Color( 0.101961, 0.101961, 0.101961, 1 )
+shader_param/color12 = Color( 1, 1, 1, 1 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 11.9468, 9.55732 )
+
+[node name="WillowTheMushBird" type="KinematicBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 2 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, 2 )
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

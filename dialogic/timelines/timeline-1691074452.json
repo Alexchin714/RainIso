@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1691073443.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "This town ain't enough for..\n2 leaders..\nBecause this town never even had a leader.\nIf there was a problem then a frog and a mushroom will always go and alert a certain blue bird. Thats not me of course and he MAY or may not do something about it."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691074452.json",
+		"name": "Jaime"
+	}
+}

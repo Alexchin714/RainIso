@@ -1,0 +1,280 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/SaveSlotsTexture.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/Roboto-Black.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://AUnusedRainIsoAssets/AssistModeIcon.png" type="Texture" id=3]
+[ext_resource path="res://RainIsoMainContents/Scenes/SaveSlotIcon.gd" type="Script" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/LavaSaveSlotsTexture.png" type="Texture" id=5]
+[ext_resource path="res://RainIsoMainContents/Resources/NeoSaveSlotsTexture.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_size = 3
+outline_color = Color( 0.403922, 0.403922, 0.403922, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 5
+outline_color = Color( 0.298039, 0.298039, 0.298039, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+
+[sub_resource type="StyleBoxFlat" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+outline_size = 5
+outline_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="SaveSlotIcon" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveSlots1" type="Label" parent="."]
+margin_right = 1236.0
+margin_bottom = 115.0
+custom_fonts/font = SubResource( 1 )
+text = "Saves"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="SaveSlots1"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 44.0
+margin_bottom = 168.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="SaveSlots1"]
+show_behind_parent = true
+margin_top = 2.33801
+margin_right = 1280.0
+margin_bottom = 234.338
+
+[node name="NewGame" type="Button" parent="SaveSlots1"]
+margin_left = 120.0
+margin_top = 88.0
+margin_right = 373.0
+margin_bottom = 160.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 0
+text = "New Game"
+flat = true
+
+[node name="Continue" type="Button" parent="SaveSlots1"]
+margin_left = 392.0
+margin_top = 88.0
+margin_right = 645.0
+margin_bottom = 160.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 0
+text = "Continue"
+flat = true
+
+[node name="AssistMode" type="Button" parent="SaveSlots1"]
+margin_left = 1176.0
+margin_top = 96.0
+margin_right = 1256.0
+margin_bottom = 168.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 0
+icon = ExtResource( 3 )
+flat = true
+expand_icon = true
+
+[node name="Name" type="LineEdit" parent="SaveSlots1"]
+margin_left = 120.0
+margin_top = 32.0
+margin_right = 496.0
+margin_bottom = 80.0
+custom_styles/read_only = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "Clement"
+max_length = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveSlots2" type="Label" parent="."]
+margin_left = -8.0
+margin_top = 232.0
+margin_right = 1228.0
+margin_bottom = 347.0
+custom_fonts/font = SubResource( 1 )
+text = "Saves"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="SaveSlots2"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 44.0
+margin_bottom = 168.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="SaveSlots2"]
+show_behind_parent = true
+margin_top = 2.33801
+margin_right = 1280.0
+margin_bottom = 234.338
+
+[node name="NewGame" type="Button" parent="SaveSlots2"]
+margin_left = 120.0
+margin_top = 88.0
+margin_right = 373.0
+margin_bottom = 160.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 0
+text = "New Game"
+flat = true
+
+[node name="Continue" type="Button" parent="SaveSlots2"]
+margin_left = 392.0
+margin_top = 88.0
+margin_right = 645.0
+margin_bottom = 160.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 0
+text = "Continue"
+flat = true
+
+[node name="AssistMode" type="Button" parent="SaveSlots2"]
+margin_left = 1176.0
+margin_top = 96.0
+margin_right = 1256.0
+margin_bottom = 168.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 0
+icon = ExtResource( 3 )
+flat = true
+expand_icon = true
+
+[node name="Name" type="LineEdit" parent="SaveSlots2"]
+margin_left = 120.0
+margin_top = 32.0
+margin_right = 496.0
+margin_bottom = 80.0
+custom_styles/read_only = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "Clement"
+max_length = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveSlots3" type="Label" parent="."]
+margin_left = -8.0
+margin_top = 464.0
+margin_right = 1228.0
+margin_bottom = 579.0
+custom_fonts/font = SubResource( 1 )
+text = "Saves"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="SaveSlots3"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 44.0
+margin_bottom = 168.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="SaveSlots3"]
+show_behind_parent = true
+margin_top = 2.33801
+margin_right = 1280.0
+margin_bottom = 234.338
+
+[node name="NewGame" type="Button" parent="SaveSlots3"]
+margin_left = 120.0
+margin_top = 88.0
+margin_right = 373.0
+margin_bottom = 160.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 0
+text = "New Game"
+flat = true
+
+[node name="Continue" type="Button" parent="SaveSlots3"]
+margin_left = 392.0
+margin_top = 88.0
+margin_right = 645.0
+margin_bottom = 160.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 0
+text = "Continue"
+flat = true
+
+[node name="AssistMode" type="Button" parent="SaveSlots3"]
+margin_left = 1176.0
+margin_top = 96.0
+margin_right = 1256.0
+margin_bottom = 168.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 0
+icon = ExtResource( 3 )
+flat = true
+expand_icon = true
+
+[node name="Name" type="LineEdit" parent="SaveSlots3"]
+margin_left = 120.0
+margin_top = 32.0
+margin_right = 496.0
+margin_bottom = 80.0
+custom_styles/read_only = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "Clement"
+max_length = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}

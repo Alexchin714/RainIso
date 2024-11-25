@@ -1,0 +1,169 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/MainShow.ogg" type="AudioStream" id=1]
+[ext_resource path="res://RainIsoMainContents/CustomNodes/CustomNodeScripts/Audio.gd" type="Script" id=2]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Out Fishing.ogg" type="AudioStream" id=3]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Gloom.ogg" type="AudioStream" id=4]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/FurizAlex_s Jingle (RainIso ver.).ogg" type="AudioStream" id=5]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Jestermania.ogg" type="AudioStream" id=6]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Toby Mushguire.ogg" type="AudioStream" id=7]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Eld Lullaby.ogg" type="AudioStream" id=8]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Springfall Tempaura~.ogg" type="AudioStream" id=9]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Crossing.ogg" type="AudioStream" id=10]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Inn.ogg" type="AudioStream" id=11]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Willow the Tarots.ogg" type="AudioStream" id=12]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Peacock.ogg" type="AudioStream" id=13]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/JourneyStep.ogg" type="AudioStream" id=14]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Psycillow.ogg" type="AudioStream" id=15]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/N.E.O.ogg" type="AudioStream" id=16]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Jakie's Shop.ogg" type="AudioStream" id=17]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Art of the Spy.ogg" type="AudioStream" id=18]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Campanoux.ogg" type="AudioStream" id=19]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Cafe.ogg" type="AudioStream" id=20]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Shroomsville.ogg" type="AudioStream" id=21]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Hunt of the Swanman.ogg" type="AudioStream" id=22]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Dark Reflections.ogg" type="AudioStream" id=23]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Casette.ogg" type="AudioStream" id=24]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/TheHappiestDays.ogg" type="AudioStream" id=26]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/In Trance.ogg" type="AudioStream" id=28]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Cultist Ascent.ogg" type="AudioStream" id=29]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Plumignas.ogg" type="AudioStream" id=30]
+[ext_resource path="res://RainIsoMainContents/Scenes/Music.gd" type="Script" id=31]
+[ext_resource path="res://RainIsoMainContents/MainMusic/Nihilogue/Psycotropics.ogg" type="AudioStream" id=33]
+
+[sub_resource type="Animation" id=1]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Nihilogue/MainShow:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -4.0, -20.0 ]
+}
+
+[node name="Music" type="Node"]
+pause_mode = 2
+script = ExtResource( 31 )
+
+[node name="Nihilogue" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="MainShow" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 1 )
+bus = "Music"
+
+[node name="Art of the Spy" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 18 )
+bus = "Music"
+
+[node name="Cafe" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 20 )
+bus = "Music"
+
+[node name="Campaneoux" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 19 )
+bus = "Music"
+
+[node name="Casette" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 24 )
+bus = "Music"
+
+[node name="Crossing" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 10 )
+bus = "Music"
+
+[node name="Cultist Ascent" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 29 )
+bus = "Music"
+
+[node name="Dark Reflections" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 23 )
+bus = "Music"
+
+[node name="Eld Lullaby" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 8 )
+bus = "Music"
+
+[node name="FurizAlex\'s Jingle" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 5 )
+bus = "Music"
+
+[node name="Gloom" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 4 )
+bus = "Music"
+
+[node name="Hunt of the Swanman" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 22 )
+bus = "Music"
+
+[node name="In Trance" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 28 )
+bus = "Music"
+
+[node name="Inn" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 11 )
+bus = "Music"
+
+[node name="Jakie\'s Shop" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 17 )
+bus = "Music"
+
+[node name="Jestermania" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 6 )
+bus = "Music"
+
+[node name="JourneyStep" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 14 )
+bus = "Music"
+
+[node name="NEO" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 16 )
+bus = "Music"
+
+[node name="Out Fishing" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 3 )
+bus = "Music"
+
+[node name="Peacock" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 13 )
+bus = "Music"
+
+[node name="Plumignas" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 30 )
+bus = "Music"
+
+[node name="Psycillow" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 15 )
+bus = "Music"
+
+[node name="Psycotropics" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 33 )
+bus = "Music"
+
+[node name="Shroomsville" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 21 )
+bus = "Music"
+
+[node name="Springfall Tempaura~" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 9 )
+bus = "Music"
+
+[node name="TheHappiestDays" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 26 )
+bus = "Music"
+
+[node name="Toby Mushguire" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 7 )
+bus = "Music"
+
+[node name="Willow the Tarots" type="AudioStreamPlayer" parent="Nihilogue"]
+stream = ExtResource( 12 )
+bus = "Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/lower = SubResource( 1 )

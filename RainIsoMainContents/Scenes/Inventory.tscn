@@ -1,0 +1,251 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/PaneraSingleIcon.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/TheFont.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://RainIsoMainContents/Scenes/Inventory.gd" type="Script" id=3]
+[ext_resource path="res://Intro/Assets/intro_circle.png" type="Texture" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/Circle.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+outline_size = 9
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_color = Color( 0.415686, 0.415686, 0.415686, 0.235294 )
+shadow_size = 35
+
+[sub_resource type="StyleBoxFlat" id=3]
+corner_radius_top_left = 120
+corner_radius_top_right = 120
+corner_radius_bottom_right = 120
+corner_radius_bottom_left = 120
+shadow_color = Color( 0.415686, 0.415686, 0.415686, 0.235294 )
+shadow_size = 35
+
+[node name="Inventory" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="Main" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Panera" type="Node2D" parent="Main"]
+position = Vector2( 1072, 32 )
+
+[node name="Icon" type="TextureRect" parent="Main/Panera"]
+margin_right = 120.0
+margin_bottom = 120.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Main/Panera"]
+margin_left = 120.0
+margin_top = 16.0
+margin_right = 168.0
+margin_bottom = 101.0
+rect_rotation = -0.22166
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainSlots" type="Node2D" parent="Main"]
+
+[node name="Panel" type="Panel" parent="Main/MainSlots"]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 672.0
+margin_bottom = 416.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hotbar01" type="TextureRect" parent="Main/MainSlots"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 736.0
+margin_top = 224.0
+margin_right = 864.0
+margin_bottom = 352.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="background91" type="Panel" parent="Main/MainSlots/Hotbar01"]
+show_behind_parent = true
+margin_left = 15.1748
+margin_top = 17.5478
+margin_right = 111.175
+margin_bottom = 113.548
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Main/MainSlots/Hotbar01"]
+margin_left = 96.0
+margin_top = 64.0
+margin_right = 160.0
+margin_bottom = 160.0
+custom_fonts/font = SubResource( 1 )
+text = "RMB"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hotbar02" type="TextureRect" parent="Main/MainSlots"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 736.0
+margin_top = 64.0
+margin_right = 864.0
+margin_bottom = 192.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="background92" type="Panel" parent="Main/MainSlots/Hotbar02"]
+show_behind_parent = true
+margin_left = 15.1748
+margin_top = 15.5539
+margin_right = 111.175
+margin_bottom = 111.554
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Main/MainSlots/Hotbar02"]
+margin_left = 96.0
+margin_top = 64.0
+margin_right = 160.0
+margin_bottom = 160.0
+custom_fonts/font = SubResource( 1 )
+text = "LMB"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot01" type="TextureRect" parent="Main/MainSlots"]
+self_modulate = Color( 0.733333, 0.733333, 0.733333, 1 )
+margin_left = 160.0
+margin_top = 160.0
+margin_right = 192.0
+margin_bottom = 192.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot02" type="TextureRect" parent="Main/MainSlots"]
+self_modulate = Color( 0.733333, 0.733333, 0.733333, 1 )
+margin_left = 288.0
+margin_top = 160.0
+margin_right = 320.0
+margin_bottom = 192.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot03" type="TextureRect" parent="Main/MainSlots"]
+self_modulate = Color( 0.733333, 0.733333, 0.733333, 1 )
+margin_left = 416.0
+margin_top = 160.0
+margin_right = 448.0
+margin_bottom = 192.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot04" type="TextureRect" parent="Main/MainSlots"]
+self_modulate = Color( 0.733333, 0.733333, 0.733333, 1 )
+margin_left = 544.0
+margin_top = 160.0
+margin_right = 576.0
+margin_bottom = 192.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot05" type="TextureRect" parent="Main/MainSlots"]
+self_modulate = Color( 0.733333, 0.733333, 0.733333, 1 )
+margin_left = 544.0
+margin_top = 288.0
+margin_right = 576.0
+margin_bottom = 320.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot06" type="TextureRect" parent="Main/MainSlots"]
+self_modulate = Color( 0.733333, 0.733333, 0.733333, 1 )
+margin_left = 416.0
+margin_top = 288.0
+margin_right = 448.0
+margin_bottom = 320.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot07" type="TextureRect" parent="Main/MainSlots"]
+self_modulate = Color( 0.733333, 0.733333, 0.733333, 1 )
+margin_left = 288.0
+margin_top = 288.0
+margin_right = 320.0
+margin_bottom = 320.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot08" type="TextureRect" parent="Main/MainSlots"]
+self_modulate = Color( 0.733333, 0.733333, 0.733333, 1 )
+margin_left = 160.0
+margin_top = 288.0
+margin_right = 192.0
+margin_bottom = 320.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

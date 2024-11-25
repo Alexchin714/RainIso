@@ -1,0 +1,109 @@
+{
+	"events": [
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey.\nyour alive, that's pretty cool."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "uh huh"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "anyways, y'know this island right?"
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "uh no?"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "right. There's this island thats next to the main city.\nand in that island there's a [color=#FFF200]Soul Shard[/color]\nand the huntsman wants this [color=#FFF200]Soul Shard[/color]"
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "right.. and why does he need it?"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I don't know, I think it's something to do with his lamp but I could be mistaken"
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "and so.. why do I have to get it and not him?"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I don't know, ask him.\nanyways, how did meeting claire go?"
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "well I am alive and in one piece..\nso I say It went pretty well.\nstill a bit.. terrified of her but hey."
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "yeah she's pretty cool."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "anyways.\nabout that huntsman guy\nhe seems a bit.. weird."
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "bit weird?\nlike how? what's so weird about him?"
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I don't know, just the feeling I guess\njust something about him.. feels.... strange"
+		},
+		{
+			"character": "character-1687712775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I mean yeah I guess his \"motive\"\nis that the right word?\nyeah.. he's \"motive\" is a bit strange but I wouldn't worry about it too much\nanyways, the train is right there. so I'll see you in the city."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "ok I'll see you see there."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1690815315.json",
+		"name": "TobyTrain"
+	}
+}

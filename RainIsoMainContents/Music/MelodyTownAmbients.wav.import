@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MelodyTownAmbients.wav-6bfd42a3a63a449cb65ee7992dce8907.sample"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/MelodyTownAmbients.wav"
+dest_files=[ "res://.import/MelodyTownAmbients.wav-6bfd42a3a63a449cb65ee7992dce8907.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=true
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

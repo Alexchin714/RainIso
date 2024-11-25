@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Springfall Tempaura~.ogg-18422c4a76370d5ceac4ddea5ae2df73.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/MainMusic/Nihilogue/Springfall Tempaura~.ogg"
+dest_files=[ "res://.import/Springfall Tempaura~.ogg-18422c4a76370d5ceac4ddea5ae2df73.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

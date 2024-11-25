@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1691035437.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hallo!!\nI'm Canoli!!\nI'm sorta like a mascot for.. uh... someone.\nBUT!! I come in all sizes and shapes!!\nI\"m everywhere and anywhere all at ONCE!!\nAnyways!! nice to meet you in person!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1691035429.json",
+		"name": "FurizAlex"
+	}
+}

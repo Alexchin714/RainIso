@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/FurizAlex_s Jingle (RainIso ver.).ogg-8caa5deb404005a270a20fcd1d5ac46c.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/MainMusic/Nihilogue/FurizAlex_s Jingle (RainIso ver.).ogg"
+dest_files=[ "res://.import/FurizAlex_s Jingle (RainIso ver.).ogg-8caa5deb404005a270a20fcd1d5ac46c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

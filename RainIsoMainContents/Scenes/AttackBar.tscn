@@ -1,0 +1,166 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Scenes/AttackBar.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.109804, 0.109804, 0.109804, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 0.937255, 0, 1 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 24, 40 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "move"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.34151, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -16 ), Vector2( 1216, -16 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "input"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.241484, 1 ),
+"update": 0,
+"values": [ Vector2( 64, 144 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Main:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.168627 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "success"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Input:custom_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.937255, 0, 1 ), Color( 1, 0.972549, 0.588235, 1 ), Color( 1, 0.937255, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bar:custom_styles/panel:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.109804, 0.109804, 0.109804, 1 ), Color( 0.2, 0.2, 0.2, 1 ), Color( 0.109804, 0.109804, 0.109804, 1 ) ]
+}
+
+[node name="AttackBar" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -576.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bar" type="Panel" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -64.0
+margin_bottom = -16.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Input" type="Panel" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1152.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Static" type="StaticBody2D" parent="Panel"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/Static"]
+position = Vector2( 1176, 56 )
+shape = SubResource( 4 )
+
+[node name="Main" type="Panel" parent="Panel"]
+modulate = Color( 1, 1, 1, 0.168627 )
+margin_top = -16.0
+margin_right = 64.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( 32, 80 )
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RayCast2D" type="RayCast2D" parent="Panel/Main"]
+position = Vector2( 32, 144 )
+enabled = true
+cast_to = Vector2( 0, -50 )
+
+[node name="MovementMain" type="AnimationPlayer" parent="Panel"]
+autoplay = "move"
+anims/move = SubResource( 6 )
+
+[node name="InputMain" type="AnimationPlayer" parent="Panel"]
+anims/input = SubResource( 7 )
+
+[node name="OutputMain" type="AnimationPlayer" parent="Panel"]
+anims/success = SubResource( 8 )

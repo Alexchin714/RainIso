@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/FireCrackling.mp3-2df59f3ad48eca924814704c9a720ac2.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/FireCrackling.mp3"
+dest_files=[ "res://.import/FireCrackling.mp3-2df59f3ad48eca924814704c9a720ac2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

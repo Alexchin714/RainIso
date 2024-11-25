@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Scenes/FpsCounter.gd" type="Script" id=1]
+[ext_resource path="res://RainIsoMainContents/Resources/Volter__28Goldfish_29.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="FpsCounter" type="CanvasLayer"]
+layer = 10
+
+[node name="FpsCounter" type="Label" parent="."]
+visible = false
+self_modulate = Color( 0.054902, 1, 0, 1 )
+anchor_left = 0.012
+anchor_top = 0.022
+anchor_right = 0.1
+anchor_bottom = 0.067
+margin_left = 0.639999
+margin_top = 0.159999
+margin_bottom = -0.240002
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.513726 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+text = "Null"
+valign = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

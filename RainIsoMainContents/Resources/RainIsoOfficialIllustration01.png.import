@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/RainIsoOfficialIllustration01.png-d1ca17cc35e66a76e62da15e42de12fe.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://RainIsoMainContents/Resources/RainIsoOfficialIllustration01.png"
+dest_files=[ "res://.import/RainIsoOfficialIllustration01.png-d1ca17cc35e66a76e62da15e42de12fe.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

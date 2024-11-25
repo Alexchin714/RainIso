@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Dark Reflections.ogg-edf34ddb9b9796c7fe5979d5c3af7154.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/MainMusic/Nihilogue/Dark Reflections.ogg"
+dest_files=[ "res://.import/Dark Reflections.ogg-edf34ddb9b9796c7fe5979d5c3af7154.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

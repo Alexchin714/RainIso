@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Gloom.ogg-a1c9c129815aa7af35aa92e3a2db1503.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/MainMusic/Nihilogue/Gloom.ogg"
+dest_files=[ "res://.import/Gloom.ogg-a1c9c129815aa7af35aa92e3a2db1503.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://RainIsoMainContents/3dPlatformer/Textures/StylizedWoodTexture.png" type="Texture" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 16, 2, 16 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 1, 0.894118, 0.807843, 1 )
+albedo_texture = ExtResource( 1 )
+emission_enabled = true
+emission = Color( 0.639216, 0.180392, 0, 1 )
+emission_energy = 0.7
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="ConcavePolygonShape" id=4]
+data = PoolVector3Array( -8, 1, 8, 8, 1, 8, -8, -1, 8, 8, 1, 8, 8, -1, 8, -8, -1, 8, 8, 1, -8, -8, 1, -8, 8, -1, -8, -8, 1, -8, -8, -1, -8, 8, -1, -8, 8, 1, 8, 8, 1, -8, 8, -1, 8, 8, 1, -8, 8, -1, -8, 8, -1, 8, -8, 1, -8, -8, 1, 8, -8, -1, -8, -8, 1, 8, -8, -1, 8, -8, -1, -8, 8, 1, 8, -8, 1, 8, 8, 1, -8, -8, 1, 8, -8, 1, -8, 8, 1, -8, -8, -1, 8, 8, -1, 8, -8, -1, -8, 8, -1, 8, 8, -1, -8, -8, -1, -8 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "move"
+length = 7.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5, 5, 7 ),
+"transitions": PoolRealArray( 1.7411, 1.7411, 1.51572, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -65, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[node name="MovingPlatform3d" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "move"
+anims/move = SubResource( 3 )

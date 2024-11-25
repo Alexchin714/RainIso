@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/WindySFX.mp3-378c16c109091ffb43088eec4c8323f8.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/WindySFX.mp3"
+dest_files=[ "res://.import/WindySFX.mp3-378c16c109091ffb43088eec4c8323f8.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

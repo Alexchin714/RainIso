@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ButtonFlashDone.mp3-cf6f0b21fed60d2af9ca99b6b5245bd1.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/ButtonFlashDone.mp3"
+dest_files=[ "res://.import/ButtonFlashDone.mp3-cf6f0b21fed60d2af9ca99b6b5245bd1.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

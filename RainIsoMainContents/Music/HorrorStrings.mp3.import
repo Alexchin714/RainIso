@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HorrorStrings.mp3-92dd754214e7fe4856007082f5cae2bb.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/HorrorStrings.mp3"
+dest_files=[ "res://.import/HorrorStrings.mp3-92dd754214e7fe4856007082f5cae2bb.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

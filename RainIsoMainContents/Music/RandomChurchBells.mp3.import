@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/RandomChurchBells.mp3-be93f5a98b200987b971a69692cbd033.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/RandomChurchBells.mp3"
+dest_files=[ "res://.import/RandomChurchBells.mp3-be93f5a98b200987b971a69692cbd033.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

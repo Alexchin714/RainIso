@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Psycotropics.ogg-d85c500d94bc221edfa3487ad1d96052.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/MainMusic/Nihilogue/Psycotropics.ogg"
+dest_files=[ "res://.import/Psycotropics.ogg-d85c500d94bc221edfa3487ad1d96052.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

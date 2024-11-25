@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Scenes/Spiketileset.tres" type="TileSet" id=1]
+
+[node name="HazardTileMap" type="TileMap"]
+tile_set = ExtResource( 1 )
+format = 1

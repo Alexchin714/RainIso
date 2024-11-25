@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/TotemModel.obj-642b09c260f439a159df638542a44bd7.mesh"
+
+[deps]
+
+files=[ "res://.import/TotemModel.obj-642b09c260f439a159df638542a44bd7.mesh" ]
+
+source_file="res://RainIsoMainContents/Resources/TotemModel.obj"
+dest_files=[ "res://.import/TotemModel.obj-642b09c260f439a159df638542a44bd7.mesh", "res://.import/TotemModel.obj-642b09c260f439a159df638542a44bd7.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/RainIsoSettingsSFX07.wav-e2b99774595e1ad2c1e51162e4e69386.sample"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/RainIsoSettingsSFX07.wav"
+dest_files=[ "res://.import/RainIsoSettingsSFX07.wav-e2b99774595e1ad2c1e51162e4e69386.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

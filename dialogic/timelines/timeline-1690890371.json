@@ -1,0 +1,299 @@
+{
+	"events": [
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Howdy, Adventurer!\nI'm Jakie and I own this shop. Hence the name."
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "What's up?"
+		},
+		{
+			"choice": "Hello!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hi!\nWelcome to Shroomsville\nIt's always nice to meet someone new here!\nWhere did you come from?"
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "er.. I fell here"
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "oh? you fell here..\nAnyhow, what can I do for you?"
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Do you know anything about the Raven?"
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "oh? well all I know is that \"it\" is dangerous when your in the middle of nowhere and when your alone. that's all I know.\nanyways."
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "What made you come to this town specifically?"
+		},
+		{
+			"choice": "There was only one path and it led me to here.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "ah, I see"
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "so how is it here?"
+		},
+		{
+			"choice": "It's great!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "oh! that's good to hear!"
+		},
+		{
+			"choice": "I'm not a fan",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "oh.. that's a shame, hope you have a better time next visit.."
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"emit_signal": "reset",
+			"event_id": "dialogic_040"
+		},
+		{
+			"choice": "Toby told me to come here",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "hmm Toby? The mushroom who always buys.. uhh.. *stuff?"
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "anyways.. moving on.\nHow is it here?"
+		},
+		{
+			"choice": "It's great!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "oh! that's good to hear!"
+		},
+		{
+			"choice": "I'm not a fan",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "oh.. that's a shame, hope you have a better time next visit.."
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"emit_signal": "reset",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"emit_signal": "reset",
+			"event_id": "dialogic_040"
+		},
+		{
+			"choice": "Could you give me information about this town and It's history.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It's a long story\nSo long ago, well- actually It's only been less then 90 year ago, but I'd say thats long enough.\nThere was a conflict of sorts, It was a conflict between the birds and the frogs for who was superior.\nLong story short, the frogs lost the battle and we all went downhill and set up residents meanwhile the birds stayed uphill and we do not know much about what they do anymore.\nOf course some frogs still lived uphill but life there was not easy.\nThat was the third major conflict between the two, and for some reason we just can't co-exist.\nthe second major conflict was 150 years prior to that.\nAnyways, I'm getting ahead of myself,\nso yeah, when we went down here and someone had the brilliant idea to set up a camp around here.\nand then slowly but surely a village was built here and the rest was history."
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Thanks for the info."
+		},
+		{
+			"choice": "I want to know your life and what to do in this town.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "me?\nI grew up in this town my whole life and never lived anywhere else.\nbut I do atleast want to travel somewhere, maybe the main city?\nbut y'know, It's kinda terrifying especially since I don't know much about anywhere else but this town\nI'm also kinda paranoid of something going wrong y'know?\nlike what if I take the train, and maybe.. It crashes or something.\nwhat if I get killed or maybe I got into an accident or something like that?\nthen what?\nI'm mean I know the chances are very low but there's always that \"what if\" that comes to mind\nI just want to be a bit cautious\nbut other than that I do like reading... books and.. plays"
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "like what kind of books?"
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "umm.. ok don't judge me to hard ok?"
+		},
+		{
+			"character": "character-1687748257.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "uh.... ok.... ?"
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "so I read this lesbian fox story ok..?\nand in the story is:\nthere were 2 foxes and they both met at a cafe right?\nso they begin chatting and then it continued for 2 months, just hanging out y'know\nand then one of the foxes begin having feelings for one of the other and then the other fox also has feelings for them\nbut in this story, having feelings for the other gender was taboo\nso the foxes kept their relationship in secret but they're family and friends found out and frowned upon their relationship\nand they kept getting in scrutiny but they stop listening to they're friends and family\nmoved into they're own place and lived happily ever after.\nanyways I rate it a 8/10, It's pretty good thriller story but has things to nitpick about.\nthat was a very long explanation and I definitely oversimplified some things but It's fine."
+		},
+		{
+			"emit_signal": "reset",
+			"event_id": "dialogic_040"
+		},
+		{
+			"choice": "I would like to buy something.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1690890438.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Sure, what would you like to buy?"
+		},
+		{
+			"emit_signal": "buyPhase",
+			"event_id": "dialogic_040"
+		},
+		{
+			"choice": "I would like to sell something.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ok, what would you like to sell?"
+		},
+		{
+			"emit_signal": "sellPhase",
+			"event_id": "dialogic_040"
+		},
+		{
+			"choice": "Exit",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"emit_signal": "exitPhase",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1690890371.json",
+		"name": "JakieShop"
+	}
+}

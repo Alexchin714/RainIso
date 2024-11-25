@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/LevelSelected.mp3-464f6829c1604bf58c538183d6be6a14.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/LevelSelected.mp3"
+dest_files=[ "res://.import/LevelSelected.mp3-464f6829c1604bf58c538183d6be6a14.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

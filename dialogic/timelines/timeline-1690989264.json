@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1690989281.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yo, what's up\nYou seem new here.\nBeen selling some stuff to a certain mushroom? y'know him?"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1690989264.json",
+		"name": "Cofhgen"
+	}
+}

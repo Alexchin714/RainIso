@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PanSFX.mp3-69c1f56a79cde6bcbeb38ade0842d01d.mp3str"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/PanSFX.mp3"
+dest_files=[ "res://.import/PanSFX.mp3-69c1f56a79cde6bcbeb38ade0842d01d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

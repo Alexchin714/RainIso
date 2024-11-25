@@ -1,0 +1,300 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://RainIsoMainContents/Resources/SettingsLayout07.png" type="Texture" id=1]
+[ext_resource path="res://RainIsoMainContents/Scenes/Settings.tres" type="Theme" id=2]
+[ext_resource path="res://RainIsoMainContents/Resources/OptionMenuHover.tres" type="StyleBox" id=3]
+[ext_resource path="res://RainIsoMainContents/Resources/SettingsLayout02.png" type="Texture" id=4]
+[ext_resource path="res://RainIsoMainContents/Resources/TheFont.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://RainIsoMainContents/Resources/OptionMenu.tres" type="StyleBox" id=6]
+[ext_resource path="res://RainIsoMainContents/Shader/OptionTextureHover.tres" type="StyleBox" id=7]
+[ext_resource path="res://RainIsoMainContents/Resources/RainDropGrabberHighlight.png" type="Texture" id=8]
+[ext_resource path="res://RainIsoMainContents/Resources/BlankSpace.png" type="Texture" id=9]
+[ext_resource path="res://RainIsoMainContents/Resources/SettingsLayout06.png" type="Texture" id=10]
+[ext_resource path="res://RainIsoMainContents/Resources/SettingsLayout03.png" type="Texture" id=11]
+[ext_resource path="res://RainIsoMainContents/Resources/SettingsLayout01.png" type="Texture" id=12]
+[ext_resource path="res://RainIsoMainContents/Resources/SettingsLayout04.png" type="Texture" id=13]
+[ext_resource path="res://RainIsoMainContents/Resources/SettingsLayout05.png" type="Texture" id=14]
+[ext_resource path="res://RainIsoMainContents/Resources/RainDropGrabber.png" type="Texture" id=15]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 600, 140 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 600, 140 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 36
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 36
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://RainIsoMainContents/Resources/TheFont.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+use_filter = true
+font_data = SubResource( 5 )
+
+[sub_resource type="Theme" id=7]
+default_font = SubResource( 6 )
+PopupMenu/colors/font_color = Color( 0, 0, 0, 1 )
+PopupMenu/colors/font_color_accel = Color( 0, 0, 0, 0.8 )
+PopupMenu/colors/font_color_disabled = Color( 0, 0, 0, 0.8 )
+PopupMenu/colors/font_color_hover = Color( 0.109804, 0.109804, 0.109804, 1 )
+PopupMenu/colors/font_color_separator = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/constants/hseparation = 4
+PopupMenu/constants/vseparation = 4
+PopupMenu/fonts/font = null
+PopupMenu/icons/checked = null
+PopupMenu/icons/radio_checked = null
+PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/submenu = null
+PopupMenu/icons/unchecked = null
+PopupMenu/styles/hover = ExtResource( 3 )
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = ExtResource( 6 )
+PopupMenu/styles/panel_disabled = null
+PopupMenu/styles/separator = null
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 200, 28 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 14 )
+region_rect = Rect2( 0, 0, 200, 28 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 14 )
+region_rect = Rect2( 0, 0, 200, 28 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 32
+use_filter = true
+font_data = ExtResource( 5 )
+
+[node name="DisplayUI" type="Control"]
+margin_right = 1152.0
+margin_bottom = 1280.0
+rect_min_size = Vector2( 1152, 1280 )
+rect_pivot_offset = Vector2( 448, 272 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DisplayOptions" type="OptionButton" parent="."]
+margin_left = 464.0
+margin_top = 17.0
+margin_right = 1616.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 1, 1 )
+focus_neighbour_left = NodePath("../../../SideBar/Video")
+focus_neighbour_top = NodePath("../../../SideBar/Video")
+focus_neighbour_right = NodePath("../../../../Right")
+focus_neighbour_bottom = NodePath("../VsyncButton")
+theme = ExtResource( 2 )
+custom_icons/arrow = ExtResource( 9 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 1, 0.8, 1 )
+custom_colors/font_color_hover = Color( 0, 1, 0.8, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.921569, 0, 1 )
+text = "Windowed"
+align = 1
+items = [ "Windowed", null, false, 0, null, "Fullscreen", null, false, 1, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label1" type="Label" parent="DisplayOptions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -597.0
+margin_top = 7.0
+margin_right = -693.01
+margin_bottom = 7.0
+custom_colors/font_color = Color( 0, 1, 0.780392, 1 )
+text = "Display"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VsyncButton" type="TextureButton" parent="."]
+margin_left = 520.0
+margin_top = 72.0
+margin_right = 729.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 1, 1 )
+focus_neighbour_left = NodePath("../../../SideBar/Video")
+focus_neighbour_top = NodePath("../DisplayOptions")
+focus_neighbour_right = NodePath("../PostProcessing")
+focus_neighbour_bottom = NodePath("../PostProcessing")
+toggle_mode = true
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 11 )
+texture_disabled = ExtResource( 11 )
+expand = true
+
+[node name="Label" type="Label" parent="VsyncButton"]
+margin_left = -646.0
+margin_top = 11.0
+margin_right = -492.0
+margin_bottom = 63.0
+custom_colors/font_color = Color( 0, 1, 0.780392, 1 )
+text = "Vsync"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PostProcessing" type="OptionButton" parent="."]
+margin_left = 465.0
+margin_top = 141.0
+margin_right = 753.0
+margin_bottom = 205.0
+rect_min_size = Vector2( 1, 1 )
+focus_neighbour_left = NodePath("../../../SideBar/Video")
+focus_neighbour_top = NodePath("../VsyncButton")
+focus_neighbour_right = NodePath("../MaxFPSCounter")
+focus_neighbour_bottom = NodePath("../MaxFPSCounter")
+theme = ExtResource( 2 )
+custom_icons/arrow = ExtResource( 9 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 1, 0.776471, 1 )
+custom_colors/font_color_hover = Color( 0, 1, 0.8, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.882353, 0, 1 )
+text = "On"
+align = 1
+items = [ "On", null, false, 0, null, "Off", null, false, 1, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PostProcessing"]
+margin_left = -601.0
+margin_top = -5.0
+margin_right = -204.0
+margin_bottom = 59.0
+custom_colors/font_color = Color( 0, 1, 0.780392, 1 )
+text = "Post Processing"
+valign = 1
+
+[node name="MaxFPSCounter" type="HSlider" parent="."]
+margin_left = 465.0
+margin_top = 205.0
+margin_right = 689.0
+margin_bottom = 253.0
+rect_min_size = Vector2( 1, 1 )
+focus_neighbour_left = NodePath("../../../SideBar/Video")
+focus_neighbour_top = NodePath("../PostProcessing")
+focus_neighbour_right = NodePath("../SpeedrunTimerButton")
+focus_neighbour_bottom = NodePath("../SpeedrunTimerButton")
+theme = SubResource( 7 )
+custom_icons/tick = ExtResource( 9 )
+custom_icons/grabber_disabled = ExtResource( 9 )
+custom_icons/grabber_highlight = ExtResource( 8 )
+custom_icons/grabber = ExtResource( 15 )
+custom_styles/slider = SubResource( 8 )
+custom_styles/grabber_area_highlight = SubResource( 9 )
+custom_styles/grabber_area = SubResource( 10 )
+max_value = 360.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MaxFPSCounter"]
+margin_left = -598.0
+margin_top = -5.0
+margin_right = -386.0
+margin_bottom = 43.0
+custom_colors/font_color = Color( 0, 1, 0.780392, 1 )
+text = "Max Fps"
+valign = 1
+
+[node name="FpsLabel" type="Label" parent="MaxFPSCounter"]
+margin_left = -374.0
+margin_top = -5.0
+margin_right = -209.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 0, 1, 0.780392, 1 )
+text = "uncapped"
+
+[node name="SpeedrunTimerButton" type="TextureButton" parent="."]
+margin_left = 513.0
+margin_top = 253.0
+margin_right = 722.0
+margin_bottom = 317.0
+focus_neighbour_left = NodePath("../../../SideBar/Video")
+focus_neighbour_top = NodePath("../MaxFPSCounter")
+focus_neighbour_right = NodePath("../DisplayFPSCounterButton")
+focus_neighbour_bottom = NodePath("../DisplayFPSCounterButton")
+disabled = true
+toggle_mode = true
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 11 )
+texture_disabled = ExtResource( 11 )
+expand = true
+
+[node name="Label" type="Label" parent="SpeedrunTimerButton"]
+anchor_left = -16.5
+anchor_right = -10.75
+anchor_bottom = 1.062
+margin_left = 2802.5
+margin_top = -5.0
+margin_right = 2008.75
+margin_bottom = -8.968
+custom_colors/font_color = Color( 0, 1, 0.780392, 1 )
+text = "Speedrun Timer"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DisplayFPSCounterButton" type="TextureButton" parent="."]
+margin_left = 513.0
+margin_top = 317.0
+margin_right = 722.0
+margin_bottom = 381.0
+focus_neighbour_left = NodePath("../../../SideBar/Video")
+focus_neighbour_top = NodePath("../SpeedrunTimerButton")
+focus_neighbour_bottom = NodePath("../../../SideBar/Video")
+toggle_mode = true
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 11 )
+texture_disabled = ExtResource( 11 )
+expand = true
+
+[node name="Label" type="Label" parent="DisplayFPSCounterButton"]
+anchor_left = -16.5
+anchor_right = -13.0
+anchor_bottom = 1.062
+margin_left = 2802.5
+margin_top = -5.0
+margin_right = 2296.0
+margin_bottom = -20.968
+custom_colors/font_color = Color( 0, 1, 0.780392, 1 )
+text = "Show FPS"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

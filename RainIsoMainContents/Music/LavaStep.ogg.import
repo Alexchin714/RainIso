@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/LavaStep.ogg-062ed258c58c64a63084ccbf209d1cf4.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/Music/LavaStep.ogg"
+dest_files=[ "res://.import/LavaStep.ogg-062ed258c58c64a63084ccbf209d1cf4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

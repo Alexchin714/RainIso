@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Igloo.obj-8e746b7e326efb74f31f635182e832be.mesh"
+
+[deps]
+
+files=[ "res://.import/Igloo.obj-8e746b7e326efb74f31f635182e832be.mesh" ]
+
+source_file="res://RainIsoMainContents/Resources/Igloo.obj"
+dest_files=[ "res://.import/Igloo.obj-8e746b7e326efb74f31f635182e832be.mesh", "res://.import/Igloo.obj-8e746b7e326efb74f31f635182e832be.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

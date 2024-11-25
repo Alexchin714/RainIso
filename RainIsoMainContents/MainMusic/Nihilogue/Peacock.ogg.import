@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Peacock.ogg-d35aa892806a2b9ef0835b6ef60e6234.oggstr"
+
+[deps]
+
+source_file="res://RainIsoMainContents/MainMusic/Nihilogue/Peacock.ogg"
+dest_files=[ "res://.import/Peacock.ogg-d35aa892806a2b9ef0835b6ef60e6234.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

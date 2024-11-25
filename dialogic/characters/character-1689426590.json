@@ -1,0 +1,24 @@
+{
+	"color": "#ffff3131",
+	"description": "Come on now! Don't be a [Funny Bone] now!",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1689426590.json",
+	"mirror_portraits": false,
+	"name": "Moxie",
+	"nickname": "Moxy",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		},
+		{
+			"name": "",
+			"path": ""
+		}
+	],
+	"scale": 100
+}
